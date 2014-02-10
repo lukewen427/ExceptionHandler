@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.connexience</groupId>
+  <artifactId>meta-project</artifactId>
+  <packaging>pom</packaging>
+  <version>2.5-SNAPSHOT</version>
+  <name>meta-project</name>
+  <url>http://www.connexience.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+  <modules>
+    <module>dependency/Common</module>
+
+    <!--server -->
+    <module>server/ServerCommon</module>
+    <module>server/ServerBeans</module>
+    <module>server/Static</module>
+    <module>server/Website</module>
+
+    <!-- Web workflow -->
+    <module>webflow/WorkflowCore</module>
+    <module>webflow/WorkflowCloud</module>
+    <module>webflow/WorkflowDesktop</module>
+    <module>webflow/WorkflowBeans</module>
+    <module>webflow/WorkflowServer</module>
+
+    <!-- API Server -->
+    <module>api/APIInterface</module>
+    <module>api/APIServer</module>
+    <module>api/APISupport</module>
+
+    <!-- Database Service -->
+    <!--<module>applications/shApps/DataService</module>-->
+    <!--<module>applications/shui/DataServiceWeb</module>-->
+
+    <!-- Applications & misc -->
+    <module>server/ServiceHost</module>
+    <module>applications/apiApps/DataShell</module>
+    <module>applications/apiApps/Editor</module>
+
+    <!--<module>applications/shApps/ProvenanceServer</module>-->
+    <!--<module>applications/misc/ProvenanceServiceClient</module>-->
+    
+	<!-- security tool -->
+    <module>connectionESC1</module>
+	
+	<!-- websit -->
+	 <module>website</module>
+
+    <module>server/Ear</module>
+
+  </modules>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>asm</groupId>
+        <artifactId>asm-attrs</artifactId>
+        <version>1.5.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>asm</groupId>
+        <artifactId>asm</artifactId>
+        <version>1.5.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>axis</groupId>
+        <artifactId>axis-wsdl4j</artifactId>
+        <version>1.5.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>bouncycastle</groupId>
+        <artifactId>bcprov-jdk15</artifactId>
+        <version>136</version>
+      </dependency>
+
+      <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>2.1_3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.toedter</groupId>
+        <artifactId>jcalendar</artifactId>
+        <version>1.3.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-cli</groupId>
+        <artifactId>commons-cli</artifactId>
+        <version>1.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>2.1.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-discovery</groupId>
+        <artifactId>commons-discovery</artifactId>
+        <version>0.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.2.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>1.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>3.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>2.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.0.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>1.6.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.htmlparser</groupId>
+        <artifactId>htmlparser</artifactId>
+        <version>1.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ecs</groupId>
+        <artifactId>ecs</artifactId>
+        <version>1.4.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.0.0.CR2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.ehcache</groupId>
+        <artifactId>ehcache-core</artifactId>
+        <version>2.3.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>jcaptcha</groupId>
+        <artifactId>jcaptcha</artifactId>
+        <version>1.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-6.0</artifactId>
+        <version>1.0.0.Final</version>
+        <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.spec.javax.jms</groupId>
+        <artifactId>jboss-jms-api_1.1_spec</artifactId>
+        <version>1.0.0.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.ejb3</groupId>
+        <artifactId>jboss-ejb3-ext-api</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.naming</groupId>
+        <artifactId>jnp-client</artifactId>
+        <version>5.0.5.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-jms-client</artifactId>
+        <version>2.2.13.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-logging</artifactId>
+        <version>2.2.13.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hornetq</groupId>
+        <artifactId>hornetq-core-client</artifactId>
+        <version>2.2.13.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.netty</groupId>
+        <artifactId>netty</artifactId>
+        <version>3.2.3.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>jsyntaxpane</groupId>
+        <artifactId>jsyntaxpane</artifactId>
+        <version>0.9.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.2.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.mail</groupId>
+        <artifactId>mail</artifactId>
+        <version>1.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>jdom</groupId>
+        <artifactId>jdom</artifactId>
+        <version>1.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>jgroups</groupId>
+        <artifactId>jgroups</artifactId>
+        <version>2.2.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20070829</version>
+      </dependency>
+
+      <!-- May need 2.2.8 -->
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.14</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.java.dev.jets3t</groupId>
+        <artifactId>jets3t</artifactId>
+        <version>0.8.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.java.dev.swing-layout</groupId>
+        <artifactId>swing-layout</artifactId>
+        <version>1.0</version>
+      </dependency>
+
+      <!--<dependency>-->
+      <!--<groupId>org.jvnet.jaxb2_commons</groupId>-->
+      <!--<artifactId>runtime</artifactId>-->
+      <!--<version>0.2.RC1</version>-->
+      <!--</dependency>-->
+
+      <!--<dependency>-->
+      <!--<groupId>org.openprovenance</groupId>-->
+      <!--<artifactId>opm</artifactId>-->
+      <!--<version>1.0.3</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+        <groupId>postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>8.1-407.jdbc3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>rome</groupId>
+        <artifactId>rome</artifactId>
+        <version>0.9</version>
+      </dependency>
+
+      <dependency>
+        <groupId>swarmcache</groupId>
+        <artifactId>swarmcache</artifactId>
+        <version>1.0RC2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>net.sourceforge.junitee</groupId>
+        <artifactId>maven-junite2-plugin</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>net.sourceforge.junitee</groupId>
+        <artifactId>junite2</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.axis</groupId>
+        <artifactId>axis</artifactId>
+        <version>1.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.axis</groupId>
+        <artifactId>axis-jaxrpc</artifactId>
+        <version>1.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.axis</groupId>
+        <artifactId>axis-saaj</artifactId>
+        <version>1.4</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openid4java</groupId>
+        <artifactId>openid4java-consumer</artifactId>
+        <version>0.9.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>xerces</groupId>
+        <artifactId>xercesImpl</artifactId>
+        <version>2.8.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>digitprop</groupId>
+        <artifactId>toniclaf</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.5.11</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4</version>
+      </plugin>
+      <!-- Use Java 1.5-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+          <encoding>utf-8</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- Use EJB3 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ejb-plugin</artifactId>
+        <configuration>
+          <ejbVersion>3.0</ejbVersion>
+        </configuration>
+        <version>2.3</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.2.2</version>
+        <configuration>
+          <tagBase>https://www.inkspot.co/svn/connexience/tags</tagBase>
+          <useReleaseProfile>false</useReleaseProfile>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+  <profiles>
+      <profile>
+        <id>artifactory</id>
+        <activation>
+          <property>
+            <name>performRelease</name>
+            <value>true</value>
+          </property>
+        </activation>
+        <build>
+          <plugins>
+            <plugin>
+              <artifactId>maven-deploy-plugin</artifactId>
+              <version>2.5</version>
+              <inherited>true</inherited>
+              <configuration>
+                <updateReleaseInfo>true</updateReleaseInfo>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+    </profiles>
+
+  <scm>
+    <connection>scm:svn:https://www.inkspot.co/svn/connexience/trunk/code</connection>
+    <developerConnection>scm:svn:https://www.inkspot.co/svn/connexience/trunk/code</developerConnection>
+    <url>scm:svn:https://www.inkspot.co/svn/connexience/trunk/code</url>
+  </scm>
+
+  <!-- Repositories for plugins and jars -->
+  <repositories>
+    <repository>
+      <id>junitee</id>
+      <name>junitee</name>
+      <url>http://junitee.sourceforge.net/repository/</url>
+    </repository>
+
+    <repository>
+      <name>jets3t</name>
+      <id>jets3t</id>
+      <url>http://jets3t.s3.amazonaws.com/maven2</url>
+    </repository>
+
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>http://esciencecentral.co.uk/artifactory/libs-release-local</url>
+    </repository>
+  </distributionManagement>
+
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+</project>

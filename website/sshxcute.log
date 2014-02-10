@@ -1,0 +1,1303 @@
+
+=============== [2014/01/11 11:27:44, net.neoremind.sshxcute.core.SSHExec.<clinit>:80] ====================
+
+[11:27:44] INFO:    SSHExec initializing ...
+[11:27:44] INFO:    Session initialized and associated with user credential 5lovesunny
+[11:27:44] INFO:    SSHExec initialized successfully
+[11:27:44] INFO:    SSHExec trying to connect zhenyu@10.8.149.12
+[11:27:45] INFO:    SSH connection established
+[11:27:45] INFO:    Command is  /home/zhenyu/jboss/bin/standalone.sh
+[11:27:46] INFO:    Connection channel established succesfully
+[11:27:46] INFO:    Start to run command
+[11:27:46] INFO:    =========================================================================
+
+[11:27:46] INFO:    
+  JBoss Bootstrap Environment
+
+
+[11:27:46] INFO:      JBOSS_HOME: /home/zhenyu/jboss
+
+
+[11:27:46] INFO:      JAVA: java
+
+[11:27:46] INFO:    
+
+[11:27:46] INFO:      JAVA_OPTS:  -server -XX:+UseCompressedOops -XX:+TieredCompilation -Xms64m -Xmx512m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.server.default.config=standalone.xml -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n
+
+[11:27:46] INFO:    
+
+[11:27:46] INFO:    =========================================================================
+
+[11:27:46] INFO:    
+
+[11:27:46] INFO:    Listening for transport dt_socket at address: 8787
+
+[11:27:46] INFO:    11:28:43,676 INFO  [org.jboss.modules] JBoss Modules version 1.1.1.GA
+
+[11:27:46] INFO:    11:28:43,849 INFO  [org.jboss.msc] JBoss MSC version 1.0.2.GA
+
+[11:27:46] INFO:    11:28:43,887 INFO  [org.jboss.as] JBAS015899: JBoss AS 7.1.1.Final "Brontes" starting
+
+[11:27:47] INFO:    11:28:44,588 INFO  [org.xnio] XNIO Version 3.0.3.GA
+
+[11:27:47] INFO:    11:28:44,589 INFO  [org.jboss.as.server] JBAS015888: Creating http management service using socket-binding (management-http)
+
+[11:27:47] INFO:    11:28:44,599 INFO  [org.xnio.nio] XNIO NIO Implementation Version 3.0.3.GA
+
+[11:27:47] INFO:    11:28:44,607 INFO  [org.jboss.remoting] JBoss Remoting version 3.2.3.GA
+
+[11:27:47] INFO:    11:28:44,623 INFO  [org.jboss.as.logging] JBAS011502: Removing bootstrap log handlers
+
+[11:27:47] INFO:    11:28:44,636 INFO  [org.jboss.as.configadmin] (ServerService Thread Pool -- 32) JBAS016200: Activating ConfigAdmin Subsystem
+
+[11:27:47] INFO:    11:28:44,637 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 37) JBAS010280: Activating Infinispan subsystem.
+
+[11:27:47] INFO:    11:28:44,638 INFO  [org.jboss.as.jacorb] (ServerService Thread Pool -- 38) JBAS016300: Activating JacORB Subsystem
+
+[11:27:47] INFO:    11:28:44,668 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 48) JBAS011800: Activating Naming Subsystem
+
+[11:27:47] INFO:    11:28:44,669 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 54) JBAS013101: Activating Security Subsystem
+
+[11:27:47] INFO:    11:28:44,684 INFO  [org.jboss.as.security] (MSC service thread 1-7) JBAS013100: Current PicketBox version=4.0.7.Final
+
+[11:27:47] INFO:    11:28:44,689 INFO  [org.jboss.as.osgi] (ServerService Thread Pool -- 49) JBAS011940: Activating OSGi Subsystem
+
+[11:27:47] INFO:    11:28:44,699 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 58) JBAS015537: Activating WebServices Extension
+
+[11:27:47] INFO:    11:28:44,702 INFO  [org.jboss.as.connector] (MSC service thread 1-3) JBAS010408: Starting JCA Subsystem (JBoss IronJacamar 1.0.9.Final)
+
+[11:27:47] INFO:    11:28:44,770 INFO  [org.jboss.as.naming] (MSC service thread 1-1) JBAS011802: Starting Naming Service
+
+[11:27:47] INFO:    11:28:44,834 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) JBAS015400: Bound mail session [java:jboss/mail/Default]
+
+[11:27:47] INFO:    11:28:44,875 INFO  [org.jboss.jaxr] (MSC service thread 1-2) JBAS014000: Started JAXR subsystem, binding JAXR connection factory
+[11:27:47] INFO:     into JNDI as: java:jboss/jaxr/ConnectionFactory
+
+[11:27:47] INFO:    11:28:44,903 INFO  [org.jboss.ws.common.management.AbstractServerConfig] (MSC service thread 1-16) JBoss Web Services - Stack CXF Server 4.0.2.GA
+
+[11:27:47] INFO:    11:28:44,960 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-12) Starting Coyote HTTP/1.1 on http-0.0.0.0-0.0.0.0-8080
+
+[11:27:47] INFO:    11:28:44,993 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-15) live server is starting with confi
+[11:27:47] INFO:    guration HornetQ Configuration (clustered=false,backup=false,sharedStore=true,journalDirectory=/home/zhenyu/jboss/standalone/dat
+[11:27:47] INFO:    a/messagingjournal,bindingsDirectory=/home/zhenyu/jboss/standalone/data/messagingbindings,largeMessagesDirectory=/home/zhenyu/jb
+[11:27:47] INFO:    oss/standalone/data/messaginglargemessages,pagingDirectory=/home/zhenyu/jboss/standalone/data/messagingpaging)
+
+[11:27:47] INFO:    11:28:44,996 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-15) Waiting to obtain live lock
+
+[11:27:48] INFO:    11:28:45,073 INFO  [org.hornetq.core.persistence.impl.journal.JournalStorageManager] (MSC service thread 1-15) Using AIO Journal
+
+[11:27:48] INFO:    11:28:45,138 INFO  [org.jboss.as.jacorb] (MSC service thread 1-10) JBAS016330: CORBA ORB Service started
+
+[11:27:48] INFO:    11:28:45,153 WARN  [com.arjuna.ats.arjuna] (Transaction Expired Entry Monitor) ARJUNA012210: Unable to use InetAddress.getLocalHost() to resolve address.
+
+[11:27:48] INFO:    11:28:45,181 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-9) JBAS015012: Started FileSystemDeploymentSer
+[11:27:48] INFO:    vice for directory /home/zhenyu/jboss/standalone/deployments
+
+[11:27:48] INFO:    11:28:45,184 INFO  [org.jboss.as.remoting] (MSC service thread 1-2) JBAS017100: Listening on 0.0.0.0/0.0.0.0:4447
+
+[11:27:48] INFO:    11:28:45,185 INFO  [org.jboss.as.remoting] (MSC service thread 1-7) JBAS017100: Listening on /0.0.0.0:9999
+
+[11:27:48] INFO:    11:28:45,194 INFO  [org.hornetq.core.server.impl.AIOFileLockNodeManager] (MSC service thread 1-15) Waiting to obtain live lock
+
+[11:27:48] INFO:    11:28:45,195 INFO  [org.hornetq.core.server.impl.AIOFileLockNodeManager] (MSC service thread 1-15) Live Server Obtained live lock
+
+[11:27:48] INFO:    11:28:45,225 INFO  [org.jboss.as.jacorb] (MSC service thread 1-5) JBAS016328: CORBA Naming Service started
+
+[11:27:48] INFO:    11:28:45,585 INFO  [org.hornetq.core.remoting.impl.netty.NettyAcceptor] (MSC service thread 1-15) Started Netty Acceptor version
+[11:27:48] INFO:     3.2.5.Final-a96d88c 0.0.0.0:5445 for CORE protocol
+
+[11:27:48] INFO:    11:28:45,588 INFO  [org.hornetq.core.remoting.impl.netty.NettyAcceptor] (MSC service thread 1-15) Started Netty Acceptor version
+[11:27:48] INFO:     3.2.5.Final-a96d88c 0.0.0.0:5455 for CORE protocol
+
+[11:27:48] INFO:    11:28:45,590 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-15) Server is now live
+
+[11:27:48] INFO:    11:28:45,590 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-15) HornetQ Server version 2.2.13.Final (HQ_2_2_13_FINAL_AS7, 122) [573c5ca9-83ad-11e1-bf0e-c8bcc8c4f16d]) started
+
+[11:27:48] INFO:    11:28:45,612 INFO  [org.jboss.as.messaging] (MSC service thread 1-14) JBAS011601: Bound messaging object to jndi name java:/ConnectionFactory
+
+[11:27:48] INFO:    11:28:45,613 INFO  [org.jboss.as.messaging] (MSC service thread 1-12) JBAS011601: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+
+[11:27:48] INFO:    11:28:45,614 INFO  [org.jboss.as.messaging] (MSC service thread 1-12) JBAS011601: Bound messaging object to jndi name java:/RemoteConnectionFactory
+
+[11:27:48] INFO:    11:28:45,654 INFO  [org.jboss.as.deployment.connector] (MSC service thread 1-2) JBAS010406: Registered connection factory java:/JmsXA
+
+[11:27:48] INFO:    11:28:45,665 INFO  [org.hornetq.ra.HornetQResourceAdapter] (MSC service thread 1-2) HornetQ resource adaptor started
+
+[11:27:48] INFO:    11:28:45,666 INFO  [org.jboss.as.connector.services.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-2) IJ020002: Deployed: file://RaActivatorhornetq-ra
+
+[11:27:48] INFO:    11:28:45,668 INFO  [org.jboss.as.deployment.connector] (MSC service thread 1-1) JBAS010401: Bound JCA ConnectionFactory [java:/JmsXA]
+
+[11:27:48] INFO:    11:28:45,693 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015876: Starting deployment of "inkspot-postgresql-ds.xml"
+
+[11:27:48] INFO:    11:28:45,693 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015876: Starting deployment of "neo4j-connecto
+[11:27:48] INFO:    r.rar"
+
+[11:27:48] INFO:    11:28:45,693 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-12) JBAS015876: Starting deployment of "inkspot-jms.xml"
+
+[11:27:48] INFO:    11:28:45,694 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015876: Starting deployment of "postgresql-9.0-801.jdbc4.jar"
+
+[11:27:48] INFO:    11:28:45,693 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) JBAS015876: Starting deployment of "ProvenanceServerWeb-1.0-SNAPSHOT.war"
+
+[11:27:48] INFO:    11:28:45,693 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015876: Starting deployment of "inkspot.ear"
+
+[11:27:49] INFO:    11:28:46,066 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-14) JBAS010404: Deploying non-JDBC-compliant dr
+[11:27:49] INFO:    iver class org.postgresql.Driver (version 9.0)
+
+[11:27:49] INFO:    11:28:46,095 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-15) trying to deploy queue jms.queue.notificationsQueue
+
+[11:27:49] INFO:    11:28:46,101 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) JBAS010400: Bound data source [jboss/datasources/ConnexienceDB]
+
+[11:27:49] INFO:    11:28:46,106 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010400: Bound data source [jboss/datasources/ProvDB]
+
+[11:27:49] INFO:    11:28:46,202 INFO  [org.jboss.as.messaging] (MSC service thread 1-15) JBAS011601: Bound messaging object to jndi name java:/queu
+[11:27:49] INFO:    e/notifications
+11:28:46,203 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-1) trying to deploy queue jms.queue.ProvenanceQueue
+
+[11:27:49] INFO:    11:28:46,205 INFO  [org.jboss.as.messaging] (MSC service thread 1-1) JBAS011601: Bound messaging object to jndi name java:/queue/provenance
+
+[11:27:49] INFO:    11:28:46,206 INFO  [org.hornetq.core.server.impl.HornetQServerImpl] (MSC service thread 1-12) trying to deploy queue jms.queue.Workflow
+
+[11:27:49] INFO:    11:28:46,207 INFO  [org.jboss.as.messaging] (MSC service thread 1-12) JBAS011601: Bound messaging object to jndi name java:/Workflow
+
+[11:27:49] INFO:    11:28:46,886 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (MSC service thread 1-1) Initializing Mojarra 2.1.7-jbossorg-1 (20120227-1401) for context '/pweb'
+
+[11:27:50] INFO:    11:28:47,511 INFO  [org.jboss.as.deployment.connector] (MSC service thread 1-12) JBAS010406: Registered connection factory java:/connectors/Neo4j
+
+[11:27:50] INFO:    11:28:47,516 INFO  [Neo4JConnectionFactoryImpl] (MSC service thread 1-12) setReference()
+
+[11:27:50] INFO:    11:28:47,518 INFO  [Neo4jResourceAdapter] (MSC service thread 1-12) start()
+11:28:47,537 INFO  [Neo4jTransactionManagerProvider] (MSC service thread 1-12) Load PlatformTransactionManagerProvider
+
+[11:27:50] INFO:    11:28:47,538 INFO  [Neo4jTransactionManagerProvider] (MSC service thread 1-12) Create Platform TransactionManager wrapper
+
+[11:27:50] INFO:    11:28:47,666 INFO  [Neo4jTransactionManager] (MSC service thread 1-12) TransactionManager found at java:/TransactionManager
+
+[11:27:50] INFO:    11:28:47,763 INFO  [org.neo4j.jmx.impl.JmxExtension] (MSC service thread 1-12) Failed to register JMX Bean org.neo4j.jmx.impl.ManagementBeanProvider[Primitive count] (javax.management.InstanceAlreadyExistsException: org.neo4j:instance=kernel#0,name=Primitive count)
+
+[11:27:50] INFO:    11:28:47,769 INFO  [org.neo4j.jmx.impl.JmxExtension] (MSC service thread 1-12) Failed to register Kernel JMX Bean
+
+[11:27:50] INFO:    11:28:47,770 INFO  [org.neo4j.jmx.impl.JmxExtension] (MSC service thread 1-12) Failed to register JMX Bean org.neo4j.jmx.impl.Ma
+[11:27:50] INFO:    nagementBeanProvider[Primitive count] (javax.management.InstanceAlreadyExistsException: org.neo4j:instance=kernel#0,name=Primitive count)
+
+[11:27:50] INFO:    11:28:47,771 INFO  [org.neo4j.jmx.impl.JmxExtension] (MSC service thread 1-12) Failed to register JMX Bean org.neo4j.jmx.impl.Ma
+[11:27:50] INFO:    nagementBeanProvider[Primitive count] (javax.management.InstanceAlreadyExistsException: org.neo4j:instance=kernel#0,name=Primitive count)
+
+[11:27:50] INFO:    11:28:47,772 INFO  [org.neo4j.jmx.impl.JmxExtension] (MSC service thread 1-12) Failed to register Configuration JMX Bean
+
+[11:27:50] INFO:    11:28:47,773 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-12) IJ020002: Deployed: file:/home/zhe
+[11:27:50] INFO:    nyu/jboss/standalone/tmp/vfs/temp21ebac0541113fb4/neo4j-connector.rar-2a01ac0c6b3b1433/contents/
+
+[11:27:50] INFO:    11:28:47,775 INFO  [org.jboss.as.deployment.connector] (MSC service thread 1-5) JBAS010401: Bound JCA ConnectionFactory [java:/connectors/Neo4j]
+
+[11:27:50] INFO:    11:28:47,885 INFO  [org.hibernate.validator.util.Version] (MSC service thread 1-1) Hibernate Validator 4.2.0.Final
+
+[11:27:51] INFO:    11:28:48,113 INFO  [org.jboss.web] (MSC service thread 1-1) JBAS018210: Registering web context: /pweb
+
+[11:27:51] INFO:    11:28:48,926 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-14) JBAS015876: Starting deployment of "static.war"
+
+[11:27:51] INFO:    11:28:48,926 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-15) JBAS015876: Starting deployment of "api-server.war"
+
+[11:27:51] INFO:    11:28:48,926 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015876: Starting deployment of "server-beans.jar"
+11:28:48,926 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-13) JBAS015876: Starting deployment of "workflow-beans.jar"
+11:28:48,926 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015876: Starting deployment of "workflow-server.war"
+11:28:48,927 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015876: Starting deployment of "website.war"
+
+[11:27:52] INFO:    11:28:49,365 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.DFSClient$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,366 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.mapred.JobClient$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,367 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.security.token.block.BlockTokenIdentifier$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+11:28:49,367 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.mapreduce.security.token.JobTokenIdentifier$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,368 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.HftpFileSystem$TokenManager' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,368 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.web.WebHdfsFileSystem$DtRenewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,400 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.ap
+[11:27:52] INFO:    ache.hadoop.hdfs.DFSClient$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,403 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.apache.hadoop.mapred.JobClient$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,404 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.ap
+[11:27:52] INFO:    ache.hadoop.hdfs.security.token.block.BlockTokenIdentifier$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,405 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.apache.hadoop.mapreduce.security.token.JobTokenIdentifier$Renewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,405 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.HftpFileSystem$TokenManager' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,406 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-10) JBAS015893: Encountered invalid class name 'org.apache.hadoop.hdfs.web.WebHdfsFileSystem$DtRenewer' for service type 'org.apache.hadoop.security.token.TokenRenewer'
+
+[11:27:52] INFO:    11:28:49,546 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) JBAS018567: Deployment "deployment.inkspot.ear.server-beans.jar" is using a private module ("org.javassist:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,547 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) JBAS018567: Deployment "deployment.inkspot.ear.server-beans.jar" is using a private module ("org.javassist:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,548 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) JBAS018567: Deployment "deployment.inkspot.ear.server-beans.jar" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,549 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) JBAS018567: Deployment "deployment.inkspot.ear.ser
+[11:27:52] INFO:    ver-beans.jar" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,560 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) JBAS018567: Deployment "deployment.inkspot.ear" is
+[11:27:52] INFO:     using a private module ("org.javassist:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,561 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) JBAS018567: Deployment "deployment.inkspot.ear" is using a private module ("org.javassist:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,562 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) JBAS018567: Deployment "deployment.inkspot.ear" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notice.
+
+[11:27:52] INFO:    11:28:49,563 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) JBAS018567: Deployment "deployment.inkspot.ear" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notic
+[11:27:52] INFO:    e.
+
+[11:27:52] INFO:    11:28:49,565 INFO  [org.jboss.weld.deployer] (MSC service thread 1-9) JBAS016002: Processing weld deployment inkspot.ear
+
+[11:27:52] INFO:    11:28:49,618 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) JBAS016002: Processing weld deployment workflow-server.war
+
+[11:27:52] INFO:    11:28:49,627 INFO  [org.jboss.weld.deployer] (MSC service thread 1-14) JBAS016002: Processing weld deployment static.war
+
+[11:27:52] INFO:    11:28:49,630 INFO  [org.jboss.weld.deployer] (MSC service thread 1-13) JBAS016002: Processing weld deployment api-server.war
+
+[11:27:52] INFO:    11:28:49,633 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) JBAS016002: Processing weld deployment workflow-beans.jar
+
+[11:27:52] INFO:    11:28:49,636 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-8) JNDI bindings for session bean named WorkflowEnactmentBean in deployment unit subdeployment "workflow-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/workflow-beans/WorkflowEnactmentBean!com.connexience.server.ejb.workflow.WorkflowEnactmentRemote
+	java:app/workflow-beans/WorkflowEnactmentBean!com.connexience.server.ejb.workflow.WorkflowEnactmentRemote
+	java:module/WorkflowEnactmentBean!com.connexience.server.ejb.workflow.WorkflowEnactmentRemote
+	java:jboss/exported/inkspot/workflow-beans/WorkflowEnactmentBean!com.connexience.server.ejb.workflow.WorkflowEnactmentRemote
+	java:global/inkspot/workflow-beans/WorkflowEnactmentBean
+	java:app/workflow-beans/WorkflowEnactmentBean
+	java:module/WorkflowEnactmentBean
+
+
+[11:27:52] INFO:    11:28:49,693 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) JBAS016002: Processing weld deployment website.war
+
+[11:27:52] INFO:    11:28:49,744 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) JBAS016002: Processing weld deployment server-beans.jar
+
+[11:27:52] INFO:    11:28:49,746 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AllowanceBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/AllowanceBean!com.connexience.server.ejb.allowance.AllowanceRemote
+	java:app/server-beans/AllowanceBean!com.connexience.server.ejb.allowance.AllowanceRemote
+	java:module/AllowanceBean!com.connexience.server.ejb.allowance.AllowanceRemote
+	java:jboss/exported/inkspot/server-beans/AllowanceBean!com.connexience.server.ejb.allowance.AllowanceRemote
+	java:global/inkspot/server-beans/AllowanceBean
+	java:app/server-beans/AllowanceBean
+
+[11:27:52] INFO:    	java:module/AllowanceBean
+
+
+[11:27:52] INFO:    11:28:49,747 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named StorageBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/StorageBean!com.connexience.server.ejb.storage.StorageRemote
+	java:app/server-beans/StorageBean!com.connexience.server.ejb.storage.StorageRemote
+	java:module/StorageBean!com.connexience.server.ejb.storage.StorageRemote
+	java:jboss/exported/inkspot/server-beans/StorageBean!com.connexience.server.ejb.storage.StorageRemote
+	java:global/inkspot/server-beans/StorageBean
+
+[11:27:52] INFO:    	java:app/server-beans/StorageBean
+	java:module/StorageBean
+
+
+[11:27:52] INFO:    11:28:49,749 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named GroupDirectoryBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/GroupDirectoryBean!com.connexience.server.ejb.directory.GroupDirectoryRemote
+
+[11:27:52] INFO:    	java:app/server-beans/GroupDirectoryBean!com.connexience.server.ejb.directory.GroupDirectoryRemote
+	java:module/GroupDirectoryBean!com.connexience.server.ejb.directory.GroupDirectoryRemote
+	java:jboss/exported/inkspot/server-beans/GroupDirectoryBean!com.connexience.server.ejb.directory.GroupDirectoryRemote
+	java:global/inkspot/server-beans/GroupDirectoryBean
+	java:app/server-beans/GroupDirectoryBean
+	java:module/GroupDirectoryBean
+
+
+[11:27:52] INFO:    11:28:49,751 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named LinkBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/LinkBean!com.connexience.server.ejb.social.LinkRemote
+
+[11:27:52] INFO:    	java:app/server-beans/LinkBean!com.connexience.server.ejb.social.LinkRemote
+	java:module/LinkBean!com.connexience.server.ejb.social.LinkRemote
+	java:jboss/exported/inkspot/server-beans/LinkBean!com.connexience.server.ejb.social.LinkRemote
+	java:global/inkspot/server-beans/LinkBean
+	java:app/server-beans/LinkBean
+	java:module/LinkBean
+
+
+[11:27:52] INFO:    11:28:49,753 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named CommentBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/CommentBean!com.connexience.server.ejb.social.CommentRemote
+	java:app/server-beans/CommentBean!com.connexience.server.ejb.social.CommentRemote
+	java:module/CommentBean!com.connexience.server.ejb.social.CommentRemote
+	java:jboss/exported/inkspot/server-beans/CommentBean!com.connexience.server.ejb.social.CommentRemote
+	java:global/inkspot/server-beans/CommentBean
+	java:app/server-beans/CommentBean
+	java:module/CommentBean
+
+
+[11:27:52] INFO:    11:28:49,755 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JND
+[11:27:52] INFO:    I bindings for session bean named TagBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/TagBean!com.connexience.server.ejb.social.TagRemote
+
+[11:27:52] INFO:    	java:app/server-beans/TagBean!com.connexience.server.ejb.social.TagRemote
+	java:module/TagBean!com.connexience.server.ejb.social.TagRemote
+	java:jboss/exported/inkspot/server-beans/TagBean!com.connexience.server.ejb.social.TagRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/TagBean
+	java:app/server-beans/TagBean
+	java:module/TagBean
+
+
+[11:27:52] INFO:    11:28:49,756 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ObjectRemovalBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/ObjectRemovalBean!com.connexience.server.ejb.remove.ObjectRemovalRemote
+	java:app/server-beans/ObjectRemovalBean!com.connexience.server.ejb.remove.ObjectRemovalRemote
+	java:module/ObjectRemovalBean!com.connexience.server.ejb.remove.ObjectRemovalRemote
+	java:jboss/exported/inkspot/server-beans/ObjectRemovalBean!com.connexience.server.ejb.remove.ObjectRemovalRemote
+	java:global/inkspot/server-beans/ObjectRemovalBean
+	java:app/server-beans/ObjectRemovalBean
+	java:module/ObjectRemovalBean
+
+
+[11:27:52] INFO:    11:28:49,758 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named UserDirectoryBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.e
+[11:27:52] INFO:    ar" are as follows:
+
+	java:global/inkspot/server-beans/UserDirectoryBean!com.connexience.server.ejb.directory.UserDirectoryRemote
+	java:app/server-beans/UserDirectoryBean!com.connexience.server.ejb.directory.UserDirectoryRemote
+	java:module/UserDirectoryBean!com.connexience.server.ejb.directory.UserDirectoryRemote
+	java:jboss/exported/inkspot/server-beans/UserDirectoryBean!com.connexience.server.ejb.directory.UserDirectoryRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/UserDirectoryBean
+	java:app/server-beans/UserDirectoryBean
+	java:module/UserDirectoryBean
+
+
+[11:27:52] INFO:    11:28:49,760 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named MessageBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/MessageBean!com.connexience.server.ejb.social.MessageRemote
+	java:app/server-beans/MessageBean!com.connexience.server.ejb.social.MessageRemote
+	java:module/MessageBean!com.connexience.server.ejb.social.MessageRemote
+	java:jboss/exported/inkspot/server-beans/MessageBean!com.connexience.server.ejb.social.MessageRemote
+	java:global/inkspot/server-beans/MessageBean
+	java:app/server-beans/MessageBean
+	java:module/MessageBean
+
+
+[11:27:52] INFO:    11:28:49,763 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named TicketBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/TicketBean!com.connexience.server.ejb.ticket.TicketLocal
+	java:app/server-beans/TicketBean!com.connexience.server.ejb.ticket.TicketLocal
+	java:module/TicketBean!com.connexience.server.ejb.ticket.TicketLocal
+	java:global/inkspot/server-beans/TicketBean!com.connexience.server.ejb.ticket.TicketRemote
+	java:app/server-beans/TicketBean!com.connexience.server.ejb.ticket.TicketRemote
+	java:module/TicketBean!com.connexience.server.ejb.ticket.TicketRemote
+
+[11:27:52] INFO:    	java:jboss/exported/inkspot/server-beans/TicketBean!com.connexience.server.ejb.ticket.TicketRemote
+
+11:28:49,765 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AccountBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/AccountBean!com.connexience.server.ejb.account.AccountRemote
+	java:app/server-beans/AccountBean!com.connexience.server.ejb.account.AccountRemote
+	java:module/AccountBean!com.connexience.server.ejb.account.AccountRemote
+	java:jboss/exported/inkspot/server-beans/AccountBean!com.connexience.server.ejb.account.AccountRemote
+	java:global/inkspot/server-beans/AccountBean
+	java:app/server-beans/AccountBean
+	java:module/AccountBean
+
+
+[11:27:52] INFO:    11:28:49,766 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named BlogBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/BlogBean!com.connexience.server.ejb.social.BlogRemote
+	java:app/server-beans/BlogBean!com.connexience.server.ejb.social.BlogRemote
+	java:module/BlogBean!com.connexience.server.ejb.social.BlogRemote
+	java:jboss/exported/inkspot/server-beans/BlogBean!com.connexience.server.ejb.social.BlogRemote
+	java:global/inkspot/server-beans/BlogBean
+
+[11:27:52] INFO:    	java:app/server-beans/BlogBean
+	java:module/BlogBean
+
+
+[11:27:52] INFO:    11:28:49,767 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named PropertiesBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/PropertiesBean!com.connexience.server.ejb.properties.PropertiesRemote
+	java:app/server-beans/PropertiesBean!com.connexience.server.ejb.properties.PropertiesRemote
+	java:module/PropertiesBean!com.connexience.server.ejb.properties.PropertiesRemote
+	java:jboss/exported/inkspot/server-beans/PropertiesBean!com.connexience.server.ejb.properties.PropertiesRemote
+	java:global/inkspot/server-beans/PropertiesBean
+
+[11:27:52] INFO:    	java:app/server-beans/PropertiesBean
+	java:module/PropertiesBean
+
+
+[11:27:52] INFO:    11:28:49,769 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ObjectInfoBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoRemote
+	java:app/server-beans/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoRemote
+	java:module/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoRemote
+	java:jboss/exported/inkspot/server-beans/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoLocal
+	java:app/server-beans/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoLocal
+	java:module/ObjectInfoBean!com.connexience.server.ejb.directory.ObjectInfoLocal
+
+
+[11:27:52] INFO:    11:28:49,771 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named SearchBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/SearchBean!com.connexience.server.ejb.directory.SearchRemote
+	java:app/server-beans/SearchBean!com.connexience.server.ejb.directory.SearchRemote
+	java:module/SearchBean!com.connexience.server.ejb.directory.SearchRemote
+	java:jboss/exported/inkspot/server-beans/SearchBean!com.connexience.server.ejb.directory.SearchRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/SearchBean
+	java:app/server-beans/SearchBean
+	java:module/SearchBean
+
+
+[11:27:52] INFO:    11:28:49,772 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AdminLoggingBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ea
+[11:27:52] INFO:    r" are as follows:
+
+	java:global/inkspot/server-beans/AdminLoggingBean!com.connexience.server.ejb.admin.AdminLoggingRemote
+	java:app/server-beans/AdminLoggingBean!com.connexience.server.ejb.admin.AdminLoggingRemote
+	java:module/AdminLoggingBean!com.connexience.server.ejb.admin.AdminLoggingRemote
+
+[11:27:52] INFO:    	java:jboss/exported/inkspot/server-beans/AdminLoggingBean!com.connexience.server.ejb.admin.AdminLoggingRemote
+	java:global/inkspot/server-beans/AdminLoggingBean
+	java:app/server-beans/AdminLoggingBean
+	java:module/AdminLoggingBean
+
+
+[11:27:52] INFO:    11:28:49,774 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JND
+[11:27:52] INFO:    I bindings for session bean named ObjectDirectoryBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/ObjectDirectoryBean!com.connexience.server.ejb.directory.ObjectDirectoryRemote
+	java:app/server-beans/ObjectDirectoryBean!com.connexience.server.ejb.directory.ObjectDirectoryRemote
+
+[11:27:52] INFO:    	java:module/ObjectDirectoryBean!com.connexience.server.ejb.directory.ObjectDirectoryRemote
+	java:jboss/exported/inkspot/server-beans/ObjectDirectoryBean!com.connexience.server.ejb.directory.ObjectDirectoryRemote
+	java:global/inkspot/server-beans/ObjectDirectoryBean
+	java:app/server-beans/ObjectDirectoryBean
+	java:module/ObjectDirectoryBean
+
+11:28:49,776 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named MetaDataBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" a
+[11:27:52] INFO:    re as follows:
+
+	java:global/inkspot/server-beans/MetaDataBean!com.connexience.server.ejb.storage.MetaDataRemote
+	java:app/server-beans/MetaDataBean!com.connexience.server.ejb.storage.MetaDataRemote
+	java:module/MetaDataBean!com.connexience.server.ejb.storage.MetaDataRemote
+	java:jboss/exported/inkspot/server-beans/MetaDataBean!com.connexience.server.ejb.storage.MetaDataRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/MetaDataBean
+	java:app/server-beans/MetaDataBean
+	java:module/MetaDataBean
+
+11:28:49,778 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named WorkflowManagementBean in deployment unit subdeployment "server-beans.jar" of deployment "inks
+[11:27:52] INFO:    pot.ear" are as follows:
+
+	java:global/inkspot/server-beans/WorkflowManagementBean!com.connexience.server.ejb.workflow.WorkflowManagementRemote
+	java:app/server-beans/WorkflowManagementBean!com.connexience.server.ejb.workflow.WorkflowManagementRemote
+	java:module/WorkflowManagementBean!com.connexience.server.ejb.workflow.WorkflowManagementRemote
+	java:jboss/exported/inkspot/server-beans/WorkflowManagementBean!com.connexience.server.ejb.workflow.WorkflowManagementRemote
+	java:global/inkspot/server-beans/WorkflowManagementBean
+	java:app/server-beans/WorkflowManagementBean
+	java:module/WorkflowManagementBean
+
+
+[11:27:52] INFO:    11:28:49,781 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ServiceBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/ServiceBean!com.connexience.server.ejb.service.ServiceRemote
+	java:app/server-beans/ServiceBean!com.connexience.server.ejb.service.ServiceRemote
+	java:module/ServiceBean!com.connexience.server.ejb.service.ServiceRemote
+	java:jboss/exported/inkspot/server-beans/ServiceBean!com.connexience.server.ejb.service.ServiceRemote
+	java:global/inkspot/server-beans/ServiceBean
+	java:app/server-beans/ServiceBean
+	java:module/ServiceBean
+
+
+[11:27:52] INFO:    11:28:49,783 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named SMTPBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/SMTPBean!com.connexience.server.ejb.smtp.SMTPRemote
+	java:app/server-beans/SMTPBean!com.connexience.server.ejb.smtp.SMTPRemote
+
+[11:27:52] INFO:    	java:module/SMTPBean!com.connexience.server.ejb.smtp.SMTPRemote
+	java:jboss/exported/inkspot/server-beans/SMTPBean!com.connexience.server.ejb.smtp.SMTPRemote
+	java:global/inkspot/server-beans/SMTPBean
+	java:app/server-beans/SMTPBean
+	java:module/SMTPBean
+
+
+[11:27:52] INFO:    11:28:49,784 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named RequestBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/RequestBean!com.connexience.server.ejb.social.RequestRemote
+	java:app/server-beans/RequestBean!com.connexience.server.ejb.social.RequestRemote
+	java:module/RequestBean!com.connexience.server.ejb.social.RequestRemote
+	java:jboss/exported/inkspot/server-beans/RequestBean!com.connexience.server.ejb.social.RequestRemote
+	java:global/inkspot/server-beans/RequestBean
+	java:app/server-beans/RequestBean
+
+[11:27:52] INFO:    	java:module/RequestBean
+
+
+[11:27:52] INFO:    11:28:49,787 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named HibernateSetup in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/HibernateSetup!com.connexience.server.ejb.HibernateSetup
+	java:app/server-beans/HibernateSetup!com.connexience.server.ejb.HibernateSetup
+	java:module/HibernateSetup!com.connexience.server.ejb.HibernateSetup
+	java:global/inkspot/server-beans/HibernateSetup
+	java:app/server-beans/HibernateSetup
+	java:module/HibernateSetup
+
+
+[11:27:52] INFO:    11:28:49,788 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named NoteBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/NoteBean!com.connexience.server.ejb.social.NoteRemote
+	java:app/server-beans/NoteBean!com.connexience.server.ejb.social.NoteRemote
+	java:module/NoteBean!com.connexience.server.ejb.social.NoteRemote
+	java:jboss/exported/inkspot/server-beans/NoteBean!com.connexience.server.ejb.social.NoteRemote
+	java:global/inkspot/server-beans/NoteBean
+	java:app/server-beans/NoteBean
+	java:module/NoteBean
+
+[11:27:52] INFO:    
+
+[11:27:52] INFO:    11:28:49,789 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named WorkflowLockBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/WorkflowLockBean!com.connexience.server.ejb.workflow.WorkflowLockRemote
+
+[11:27:52] INFO:    	java:app/server-beans/WorkflowLockBean!com.connexience.server.ejb.workflow.WorkflowLockRemote
+	java:module/WorkflowLockBean!com.connexience.server.ejb.workflow.WorkflowLockRemote
+	java:jboss/exported/inkspot/server-beans/WorkflowLockBean!com.connexience.server.ejb.workflow.WorkflowLockRemote
+	java:global/inkspot/server-beans/WorkflowLockBean
+	java:app/server-beans/WorkflowLockBean
+	java:module/WorkflowLockBean
+
+
+[11:27:52] INFO:    11:28:49,791 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named OrganisationDirectoryBean in deployment unit subdeployment "server-beans.jar" of deployment "i
+[11:27:52] INFO:    nkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/OrganisationDirectoryBean!com.connexience.server.ejb.directory.OrganisationDirectoryRemote
+	java:app/server-beans/OrganisationDirectoryBean!com.connexience.server.ejb.directory.OrganisationDirectoryRemote
+	java:module/OrganisationDirectoryBean!com.connexience.server.ejb.directory.OrganisationDirectoryRemote
+
+[11:27:52] INFO:    	java:jboss/exported/inkspot/server-beans/OrganisationDirectoryBean!com.connexience.server.ejb.directory.OrganisationDirectoryRemote
+	java:global/inkspot/server-beans/OrganisationDirectoryBean
+	java:app/server-beans/OrganisationDirectoryBean
+	java:module/OrganisationDirectoryBean
+
+
+[11:27:52] INFO:    11:28:49,793 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named NotificationsBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/NotificationsBean!com.connexience.server.ejb.notifications.NotificationsRemote
+	java:app/server-beans/NotificationsBean!com.connexience.server.ejb.notifications.NotificationsRemote
+	java:module/NotificationsBean!com.connexience.server.ejb.notifications.NotificationsRemote
+	java:jboss/exported/inkspot/server-beans/NotificationsBean!com.connexience.server.ejb.notifications.NotificationsRemote
+	java:global/inkspot/server-beans/NotificationsBean
+
+[11:27:52] INFO:    	java:app/server-beans/NotificationsBean
+	java:module/NotificationsBean
+
+
+[11:27:52] INFO:    11:28:49,796 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AdminBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/AdminBean!com.connexience.server.ejb.admin.AdminRemote
+	java:app/server-beans/AdminBean!com.connexience.server.ejb.admin.AdminRemote
+	java:module/AdminBean!com.connexience.server.ejb.admin.AdminRemote
+	java:jboss/exported/inkspot/server-beans/AdminBean!com.connexience.server.ejb.admin.AdminRemote
+	java:global/inkspot/server-beans/AdminBean
+	java:app/server-beans/AdminBean
+	java:module/AdminBean
+
+[11:27:52] INFO:    
+
+[11:27:52] INFO:    11:28:49,798 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named EventBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/EventBean!com.connexience.server.ejb.social.EventRemote
+	java:app/server-beans/EventBean!com.connexience.server.ejb.social.EventRemote
+	java:module/EventBean!com.connexience.server.ejb.social.EventRemote
+	java:jboss/exported/inkspot/server-beans/EventBean!com.connexience.server.ejb.social.EventRemote
+	java:global/inkspot/server-beans/EventBean
+	java:app/server-beans/EventBean
+	java:module/EventBean
+
+
+[11:27:52] INFO:    11:28:49,799 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named LogEventBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/LogEventBean!com.connexience.server.ejb.logging.LogEventRemote
+	java:app/server-beans/LogEventBean!com.connexience.server.ejb.logging.LogEventRemote
+	java:module/LogEventBean!com.connexience.server.ejb.logging.LogEventRemote
+	java:jboss/exported/inkspot/server-beans/LogEventBean!com.connexience.server.ejb.logging.LogEventRemote
+	java:global/inkspot/server-beans/LogEventBean
+	java:app/server-beans/LogEventBean
+	java:module/LogEventBean
+
+
+[11:27:52] INFO:    11:28:49,800 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ProductsBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/ProductsBean!com.connexience.server.ejb.allowance.ProductsRemote
+	java:app/server-beans/ProductsBean!com.connexience.server.ejb.allowance.ProductsRemote
+	java:module/ProductsBean!com.connexience.server.ejb.allowance.ProductsRemote
+	java:jboss/exported/inkspot/server-beans/ProductsBean!com.connexience.server.ejb.allowance.ProductsRemote
+	java:global/inkspot/server-beans/ProductsBean
+	java:app/server-beans/ProductsBean
+	java:module/ProductsBean
+
+
+[11:27:52] INFO:    11:28:49,802 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named NewsBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/NewsBean!com.connexience.server.ejb.social.NewsRemote
+	java:app/server-beans/NewsBean!com.connexience.server.ejb.social.NewsRemote
+	java:module/NewsBean!com.connexience.server.ejb.social.NewsRemote
+	java:jboss/exported/inkspot/server-beans/NewsBean!com.connexience.server.ejb.social.NewsRemote
+	java:global/inkspot/server-beans/NewsBean
+	java:app/server-beans/NewsBean
+	java:module/NewsBean
+
+
+[11:27:52] INFO:    11:28:49,803 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ApplicationBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear
+[11:27:52] INFO:    " are as follows:
+
+	java:global/inkspot/server-beans/ApplicationBean!com.connexience.server.ejb.social.ApplicationRemote
+	java:app/server-beans/ApplicationBean!com.connexience.server.ejb.social.ApplicationRemote
+	java:module/ApplicationBean!com.connexience.server.ejb.social.ApplicationRemote
+
+[11:27:52] INFO:    	java:jboss/exported/inkspot/server-beans/ApplicationBean!com.connexience.server.ejb.social.ApplicationRemote
+	java:global/inkspot/server-beans/ApplicationBean
+	java:app/server-beans/ApplicationBean
+	java:module/ApplicationBean
+
+
+[11:27:52] INFO:    11:28:49,805 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ProvenanceBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear"
+[11:27:52] INFO:     are as follows:
+
+	java:global/inkspot/server-beans/ProvenanceBean!com.connexience.server.ejb.provenance.ProvenanceRemote
+	java:app/server-beans/ProvenanceBean!com.connexience.server.ejb.provenance.ProvenanceRemote
+	java:module/ProvenanceBean!com.connexience.server.ejb.provenance.ProvenanceRemote
+	java:jboss/exported/inkspot/server-beans/ProvenanceBean!com.connexience.server.ejb.provenance.ProvenanceRemote
+	java:global/inkspot/server-beans/ProvenanceBean
+
+[11:27:52] INFO:    	java:app/server-beans/ProvenanceBean
+	java:module/ProvenanceBean
+
+
+[11:27:52] INFO:    11:28:49,808 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AccessControlBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+[11:27:52] INFO:    
+	java:global/inkspot/server-beans/AccessControlBean!com.connexience.server.ejb.acl.AccessControlRemote
+	java:app/server-beans/AccessControlBean!com.connexience.server.ejb.acl.AccessControlRemote
+	java:module/AccessControlBean!com.connexience.server.ejb.acl.AccessControlRemote
+	java:jboss/exported/inkspot/server-beans/AccessControlBean!com.connexience.server.ejb.acl.AccessControlRemote
+
+[11:27:52] INFO:    	java:global/inkspot/server-beans/AccessControlBean
+	java:app/server-beans/AccessControlBean
+	java:module/AccessControlBean
+
+
+[11:27:52] INFO:    11:28:49,810 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named CertificateAccessBean in deployment unit subdeployment "server-beans.jar" of deployment "inkspot.ear" are as follows:
+
+	java:global/inkspot/server-beans/CertificateAccessBean!com.connexience.server.ejb.certificate.CertificateAccessRemote
+
+[11:27:52] INFO:    	java:app/server-beans/CertificateAccessBean!com.connexience.server.ejb.certificate.CertificateAccessRemote
+	java:module/CertificateAccessBean!com.connexience.server.ejb.certificate.CertificateAccessRemote
+	java:jboss/exported/inkspot/server-beans/CertificateAccessBean!com.connexience.server.ejb.certificate.CertificateAccessRemote
+	java:global/inkspot/server-beans/CertificateAccessBean
+	java:app/server-beans/CertificateAccessBean
+	java:module/CertificateAccessBean
+
+
+[11:27:52] INFO:    11:28:49,827 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) JBAS016005: Starting Services for CDI deployment: inkspot.ear
+
+[11:27:52] INFO:    11:28:49,862 INFO  [org.jboss.weld.Version] (MSC service thread 1-4) WELD-000900 1.1.5 (AS71)
+
+[11:27:52] INFO:    11:28:49,872 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) JBAS016008: Starting weld service for deployment inkspot.e
+[11:27:52] INFO:    ar
+
+[11:27:53] INFO:    11:28:50,393 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) JBAS014142: Started message driven bean 'NotificationsMDB' with 
+[11:27:53] INFO:    'hornetq-ra' resource adapter
+
+[11:27:53] INFO:    11:28:50,394 INFO  [org.jboss.as.ejb3] (MSC service thread 1-15) JBAS014142: Started message driven bean 'ProvenanceMDB' with 'hornetq-ra' resource adapter
+
+[11:27:53] INFO:    11:28:50,608 INFO  [org.jboss.web] (MSC service thread 1-8) JBAS018210: Registering web context: /static
+
+[11:27:53] INFO:    11:28:50,609 INFO  [org.jboss.web] (MSC service thread 1-12) JBAS018210: Registering web context: /APIServer
+
+[11:27:53] INFO:    11:28:50,611 INFO  [org.jboss.web] (MSC service thread 1-11) JBAS018210: Registering web context: /WorkflowServer
+11:28:50,619 INFO  [org.jboss.web] (MSC service thread 1-10) JBAS018210: Registering web context: /beta
+
+[11:27:54] INFO:    11:28:51,263 INFO  [stdout] (MSC service thread 1-4) Defaulting to: /hibernate/postgres/hibernate.cfg.xml for PostgreSQL
+
+[11:27:54] INFO:    11:28:51,323 INFO  [org.hibernate.annotations.common.Version] (MSC service thread 1-4) HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+
+[11:27:54] INFO:    11:28:51,326 INFO  [org.hibernate.Version] (MSC service thread 1-4) HHH000412: Hibernate Core {4.0.1.Final}
+
+[11:27:54] INFO:    11:28:51,328 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-4) HHH000206: hibernate.properties not found
+
+[11:27:54] INFO:    11:28:51,330 INFO  [org.hibernate.cfg.Environment] (MSC service thread 1-4) HHH000021: Bytecode provider name : javassist
+
+[11:27:54] INFO:    11:28:51,342 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000043: Configuring from resource: /hibernate/postgres/hibernate.cfg.xml
+
+[11:27:54] INFO:    11:28:51,342 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000040: Configuration resource: /hibernate/postgres/hibernate.cfg.xml
+
+[11:27:54] INFO:    11:28:51,375 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ServerObjectFlat.hbm.xml
+
+[11:27:54] INFO:    11:28:51,424 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/KeyData.hbm.xml
+
+[11:27:54] INFO:    11:28:51,442 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/LogonDetails.hbm.xml
+
+[11:27:54] INFO:    11:28:51,455 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/TicketGroup.hbm.xml
+
+[11:27:54] INFO:    11:28:51,466 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Ticket.hbm.xml
+
+[11:27:54] INFO:    11:28:51,478 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Permission.hbm.xml
+
+[11:27:54] INFO:    11:28:51,488 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/GroupMembership.hbm.xml
+
+[11:27:54] INFO:    11:28:51,497 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/PropertyMetadata.hbm.xml
+
+[11:27:54] INFO:    11:28:51,507 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/DocumentVersion.hbm.xml
+
+[11:27:54] INFO:    11:28:51,518 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/LogMessage.hbm.xml
+
+[11:27:54] INFO:    11:28:51,528 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Properties.hbm.xml
+
+[11:27:54] INFO:    11:28:51,538 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/UserProfile.hbm.xml
+
+[11:27:54] INFO:    11:28:51,548 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/GroupProfile.hbm.xml
+
+[11:27:54] INFO:    11:28:51,557 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ApplicationSubscription.hbm.xml
+
+[11:27:54] INFO:    11:28:51,566 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Tag.hbm.xml
+
+[11:27:54] INFO:    11:28:51,575 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Image.hbm.xml
+
+[11:27:54] INFO:    11:28:51,585 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ServiceXML.hbm.xml
+
+[11:27:54] INFO:    11:28:51,593 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/BlockHelpHtml.hbm.xml
+
+[11:27:54] INFO:    11:28:51,602 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowServiceLog.hbm.xml
+
+[11:27:54] INFO:    11:28:51,611 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/BlogPostRead.hbm.xml
+
+[11:27:54] INFO:    11:28:51,619 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/LogEvent.hbm.xml
+
+[11:27:54] INFO:    11:28:51,631 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/AnnonymisedLogEvent.hbm.xml
+
+[11:27:54] INFO:    11:28:51,641 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/RemberMeLogin.hbm.xml
+
+[11:27:54] INFO:    11:28:51,649 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ExternalLogonDetails.hbm.xml
+
+[11:27:54] INFO:    11:28:51,657 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/AccountActivity.hbm.xml
+
+[11:27:54] INFO:    11:28:51,665 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/PromotionalItem.hbm.xml
+
+[11:27:54] INFO:    11:28:51,673 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Product.hbm.xml
+
+[11:27:54] INFO:    11:28:51,682 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/Subscription.hbm.xml
+
+[11:27:54] INFO:    11:28:51,690 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ServiceHostMachine.hbm.xml
+
+[11:27:54] INFO:    11:28:51,698 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/ServiceInstance.hbm.xml
+
+[11:27:54] INFO:    11:28:51,705 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowGraphOperation.hbm.xml
+
+[11:27:54] INFO:    11:28:51,715 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowLock.hbm.xml
+
+[11:27:54] INFO:    11:28:51,723 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowLockMember.hbm.xml
+
+[11:27:54] INFO:    11:28:51,730 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowEngineRecord.hbm.xml
+
+[11:27:54] INFO:    11:28:51,737 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/SerializedInvocationMessage.hbm.xml
+
+[11:27:54] INFO:    11:28:51,744 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/TemplateFolder.hbm.xml
+
+[11:27:54] INFO:    11:28:51,752 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hiberna
+[11:27:54] INFO:    te/postgres/WorkflowFolderTrigger.hbm.xml
+
+[11:27:54] INFO:    11:28:51,760 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000041: Configured SessionFactory: null
+
+[11:27:55] INFO:    11:28:52,050 INFO  [org.hibernate.dialect.Dialect] (MSC service thread 1-4) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+
+[11:27:55] INFO:    11:28:52,056 INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] (MSC service thread 1-4) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+
+[11:27:55] INFO:    11:28:52,062 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (MSC service thread 1-4) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.JtaTransactionFactory
+11:28:52,065 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (MSC service thread 1-4) HHH000397: Using ASTQueryTranslatorFactory
+
+[11:27:55] INFO:    11:28:52,173 WARN  [org.hibernate.id.UUIDHexGenerator] (MSC service thread 1-4) HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+
+[11:27:55] INFO:    11:28:52,661 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000228: Running hbm2ddl schema update
+
+[11:27:55] INFO:    11:28:52,661 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000102: Fetching database metadata
+
+[11:27:55] INFO:    11:28:52,670 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000396: Updating schema
+
+[11:27:55] INFO:    11:28:52,706 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.accountactvity
+
+[11:27:55] INFO:    11:28:52,706 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [purchasedbalanceafter, type, processorname, cost, purchasetime, currency, id, promotionalbalancebefore, transactionid, quantity, promotionalbalanceafter, accountid, purchasedbalancebefore]
+
+[11:27:55] INFO:    11:28:52,707 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,707 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [accountactvity_pkey]
+
+[11:27:55] INFO:    11:28:52,734 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.appsubscriptions
+
+[11:27:55] INFO:    11:28:52,734 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [executeworkflows, id, viewfiles, viewconnections, modifyfiles, userid, viewdetails, postnews, uploadfiles, applicationid]
+
+[11:27:55] INFO:    11:28:52,735 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,735 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [appsubscriptions_pkey]
+
+[11:27:55] INFO:    11:28:52,757 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.blockhelp
+
+[11:27:55] INFO:    11:28:52,758 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [versionid, id, htmldata, serviceid]
+
+[11:27:55] INFO:    11:28:52,758 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,758 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [blockhelp_pkey]
+
+[11:27:55] INFO:    11:28:52,776 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.blogpostread
+
+[11:27:55] INFO:    11:28:52,776 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [postid, id, userid, blogid]
+
+[11:27:55] INFO:    11:28:52,777 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,777 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [blogpostread_pkey]
+
+[11:27:55] INFO:    11:28:52,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.documentversions
+
+[11:27:55] INFO:    11:28:52,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [versionnumber, timestamp, documentrecordid, id, userid, comments, size]
+
+[11:27:55] INFO:    11:28:52,795 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,796 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [documentversions_pkey]
+
+[11:27:55] INFO:    11:28:52,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.externallogondetails
+
+[11:27:55] INFO:    11:28:52,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [externaluserid, id, userid]
+
+[11:27:55] INFO:    11:28:52,812 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,813 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [externallogondetails_pkey]
+
+[11:27:55] INFO:    11:28:52,829 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.foldertriggers
+
+[11:27:55] INFO:    11:28:52,830 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, nameregex, enabled, folderid, nameregexchecked, ownerid, workflowid, comments]
+
+[11:27:55] INFO:    11:28:52,830 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,830 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [foldertriggers_pkey]
+
+[11:27:55] INFO:    11:28:52,850 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.graphoperations
+
+[11:27:55] INFO:    11:28:52,850 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [blockuuid, targetportname, dependencyversionids, sourceportname, userid, documentname, hashvalue, serviceid, endtimestamp, versionnumber, timestamp, id, name, workflowversionid, produceddata, propertiesdata, versionid, dependencynames, sourceblockuuid, dependencyids, invocationid, consumeddata, datasize, targetblockuuid, documentid, datatype, eventtype]
+
+[11:27:55] INFO:    11:28:52,851 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,851 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [graphoperations_pkey]
+
+[11:27:55] INFO:    11:28:52,867 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.groupmembership
+
+[11:27:55] INFO:    11:28:52,868 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, userid, groupid]
+
+[11:27:55] INFO:    11:28:52,868 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,869 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [groupmembership_pkey]
+
+[11:27:55] INFO:    11:28:52,892 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.groupprofiles
+
+[11:27:55] INFO:    11:28:52,893 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id]
+11:28:52,894 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,894 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [groupprofiles_pkey]
+
+[11:27:55] INFO:    11:28:52,913 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.images
+
+[11:27:55] INFO:    11:28:52,913 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, serverobjectid, data, type]
+
+[11:27:55] INFO:    11:28:52,914 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,914 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [images_pkey]
+
+[11:27:55] INFO:    11:28:52,938 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.invocationmessages
+
+[11:27:55] INFO:    11:28:52,938 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [message, id, invocationid]
+
+[11:27:55] INFO:    11:28:52,939 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,939 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [invocationmessages_pkey]
+
+[11:27:55] INFO:    11:28:52,959 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.keys
+
+[11:27:55] INFO:    11:28:52,960 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, certificate, objectid, keystoredata]
+11:28:52,960 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:52,960 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [keys_pkey]
+
+[11:27:55] INFO:    11:28:52,975 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.logevents
+
+[11:27:55] INFO:    11:28:52,976 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [versionid, granteename, principalname, invocationid, objecttype, servicename, userid, state, granteetype, serviceversionnumber, workflowid, serviceid, workflowname, id, timestamp, objectname, operation, serviceversionid, granteeid, objectid]
+11:28:52,977 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+11:28:52,978 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [logevents_pkey]
+
+[11:27:55] INFO:    11:28:52,997 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.logeventsannonymised
+
+[11:27:55] INFO:    11:28:52,998 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [versionid, timestamp, id, operation, invocationid, objecttype, state, userid, granteetype, granteeid, objectid, workflowid]
+
+[11:27:55] INFO:    11:28:52,999 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:53,000 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [logeventsannonymised_pkey]
+
+[11:27:55] INFO:    11:28:53,021 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.logmessageproperties
+
+[11:27:55] INFO:    11:28:53,021 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, logmessageid, name, value]
+11:28:53,022 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:53,022 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [logmessageproperties_pkey]
+
+[11:27:55] INFO:    11:28:53,042 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.logmessages
+
+[11:27:55] INFO:    11:28:53,043 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, messagetext, messagedate, type, objectid, organisationid, principalid]
+
+[11:27:55] INFO:    11:28:53,044 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:55] INFO:    11:28:53,044 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [logmessages_pkey]
+
+[11:27:56] INFO:    11:28:53,063 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.logondetai
+[11:27:56] INFO:    ls
+
+[11:27:56] INFO:    11:28:53,064 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, logonname, userid, hashedpassword]
+
+[11:27:56] INFO:    11:28:53,065 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,065 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [logondetails_pkey]
+
+[11:27:56] INFO:    11:28:53,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.metadata
+
+[11:27:56] INFO:    11:28:53,085 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, name, value, objectid]
+
+[11:27:56] INFO:    11:28:53,086 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,086 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [metadata_pkey]
+
+[11:27:56] INFO:    11:28:53,105 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.objectsflat
+
+[11:27:56] INFO:    11:28:53,105 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [summary, intermediatedatastored, adminapprovejoin, invocationstatus, currentblockid, surname, mimetypelist, profileid, replication, groupid, inboxfolderid, hashkey, promotionalbalance, documenttypeid, defaultgroupid, workflowid, versioned, applicationid, category, currencylabel, creatorid, startdate, documentationurl, comment, objectid, enddate, libraryname, formattype, streamingprogressknown, recipie
+[11:27:56] INFO:    ntid, queuedtime, workflowfolderid, accesskey, secretkey, timestamp, engineid, currentversionsize, title, invocationdate, shortname, externaldatasupported, applicationsfolderid, bytesstreamed, datastoreid, accesskeyid, servicesfolderid, objecttype, firstname, extension, deletedonsuccess, directory, columnurl, sourceobjectid, threadid, dequeuedtime, body, datafolderid, isread, groupfolderid, type, privateurl, publicvisible, executionendtime, userfolderid, admingroupid, organisationbucket, mimetype, sentmessa
+[11:27:56] INFO:    gesfolderid, description, onlyfailedoutputs, showiniframe, versionid, text, publicgroupid, status, projectfileid, label, authorname, documenttypesfolderid, homefolderid, enginetype, namenodeport, namenodeaddress, purchasedbalance, metadataid, rootuserid, typestring, mainitemid, maxversions, senderid, documentediturl, applicationurl, sinkobjectid, defaultuserid, nonmemberslist, organisationid, externaldatablockname, id, containerid, name, read, notification, itemtype, invocationid, allowedtoregisterusers, blogid, webfolderid, executionstarttime, iconurl, eventsfolder, totalbytestostream, externalobjectsfolderid, message, currentversi
+[11:27:56] INFO:    onnumber, datafolder, limitversions, timeinmillis, protectedgroup]
+
+[11:27:56] INFO:    11:28:53,108 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,108 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [objects_creatorid, objects_containerid, objectsflat_pkey]
+
+[11:27:56] INFO:    11:28:53,126 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.permissions
+
+[11:27:56] INFO:    11:28:53,127 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, universal, type, targetobjectid, principalid]
+
+[11:27:56] INFO:    11:28:53,128 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,129 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [perms_targetid, perms_principalid, permissions_pkey]
+
+[11:27:56] INFO:    11:28:53,146 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.products
+
+[11:27:56] INFO:    11:28:53,147 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [objectidorname, autorenewing, categorylabel, expirable, ownerid, productcost, initialvalue, units, id, universalproduct, duration, description, purchasewithpromotionaltokens, name, value, active, imageurl, producttype, singlesubscription]
+
+[11:27:56] INFO:    11:28:53,147 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,148 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [products_pkey]
+
+[11:27:56] INFO:    11:28:53,172 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.promotialitems
+
+[11:27:56] INFO:    11:28:53,173 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [creationtime, id, expirytime, quantity, promotioncode]
+
+[11:27:56] INFO:    11:28:53,173 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,173 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [promotialitems_pkey]
+
+[11:27:56] INFO:    11:28:53,188 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.propertygroups
+
+[11:27:56] INFO:    11:28:53,189 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, objectproperty, description, name, objectid, organisationid]
+
+[11:27:56] INFO:    11:28:53,189 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,189 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [propertygroups_pkey]
+
+[11:27:56] INFO:    11:28:53,204 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.propertyitems
+
+[11:27:56] INFO:    11:28:53,205 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, name, value, groupid, propertytype]
+
+[11:27:56] INFO:    11:28:53,206 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,206 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [propertyitems_pkey]
+
+[11:27:56] INFO:    11:28:53,225 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.rememberedlogins
+
+[11:27:56] INFO:    11:28:53,225 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, userid, expirydate, cookieid]
+
+[11:27:56] INFO:    11:28:53,226 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,227 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [rememberedlogins_pkey]
+
+[11:27:56] INFO:    11:28:53,246 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.servicehosts
+
+[11:27:56] INFO:    11:28:53,246 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [guid, id, active, ipaddress]
+
+[11:27:56] INFO:    11:28:53,247 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,247 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [servicehosts_pkey]
+
+[11:27:56] INFO:    11:28:53,266 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.serviceinstances
+
+[11:27:56] INFO:    11:28:53,266 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, hostid, name, rmiport, running]
+
+[11:27:56] INFO:    11:28:53,267 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,267 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [serviceinstances_pkey]
+
+[11:27:56] INFO:    11:28:53,284 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.servicexml
+
+[11:27:56] INFO:    11:28:53,285 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [xmldata, versionid, id, serviceid]
+
+[11:27:56] INFO:    11:28:53,285 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,285 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [servicexml_pkey]
+
+[11:27:56] INFO:    11:28:53,300 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.subscriptions
+
+[11:27:56] INFO:    11:28:53,301 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, starttime, productid, autorenewing, name, value, userid, categorylabel, subscriptiontype, imageurl, units, expiry]
+
+[11:27:56] INFO:    11:28:53,302 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,303 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [subscriptions_pkey]
+
+[11:27:56] INFO:    11:28:53,321 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.tags
+
+[11:27:56] INFO:    11:28:53,322 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, tagtext]
+
+[11:27:56] INFO:    11:28:53,323 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,323 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [tags_pkey]
+
+[11:27:56] INFO:    11:28:53,341 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.tagstoobjects
+
+[11:27:56] INFO:    11:28:53,341 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, weight, creatorid, tagid, serverobjectid, createdate]
+
+[11:27:56] INFO:    11:28:53,342 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,343 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [tagstoobjects_pkey]
+
+[11:27:56] INFO:    11:28:53,361 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.templatefolders
+
+[11:27:56] INFO:    11:28:53,362 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, folderid, description, name, domain]
+
+[11:27:56] INFO:    11:28:53,362 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,363 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [templatefolders_pkey]
+
+[11:27:56] INFO:    11:28:53,381 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.ticketgroups
+
+[11:27:56] INFO:    11:28:53,382 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, groupid, ticketid]
+11:28:53,383 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,383 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [ticketgroups_pkey]
+
+[11:27:56] INFO:    11:28:53,401 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.tickets
+
+[11:27:56] INFO:    11:28:53,402 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, lastaccesstime, superticket, userid, organisationid]
+
+[11:27:56] INFO:    11:28:53,403 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,403 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [tickets_pkey]
+
+[11:27:56] INFO:    11:28:53,422 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.userprofiles
+
+[11:27:56] INFO:    11:28:53,422 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, defaultdomain, text, emailaddress, website]
+
+[11:27:56] INFO:    11:28:53,423 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,424 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [userprofiles_pkey]
+
+[11:27:56] INFO:    11:28:53,441 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.workflowengines
+
+[11:27:56] INFO:    11:28:53,442 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, engineid]
+
+[11:27:56] INFO:    11:28:53,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,443 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [workflowengines_pkey]
+
+[11:27:56] INFO:    11:28:53,462 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.workflowlockmembers
+
+[11:27:56] INFO:    11:28:53,462 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, engineid, starttime, invocationstatus, invocationid, invocationfolderid, lockid]
+
+[11:27:56] INFO:    11:28:53,463 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,464 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [workflowlockmembers_pkey]
+
+[11:27:56] INFO:    11:28:53,481 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.workflowlocks
+
+[11:27:56] INFO:    11:28:53,482 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [lastdeliveryattempttime, id, engineid, notificationdelivered, status, invocationid, userid, notificationattemptinterval, contextid, notificationattempts, invocationfolderid, comments]
+
+[11:27:56] INFO:    11:28:53,483 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,484 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [workflowlocks_pkey]
+
+[11:27:56] INFO:    11:28:53,502 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.workflowservicelogs
+
+[11:27:56] INFO:    11:28:53,503 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [id, statustext, outputtext, invocationid, statusmessage, contextid]
+
+[11:27:56] INFO:    11:28:53,504 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,505 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [workflowservicelogs_pkey]
+
+[11:27:56] INFO:    11:28:53,508 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000232: Schema update complete
+
+[11:27:56] INFO:    11:28:53,513 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000043: Configuring from resource: /hibernate/postgres/hibernate-provenance.cfg.xml
+
+[11:27:56] INFO:    11:28:53,513 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000040: Configuration resource: /hibernate/postgres/hibernate-provenance.cfg.xml
+
+[11:27:56] INFO:    11:28:53,515 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000221: Reading mappings from resource: hibernate/postgres/WorkflowGraphOperation.hbm.xml
+
+[11:27:56] INFO:    11:28:53,521 INFO  [org.hibernate.cfg.Configuration] (MSC service thread 1-4) HHH000041: Configured SessionFactory: null
+
+[11:27:56] INFO:    11:28:53,581 INFO  [org.hibernate.dialect.Dialect] (MSC service thread 1-4) HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+
+[11:27:56] INFO:    11:28:53,582 INFO  [org.hibernate.engine.jdbc.internal.LobCreatorBuilder] (MSC service thread 1-4) HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+
+[11:27:56] INFO:    11:28:53,583 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (MSC service thread 1-4) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.JtaTransactionFactory
+
+[11:27:56] INFO:    11:28:53,583 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (MSC service thread 1-4) HHH000397: Using ASTQueryTranslatorFactory
+
+[11:27:56] INFO:    11:28:53,624 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000228: Running hbm2ddl schema update
+
+[11:27:56] INFO:    11:28:53,624 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000102: Fetching database metadata
+
+[11:27:56] INFO:    11:28:53,625 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000396: Updating schema
+
+[11:27:56] INFO:    11:28:53,645 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000261: Table found: public.graphoperations
+
+[11:27:56] INFO:    11:28:53,645 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000037: Columns: [blockuuid, targetportname, dependencyversionids, sourceportname, userid, documentname, hashvalue, serviceid, endtimestamp, versionnumber, timestamp, id, name, workflowversionid, produceddata, propertiesdata, versionid, dependencynames, sourceblockuuid, dependencyids, invocationid, consumeddata, datasize, targetblockuuid, documentid, datatype, eventtype]
+
+[11:27:56] INFO:    11:28:53,646 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000108: Foreign keys: []
+
+[11:27:56] INFO:    11:28:53,646 INFO  [org.hibernate.tool.hbm2ddl.TableMetadata] (MSC service thread 1-4) HHH000126: Indexes: [graphoperations_pkey]
+
+[11:27:56] INFO:    11:28:53,647 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (MSC service thread 1-4) HHH000232: Schema update complete
+
+[11:27:56] INFO:    11:28:53,647 INFO  [stdout] (MSC service thread 1-4) Checking root security object
+
+[11:27:56] INFO:    11:28:53,801 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015951: Admin console listening on http://0.0.0.0:9990
+
+[11:27:56] INFO:    11:28:53,801 INFO  [org.jboss.as] (MSC service thread 1-1) JBAS015874: JBoss AS 7.1.1.Final "Brontes" started in 10334ms - Started 1502 of 1604 services (102 services are passive or on-demand)
+
+[11:27:56] INFO:    11:28:53,924 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "inkspot.ear"
+
+[11:27:56] INFO:    11:28:53,924 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "postgresql-9.0-801.jdbc4.jar"
+
+[11:27:56] INFO:    11:28:53,924 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "ProvenanceServerWeb-1.0-SNAPSHOT.war"
+
+[11:27:56] INFO:    11:28:53,925 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "inkspot-postgresql-ds.xml"
+
+[11:27:56] INFO:    11:28:53,925 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "inkspot-jms.xml"
+
+[11:27:56] INFO:    11:28:53,925 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "neo4j-connector.rar"
+
+[11:27:58] INFO:    11:28:55,206 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016037: Could not find new XAResource to use for recovering non-serializable XAResource XAResourceRecord < resource:null, txid:< formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:ffff7f000001:-3b7254f9:52cf0030:6b, node_name=1, branch_uid=0:ffff7f000001:-3b7254f9:52cf0030:6c, subordinatenodename=null, eis_name=unknown eis name >, heuristic: TwoPhaseOutcome.FINISH_OK com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord@53982708 >
+
+[11:27:58] INFO:    11:28:55,210 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016038: No XAResource to recover < formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:ffff7f000001:-3b7254f9:52cf0030:6b, node_name=1, branch_uid=0:ffff7f000001:-3b7254f9:52cf0030:6c, subordinatenodename=null, eis_name=unknown eis name >
+
+[11:27:58] INFO:    11:28:55,212 ERROR [stderr] (Periodic Recovery) java.io.FileNotFoundException: /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_6b (Permission denied)
+
+[11:27:58] INFO:    11:28:55,213 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.open(Native Method)
+
+[11:27:58] INFO:    11:28:55,214 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+
+[11:27:58] INFO:    11:28:55,215 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+
+[11:27:58] INFO:    11:28:55,215 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.objectstore.ShadowingStore.write_state(ShadowingStore.java:560)
+
+[11:27:58] INFO:    11:28:55,216 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.objectstore.FileSystemStore.write_committed(FileSystemStore.java:134)
+
+[11:27:58] INFO:    11:28:55,217 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.coordinator.BasicAction.updateState(BasicAction.java:3119)
+
+[11:27:58] INFO:    11:28:55,217 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.coordinator.BasicAction.phase2Commit(BasicAction.java:1855)
+
+[11:27:58] INFO:    11:28:55,218 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.recovery.RecoverAtomicAction.replayPhase2(RecoverAtomicAction.java:71)
+
+[11:27:58] INFO:    11:28:55,219 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.doRecoverTransaction(AtomicActionRecoveryModule.java:152)
+
+[11:27:58] INFO:    11:28:55,220 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.processTransactionsStatus(AtomicActionRecoveryModule.java:251)
+11:28:55,220 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.periodicWorkSecondPass(AtomicActionRecoveryModule.java:109)
+
+[11:27:58] INFO:    11:28:55,221 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.doWorkInternal(PeriodicRecovery.java:789)
+
+[11:27:58] INFO:    11:28:55,221 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.run(PeriodicRecovery.java:371)
+11:28:55,221 WARN  [com.arjuna.ats.arjuna] (Periodic Recovery) com.arjuna.ats.arjuna.exceptions.ObjectStoreException: ShadowingS
+[11:27:58] INFO:    tore::write_state() - write failed to locate file /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_6b: java.io.FileNotFoundExce
+[11:27:58] INFO:    ption: /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_6b (Permission denied)
+11:28:55,223 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016037: Could not find new XAResource to use for recovering non-serializable XAResource XAResourceRecord < resource:null, txid:< formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:ffff7f000001:411c7ac7:52cefd3c:46, node_name=1, branch_uid=0:ffff7f000001:411c7ac7:52cefd3c:47, subordinatenodename=null, eis_name=unknown eis name >, heuristic: TwoPhaseOutcome.FINISH_OK com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord@14cff87a >
+
+[11:27:58] INFO:    11:28:55,224 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016038: No XAResource to recover < formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:ffff7f000001:411c7ac7:52cefd3c:46, node_name=1, branch_uid=0:ffff7f000001:411c7ac7:52cefd3c:47, subordinatenodename=null, eis_name=unknown eis name >
+
+[11:27:58] INFO:    11:28:55,259 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016037: Could not find new XAResource to use for recovering non-serializable XAResource XAResourceRecord < resource:null, txid:< formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:f
+[11:27:58] INFO:    fff7f000001:-3b7254f9:52cf0030:74, node_name=1, branch_uid=0:ffff7f000001:-3b7254f9:52cf0030:79, subordinatenodename=null, eis_name=unknown eis name >, heuristic: TwoPhaseOutcome.FINISH_OK com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord@ecd6332 >
+
+[11:27:58] INFO:    11:28:55,261 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016038: No XAResource to recover < formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:ffff7f000001:-3b7254f9:52cf0030:74, node_name=1, branch_uid=0:ffff7f000001:-3b7254f9:52cf0030:7
+[11:27:58] INFO:    9, subordinatenodename=null, eis_name=unknown eis name >
+
+[11:27:58] INFO:    11:28:55,261 ERROR [stderr] (Periodic Recovery) java.io.FileNotFoundException: /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_74 (Permission denied)
+
+[11:27:58] INFO:    11:28:55,262 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.open(Native Method)
+
+[11:27:58] INFO:    11:28:55,262 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+
+[11:27:58] INFO:    11:28:55,262 ERROR [stderr] (Periodic Recovery) 	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+11:28:55,263 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.objectstore.ShadowingStore.write_state(ShadowingStore.java:560)
+11:28:55,263 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.objectstore.FileSystemStore.write_committed(FileSystemStore.java:134)
+
+[11:27:58] INFO:    11:28:55,263 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.coordinator.BasicAction.updateState(BasicAction.java:3119)
+
+[11:27:58] INFO:    11:28:55,264 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.coordinator.BasicAction.phase2Commit(BasicAction.java:1855)
+
+[11:27:58] INFO:    11:28:55,264 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.arjuna.recovery.RecoverAtomicAction.replayPhase2(RecoverAtomicAction.java:71)
+
+[11:27:58] INFO:    11:28:55,264 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.doRecoverTransaction(AtomicActionRecoveryModule.java:152)
+
+[11:27:58] INFO:    11:28:55,264 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.processTransactionsStatus(AtomicActionRecoveryModule.java:251)
+
+[11:27:58] INFO:    11:28:55,265 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.AtomicActionRecoveryModule.periodicWorkSecondPass(AtomicActionRecoveryModule.java:109)
+
+[11:27:58] INFO:    11:28:55,265 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.doWorkInternal(PeriodicRecovery.java:789)
+
+[11:27:58] INFO:    11:28:55,265 ERROR [stderr] (Periodic Recovery) 	at com.arjuna.ats.internal.arjuna.recovery.PeriodicRecovery.run(PeriodicRecovery.java:371)
+
+[11:27:58] INFO:    11:28:55,266 WARN  [com.arjuna.ats.arjuna] (Periodic Recovery) com.arjuna.ats.arjuna.exceptions.ObjectStoreException: ShadowingStore::write_state() - write failed to locate file /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defau
+[11:27:58] INFO:    ltStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_74: java.io.FileNotFoundException: /home/zhenyu/jboss/standalone/data/tx-object-store/ShadowNoFileLockStore/defaultStore/StateManager/BasicAction/TwoPhaseCoordinator/AtomicAction/0_ffff7f000001_-3b7254f9_52cf0030_74 (Permission denied)
+
+[11:27:58] INFO:    11:28:55,267 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016037: Could not find new XAResource to use for recovering no
+[11:27:58] INFO:    n-serializable XAResource XAResourceRecord < resource:null, txid:< formatId=131077, gtrid_length=29, bqual_length=36, tx_uid=0:f
+[11:27:58] INFO:    fff7f000001:411c7ac7:52cefd3c:42, node_name=1, branch_uid=0:ffff7f000001:411c7ac7:52cefd3c:43, subordinatenodename=null, eis_nam
+[11:27:58] INFO:    e=unknown eis name >, heuristic: TwoPhaseOutcome.FINISH_OK com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord@592
+[11:27:58] INFO:    28ab >
+
+[11:27:58] INFO:    11:28:55,269 WARN  [com.arjuna.ats.jta] (Periodic Recovery) ARJUNA016038: No XAResource to recover < formatId=131077, gtrid_leng
+[11:27:58] INFO:    th=29, bqual_length=36, tx_uid=0:ffff7f000001:411c7ac7:52cefd3c:42, node_name=1, branch_uid=0:ffff7f000001:411c7ac7:52cefd3c:43,
+[11:27:58] INFO:     subordinatenodename=null, eis_name=unknown eis name >
+
+[11:28:10] INFO:    11:29:07,134 INFO  [org.jboss.ejb.client] (http--0.0.0.0-8080-1) JBoss EJB Client version 1.0.5.Final
+

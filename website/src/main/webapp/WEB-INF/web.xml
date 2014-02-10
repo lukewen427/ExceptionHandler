@@ -1,0 +1,78 @@
+<web-app xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://java.sun.com/xml/ns/javaee" 
+ web="http://java.sun.com/xml/ns/javaee/webapp_2_5.xsd"
+ schemalocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+ 
+  <display-name>Archetype Created Web Application</display-name>
+  
+     
+ <!--  
+    <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>ncl.ac.uk.esc.web.Controller</servlet-class>
+    </servlet>  
+    
+  	<servlet>
+    <servlet-name>getWorkflowInfo</servlet-name>
+    <servlet-class>ncl.ac.uk.esc.web.getWorkflowInfo</servlet-class>
+    </servlet>
+    
+  	<servlet>
+  		<servlet-name>securityLevel</servlet-name>
+  		<display-name>securityLevel</display-name>
+  		<description></description>
+  		<servlet-class>ncl.ac.uk.esc.web.securityLevel</servlet-class>
+  	</servlet>
+  
+    
+    <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>
+ 
+	 <servlet-mapping>
+  <servlet-name>getWorkflowInfo</servlet-name>
+  <url-pattern>/getWorkflowInfo</url-pattern>
+   </servlet-mapping>
+   
+	 <servlet-mapping>
+	 	<servlet-name>securityLevel</servlet-name>
+	 	<url-pattern>/securityLevel</url-pattern>
+	 </servlet-mapping> -->
+	 
+	<!--  <servlet>
+    <servlet-name>display</servlet-name>
+    <servlet-class>ncl.ac.uk.esc.monitor.display</servlet-class>
+    </servlet> 
+     
+	<servlet-mapping>
+	 	<servlet-name>display</servlet-name>
+	 	<url-pattern>/display</url-pattern>
+	 </servlet-mapping> -->
+	 
+	  <servlet>
+    <servlet-name>background</servlet-name>
+    <servlet-class>ncl.ac.uk.esc.monitor.background</servlet-class>
+    </servlet> 
+     
+	<servlet-mapping>
+	 	<servlet-name>background</servlet-name>
+	 	<url-pattern>/background</url-pattern>
+	 </servlet-mapping>  
+	
+	<servlet>
+	<servlet-name>JSONServlet</servlet-name>
+	<servlet-class>ncl.ac.uk.esc.monitor.JSONServlet</servlet-class>
+	</servlet>
+	
+	 <servlet-mapping>
+    <servlet-name>JSONServlet</servlet-name>
+    <url-pattern>/JSONServlet</url-pattern>
+  </servlet-mapping>
+  
+ <listener>
+ <listener-class>ncl.ac.uk.esc.monitor.listener</listener-class>
+ </listener>
+ 
+</web-app>

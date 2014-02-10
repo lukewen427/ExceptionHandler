@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>workflow-core</artifactId>
+  <name>${project.artifactId}</name>
+
+  <!-- Meta-project is the parent so inherit dependencies from there -->
+  <parent>
+    <groupId>com.connexience</groupId>
+    <artifactId>meta-project</artifactId>
+    <version>2.5-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.connexience</groupId>
+      <artifactId>server-common</artifactId>
+      <version>2.5-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.connexience</groupId>
+      <artifactId>api-interface</artifactId>
+      <version>2.5-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20070829</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec</groupId>
+      <artifactId>jboss-javaee-6.0</artifactId>
+      <scope>provided</scope>
+      <type>pom</type>
+    </dependency>
+
+    <dependency>
+      <groupId>net.java.dev.swing-layout</groupId>
+      <artifactId>swing-layout</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hornetq</groupId>
+      <artifactId>hornetq-jms-client</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hornetq</groupId>
+      <artifactId>hornetq-logging</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hornetq</groupId>
+      <artifactId>hornetq-core-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.jms</groupId>
+      <artifactId>jboss-jms-api_1.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
+
+  <scm>
+    <connection>scm:svn:https://www.inkspot.co/svn/connexience/tags/meta-project-2.0/webflow/workflow-core</connection>
+    <developerConnection>scm:svn:https://www.inkspot.co/svn/connexience/tags/meta-project-2.0/webflow/workflow-core
+    </developerConnection>
+    <url>scm:svn:https://www.inkspot.co/svn/connexience/tags/meta-project-2.0/webflow/workflow-core</url>
+  </scm>
+</project>
+
+
+
+
+
+

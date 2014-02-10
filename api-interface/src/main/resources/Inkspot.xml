@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Document   : Inkspot.xml
+    Created on : February 27, 2009, 1:51 PM
+    Author     : nhgh
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns0:InkspotObjects  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:ns0="http://xml.netbeans.org/schema/Inkspot"
+   xsi:schemaLocation="http://xml.netbeans.org/schema/Inkspot Inkspot.xsd">
+   
+   <User>
+       <id>80908</id>
+       <name>Hugo Hiden</name>
+       <description>Test user</description>
+       <firstname>Hugo</firstname>
+       <surname>Hiden</surname>
+   </User>
+   
+</ns0:InkspotObjects>
+ 
