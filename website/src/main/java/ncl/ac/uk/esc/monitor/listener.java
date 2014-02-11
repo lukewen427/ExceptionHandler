@@ -2,7 +2,7 @@ package ncl.ac.uk.esc.monitor;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
+/*
 public class listener implements ServletContextListener {
 
 	@Override
@@ -20,4 +20,4 @@ public class listener implements ServletContextListener {
 		
 	}
 
-}
+}*/
