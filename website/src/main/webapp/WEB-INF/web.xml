@@ -51,7 +51,7 @@
 	 	<url-pattern>/display</url-pattern>
 	 </servlet-mapping> -->
 	 
-	  <servlet>
+	<!--   <servlet>
     <servlet-name>background</servlet-name>
     <servlet-class>ncl.ac.uk.esc.monitor.background</servlet-class>
     </servlet> 
@@ -59,11 +59,11 @@
 	<servlet-mapping>
 	 	<servlet-name>background</servlet-name>
 	 	<url-pattern>/background</url-pattern>
-	 </servlet-mapping>  
+	 </servlet-mapping>  --> 
 	
 	<servlet>
 	<servlet-name>JSONServlet</servlet-name>
-	<servlet-class>ncl.ac.uk.esc.monitor.JSONServlet</servlet-class>
+	<servlet-class>ncl.ac.uk.esc.servlet.JSONServlet</servlet-class>
 	</servlet>
 	
 	 <servlet-mapping>
@@ -71,8 +71,8 @@
     <url-pattern>/JSONServlet</url-pattern>
   </servlet-mapping>
   
- <listener>
+<!--  <listener>
  <listener-class>ncl.ac.uk.esc.monitor.listener</listener-class>
- </listener>
+ </listener> -->
  
 </web-app>

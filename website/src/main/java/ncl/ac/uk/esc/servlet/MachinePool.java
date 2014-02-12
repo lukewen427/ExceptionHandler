@@ -8,13 +8,14 @@ import ncl.ac.uk.esc.monitor.connection;
 import ncl.ac.uk.esc.monitor.connectionPool;
 import ncl.ac.uk.esc.monitor.connectionPool.getStatue;
 
-public class MachinePool implements Runnable {
+public class MachinePool extends Thread {
 
 	private ArrayList<Machine> Machines;
 	
 	protected  Hashtable<String, Machine> threads=new Hashtable<String, Machine>();
 	public MachinePool(){
 		Machines=new MachineInstants().getMachines();
+	
 		addMachine(Machines);
 		new getStatue(this);
 	}
@@ -59,21 +60,24 @@ public class MachinePool implements Runnable {
 		public static ArrayList<Machine> machines;
 		getStatue(MachinePool thePool){
 			this.thePool=thePool;
+			setThread();
 		}
 		public static void setThread(){
 			thread=thePool.getThreads();
 		}
 		
-		@SuppressWarnings("unchecked")
+		
+		
 		public static void setMahines(){
 			if(thread.isEmpty()){
 				machines=null;
 			}else{
-				machines=(ArrayList<Machine>) thread.elements();
+				machines=new ArrayList<Machine>(thread.values());
 			}
 		}
 		
 		public static ArrayList<Machine> getMachines(){
+			 setMahines();
 			return machines;
 		}
 	
