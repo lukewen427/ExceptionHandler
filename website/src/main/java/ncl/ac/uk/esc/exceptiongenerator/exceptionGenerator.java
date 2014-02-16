@@ -1,4 +1,4 @@
-package ncl.ac.uk.esc.exceptiongenerator;
+/*package ncl.ac.uk.esc.exceptiongenerator;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -37,12 +37,12 @@ public class exceptionGenerator {
 	}
 	
 	private void sendStartMessage(connection connection) throws IOException {
-	/*	try {
+		try {
 			SshStart();
 		} catch (TaskExecFailException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		if(stop instanceof shutdownServer ){
 			if(stop.isAlive()){
 				stop.setStop(true);
@@ -60,12 +60,12 @@ public class exceptionGenerator {
 		
 	}
 	private void sendStopMessage(connection connection) throws IOException{
-		/*try {
+		try {
 			SshShutdown();
 		} catch (TaskExecFailException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		if(start instanceof startServer){
 			if(start.isAlive()){
 				start.setStop(true);
@@ -81,7 +81,7 @@ public class exceptionGenerator {
 		out.println("stop");
 	}
 	
-/*	public void SshShutdown() throws TaskExecFailException{
+	public void SshShutdown() throws TaskExecFailException{
 		SSHExec ssh = null;
 		ConnBean cb = new ConnBean("10.8.149.12", "zhenyu","5lovesunny");
 		 ssh = SSHExec.getInstance(cb);   
@@ -101,6 +101,7 @@ public class exceptionGenerator {
 		  ssh.exec(ct1);
 		  ssh.disconnect();
 
-	}*/
+	}
 	
 }
+*/

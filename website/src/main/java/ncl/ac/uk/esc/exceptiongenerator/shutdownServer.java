@@ -8,18 +8,37 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
-public class shutdownServer extends Thread {
-	
+public class shutdownServer implements Runnable {
+	Thread t;
 	private Boolean stop = false;
+	public shutdownServer(String name){
+		t=new Thread(this,name);
+		t.start();
+	}
 	public void run(){
-		 JSch jsch=new JSch(); 
+		String password = null;
+		String path = null;
+		String userName=null;
+		 
 		 try {
-			Session session=jsch.getSession("zhenyu", "10.8.149.12",22);
+			 if(t.getName().equals("10.8.149.12")){
+				 password="5lovesunny";
+				 path=" /home/zhenyu/jboss/bin/jboss-cli.sh --connect command=:shutdown";
+				 userName="zhenyu";
+			 }else{
+				 password="escience";
+				 path=" /home/hugo/jboss/bin/jboss-cli.sh --connect command=:shutdown";
+				 userName="hugo";
+			 }
+			 JSch jsch=new JSch(); 
+			Session session=jsch.getSession(userName, t.getName(),22);
 			session.setConfig("StrictHostKeyChecking", "no");
-			session.setPassword("5lovesunny");
+			session.setPassword(password);
 			session.connect();
 			 ChannelExec channel = (ChannelExec) session.openChannel("exec");
-			  channel.setCommand(" /home/zhenyu/jboss/bin/jboss-cli.sh --connect command=:shutdown");
+			
+			 channel.setCommand(path);
+	
 			 ((ChannelExec) channel).setErrStream(System.err);
 			    InputStream in = null;
 				try {

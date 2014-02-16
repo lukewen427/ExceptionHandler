@@ -15,7 +15,6 @@ public class loadExceptions {
 	public loadExceptions( long startTime){
 		
 		this.startTime=startTime;
-		System.out.println(System.currentTimeMillis()-startTime);
 	}
 	/*create thread for each machine to generate exceptions*/
 	public void createThread(){
@@ -54,6 +53,7 @@ public class loadExceptions {
 			HashMap<String,ArrayList<ArrayList<String>>> machines=new HashMap<String,ArrayList<ArrayList<String>>>();
 			Set<String>machineName=machines.keySet();
 			while((data = br.readLine())!=null){
+				
 				String[] machineArr=data.split(" ");
 				String name=machineArr[0];
 				if(machineName.contains(name)){
