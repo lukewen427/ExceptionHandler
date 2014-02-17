@@ -26,10 +26,12 @@ public class JSONServlet extends HttpServlet {
 	    List<Machine> machines = new LinkedList<Machine>();
 	  
 	    public void init(){
+	    	MachinePool pool=new MachinePool();
+	    	pool.start();
 		startTime=System.currentTimeMillis(); 
 		/*send the startTime to the exception generator*/
-		new loadExceptions(startTime);
-		new MachinePool().start();
+		new loadExceptions(startTime,pool);
+		
 	     }
 	
 	   protected void doPost(HttpServletRequest request, HttpServletResponse response)

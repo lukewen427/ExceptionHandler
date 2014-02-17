@@ -50,7 +50,7 @@ $.ajax({
 
 } */
 
-function useMachine(number){
+/*function useMachine(number){
 	
 	var machines =new Object();
 	machines.ip=$('#ip').val();
@@ -88,7 +88,7 @@ function useMachine(number){
 
  function sendData(jsonText){
 	 $.post('background',jsonText);
- }
+ }*/
  
 function getData(){
 	
@@ -111,17 +111,20 @@ function getData(){
 	    	if(data!="{}"){
 	    		
 	    		$('#added-machines').html("");
+	    		  $("#added-machines").append($('<tr/>')
+                          .append($('<td/>').append("IPAddress"))
+                          .append($('<td/>').append("Statue"))
+                          .append($('<td/>').append("SecurityLevel"))
+                        	
+                  );
 	        	$.each(data,function(index,machines){
 	        		
-	        		var button = $("<button onclick="+"\""+"useMachine("+index+")"+"\""+">"+"Switch</button>");
+	        	/*	var button = $("<button onclick="+"\""+"useMachine("+index+")"+"\""+">"+"Switch</button>");*/
 	        	
 	        		  $("#added-machines").append($('<tr/>')
 	                          .append($('<td/>').append(machines.ip))
 	                          .append($('<td/>').append(machines.statue))
 	                          .append($('<td/>').append(machines.security))
-	                          .append($('<td/>').append(button)
-	         
-	                          )
 	                        	
 	                  );
 	        		

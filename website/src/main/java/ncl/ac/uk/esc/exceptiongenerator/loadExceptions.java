@@ -9,12 +9,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import ncl.ac.uk.esc.servlet.MachinePool;
+
 public class loadExceptions {
 	long startTime;
+	MachinePool pool;
 	/*get the time from the server*/
-	public loadExceptions( long startTime){
+	public loadExceptions( long startTime,MachinePool pool){
 		
 		this.startTime=startTime;
+		this.pool=pool;
+		createThread();
 	}
 	/*create thread for each machine to generate exceptions*/
 	public void createThread(){
@@ -33,7 +38,7 @@ public class loadExceptions {
 			while(Names.hasNext()){
 				String singalMachine=Names.next();
 				ArrayList<ArrayList<String>> actions=machines.get(singalMachine);
-				new exceptionGeneratorThread(singalMachine,startTime,actions);
+				new exceptionGeneratorThread(singalMachine,startTime,actions,pool);
 			}
 		}
 		
@@ -75,8 +80,8 @@ public class loadExceptions {
 			return machines;
 	}
 	
-	public static void main(String [] args) throws IOException{
+	/*public static void main(String [] args) throws IOException{
 		loadExceptions test=new loadExceptions(System.currentTimeMillis());
 				test.createThread();
-	}
+	}*/
 }

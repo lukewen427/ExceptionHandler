@@ -1,13 +1,10 @@
 package ncl.ac.uk.esc.exceptiongenerator;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.Socket;
+
 import java.util.ArrayList;
 
-import ncl.ac.uk.esc.monitor.connection;
+import ncl.ac.uk.esc.servlet.MachinePool;
+
 
 public class exceptionGeneratorThread implements Runnable {
 	Thread t;
@@ -15,7 +12,9 @@ public class exceptionGeneratorThread implements Runnable {
 	ArrayList<ArrayList<String>> actions;
 	startServer start;
 	shutdownServer stop;
-	public exceptionGeneratorThread (String name,long startTime,ArrayList<ArrayList<String>> actions){
+	MachinePool pool;
+	public exceptionGeneratorThread (String name,long startTime,ArrayList<ArrayList<String>> actions,MachinePool pool){
+		this.pool=pool;
 		this.startTime=startTime;
 		this.actions=actions; 
 		t=new Thread(this,name);
@@ -30,7 +29,6 @@ public class exceptionGeneratorThread implements Runnable {
 				long runingTime=System.currentTimeMillis()-startTime;
 			
 				if(actionTime-runingTime<100 &&actionTime-runingTime>-100){
-					System.out.println(action);
 					String active=action.get(1);
 					if(active.equals("turnon")){
 						// start=new startServer(t.getName());
@@ -66,6 +64,7 @@ public class exceptionGeneratorThread implements Runnable {
 			}
 			
 			start=new startServer(name);
+			pool.changeStatus(name);
 			
 		}
 		private void sendStopMessage(String name) {
@@ -83,7 +82,7 @@ public class exceptionGeneratorThread implements Runnable {
 			}
 		
 			stop=new shutdownServer(name);
-			
+			pool.changeStatus(name);
 		}
 
 }

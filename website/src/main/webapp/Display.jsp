@@ -38,7 +38,7 @@
                 <th>IPAddress</th>
                 <th>Statue</th>
                 <th>SecurityLevel</th>
-                <th>Switch</th>
+                
             </tr>
         </table>
     </div>

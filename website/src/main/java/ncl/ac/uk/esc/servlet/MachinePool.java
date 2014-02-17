@@ -2,11 +2,9 @@ package ncl.ac.uk.esc.servlet;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Set;
 
-import ncl.ac.uk.esc.monitor.connection;
-import ncl.ac.uk.esc.monitor.connectionPool;
-import ncl.ac.uk.esc.monitor.connectionPool.getStatue;
+
+
 
 public class MachinePool extends Thread {
 
