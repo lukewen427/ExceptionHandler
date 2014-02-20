@@ -21,17 +21,22 @@ public class readInfo {
 		try {
 			Set<Block>theBlockSet=getBlocks();
 			Set<Cloud> cloudSet=getClouds();
+			//DataBlocks are the dependencies of two service blocks
 			Set<DataBlock> DataBlocks=getDataBlocks();
 			partitionTool partition=new partitionToolimp();
 			if(partition.workflowChecking(theBlockSet,connections)){
+				// theOptionSet stores all the possible options of the blocks deployed on the clouds
 				ArrayList<Object>theOptionSet=partition.allOptions(theBlockSet,DataBlocks,cloudSet);
+			// used to find the typical block
 				BlockSet blockset=new BlockSet(theBlockSet);
+				// used to find the typical cloud
 				CloudSet cloudset=new CloudSet(cloudSet);
+				// used to find the typical data
 				DataBlockSet datablockset=new DataBlockSet(DataBlocks);
 			 HashMap<String,ArrayList<Object>> partitionMap=partition.workflowPartition(theOptionSet,connections,blockset);	
-			 String []  order=partition.findBestOption(partitionMap,connections,blockset,cloudset);
-			 ArrayList<Object> findBestOption=partitionMap.get(order[0]);
-		     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
+	//		 String []  order=partition.findBestOption(partitionMap,connections,blockset,cloudset);
+	//		 ArrayList<Object> findBestOption=partitionMap.get(order[0]);
+	//	     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
 			}else{
 					throw new Exception("This is invalid workflow");
 				 }

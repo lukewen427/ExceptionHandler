@@ -120,7 +120,8 @@ public class partitionToolimp implements partitionTool{
 		}
 		return theoptions;
 	}
-
+	
+	/*check the rules: no read high and no write down*/
 	public boolean workflowChecking (Set<Block> theBlockSet,ArrayList<ArrayList<String>> connections) {
 		Boolean verified=true;
 		Iterator<Block> getBlocks=theBlockSet.iterator();
