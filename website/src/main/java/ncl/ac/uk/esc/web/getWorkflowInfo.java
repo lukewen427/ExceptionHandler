@@ -73,8 +73,7 @@ public class getWorkflowInfo extends HttpServlet {
 	 ArrayList<ArrayList<String>> connection=new ArrayList<ArrayList<String>>();
 	 WorkflowRestructure getconnection=new WorkflowRes();
 	 connection=getconnection.getConnection(workflowid);
-	return connection;
-	 
+	return connection; 
  }	
  public HashMap<String,String> getBlocks(String workflowid) throws Exception{
 		

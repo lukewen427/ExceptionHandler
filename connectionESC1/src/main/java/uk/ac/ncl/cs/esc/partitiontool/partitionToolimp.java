@@ -81,6 +81,7 @@ public class partitionToolimp implements partitionTool{
 			}
 			
 		}
+	
 		HashMap<Object,Integer> singalOption=new HashMap<Object,Integer>();
 		for(int i=0;i<options.size();i++){
 			HashMap<Object,Integer> tempOption=new HashMap<Object,Integer>();
@@ -148,6 +149,7 @@ public class partitionToolimp implements partitionTool{
 					SBclearance=theBlock.getclearance();
 					readData=Integer.valueOf(connection.get(6));
 					if(SBclearance<readData){
+						
 						verified=false;
 						break;
 					}
@@ -159,11 +161,46 @@ public class partitionToolimp implements partitionTool{
 	}
 
 	public HashMap<String, ArrayList<Object>> workflowPartition( ArrayList<Object>theOptionSet,
-			ArrayList<ArrayList<String>> connections,BlockSet blockset) {
+			ArrayList<ArrayList<String>> connections,BlockSet blockset,DataBlockSet databBlockSet) {
 		HashMap<String, ArrayList<Object>> partitionMap=new HashMap<String, ArrayList<Object>>();
-			ArrayList<Object> singaloption=new ArrayList<Object>();
-			int partCount=1;
+			
+			ArrayList<String> startNodes=getInitialBlocks(connections);
 			for(int a=0;a<theOptionSet.size();a++){
+			//	System.out.println("Option"+(a+1));
+				HashMap<Object,Integer> singalOption=(HashMap<Object, Integer>) theOptionSet.get(a);
+				ArrayList<Object>option=getParitions(singalOption,connections, blockset,databBlockSet, 
+											startNodes,new ArrayList<Object>(),new ArrayList<Object>());
+				
+				String OptionNum="Option"+(a+1);
+				partitionMap.put(OptionNum, option);
+	/*			
+	 * here is test code
+	 * 
+	 * for(int x=0;x<option.size();x++){
+					ArrayList<Object>thepartition=(ArrayList<Object>) option.get(x);
+					System.out.println(thepartition.get(0));
+					for(int h=1;h<thepartition.size();h++){
+						
+						Object f=thepartition.get(h);
+						if(f instanceof Block){
+							System.out.print((((Block) f).getBlockId()));
+							System.out.print("  ");
+						}else{
+							System.out.print(((DataBlock)f).getsourceblockId());
+							System.out.print("*");
+							System.out.print(((DataBlock)f).getdestinationblockId());
+							System.out.print("  ");
+						}
+						
+					}
+					System.out.println("  ");
+				}*/
+			
+			}
+			
+			// useless code
+			
+			/*for(int a=0;a<theOptionSet.size();a++){
 		//		System.out.println("Partition"+(a+1));
 				HashMap<Object,Integer> singalOption=(HashMap<Object, Integer>) theOptionSet.get(a);
 	//			ArrayList<Object> singaloptiontemp=new ArrayList<Object>();
@@ -349,11 +386,172 @@ public class partitionToolimp implements partitionTool{
 				partitionMap.put(partitionNum, singaloption);
 				partCount++;
 			  }	
-			}
+			}*/
 			
 			return partitionMap;
 	}
 
+	private  ArrayList<Object> getParitions(HashMap<Object,Integer> singalOption,
+								ArrayList<ArrayList<String>> connections,BlockSet blockset,DataBlockSet databBlockSet,
+										ArrayList<String> waitingNodes,ArrayList<Object> visited,ArrayList<Object>option){
+		// option is used to store partitions
+		if(waitingNodes.isEmpty()){
+		
+			return option;
+		}
+	
+		ArrayList<String> offspringNodes=new ArrayList<String>();
+	
+		for(int a=0;a<waitingNodes.size();a++){
+			String Node=waitingNodes.get(a);
+			Block block=blockset.getBlock(Node);
+	
+			int cloudblock=singalOption.get(block);
+			if(visited.contains(block)){
+				
+			}else{
+				visited.add(block);
+				ArrayList<Object> partition=new ArrayList<Object>();
+			
+				if(option.isEmpty()){
+					partition.add(cloudblock);
+					partition.add(block);
+				}else{
+				//	ArrayList<Object> newPartition=new ArrayList<Object>();
+					for(Object party:option){
+						ArrayList<Object> theParty=(ArrayList<Object>)party;
+						if(theParty.contains(block)){
+							partition=(ArrayList<Object>) theParty.clone();
+							option.remove(party);
+							break;
+						}
+					}
+					if(partition.isEmpty()){
+						partition.add(cloudblock);
+						partition.add(block);
+					}
+					
+				}
+				
+				for(ArrayList<String> connection:connections){
+					String sourceNode=connection.get(0);
+					String destinationNode=connection.get(1);
+					if(Node.equals(sourceNode)){
+						DataBlock link= databBlockSet.getDataBlock(Node, destinationNode);
+						int linkcloud=singalOption.get(link);
+						Block offspringblock=blockset.getBlock(destinationNode);
+						int offspringCloud=singalOption.get(offspringblock);
+						if(cloudblock==linkcloud){
+							// the data is the same partition with parents block
+							partition.add(link);
+						
+							if(linkcloud==offspringCloud){
+								//  data and offspringblock in same partition
+								partition.add(offspringblock);
+				
+						
+							
+							}else{
+								// data and offspring block is not in same partition 
+								ArrayList<Object> newPartition=new ArrayList<Object>();
+								newPartition.add(offspringCloud);
+								newPartition.add(offspringblock);	
+				
+								option.add(new ArrayList<Object>(newPartition));
+				
+							}
+							
+						}else{
+							ArrayList<Object> newPartition=new ArrayList<Object>();
+							newPartition.add(linkcloud);
+							newPartition.add(link);
+							if(linkcloud==offspringCloud){
+								newPartition.add(offspringblock);
+						
+								option.add(new ArrayList<Object>(newPartition));
+				
+							}else{
+								ArrayList<Object> thenewPartition=new ArrayList<Object>();
+								thenewPartition.add(offspringCloud);
+								thenewPartition.add(offspringblock);	
+						
+								option.add(new ArrayList<Object>(newPartition));
+								option.add(new ArrayList<Object>(thenewPartition));
+							}
+							
+						}
+						offspringNodes.add(destinationNode);
+					}
+					
+				}
+				option.add(new ArrayList<Object>(partition));
+			}
+			
+		}
+		
+			return getParitions(singalOption, connections,blockset, databBlockSet,offspringNodes,
+					visited,option);
+	}
+	
+	/*private ArrayList<Object> Recursion(ArrayList<Object> option,String parentsNode,BlockSet blockset,HashMap<Object,Integer> singalOption,
+													DataBlockSet databBlockSet,ArrayList<ArrayList<String>> connections){
+		
+		Block block=blockset.getBlock(parentsNode);
+		int cloud=singalOption.get(block);
+		ArrayList<Object> partition = null;
+		for(Object party:option){
+			ArrayList<Object> partitioned=(ArrayList<Object>) party;
+			if(partitioned.contains(block)){
+				partition=(ArrayList<Object>) partitioned.clone();
+				option.remove(party);
+			 }
+			}
+		
+		ArrayList<String> offspringNodes=new ArrayList<String>();
+		for(ArrayList<String> connection:connections){
+			String sourceNode=connection.get(0);
+			String destinationNode=connection.get(1);
+			if(parentsNode.equals(sourceNode)){
+				offspringNodes.add(destinationNode);
+			}
+		}
+		for(String node:offspringNodes){
+			DataBlock link= databBlockSet.getDataBlock(parentsNode, node);
+			Block offspringblock=blockset.getBlock(node);
+			int offspringcloud=singalOption.get(offspringblock);
+			int linkcloud=singalOption.get(link);
+			if(cloud==linkcloud){
+				partition.add(link);
+				if(linkcloud==offspringcloud){
+					partition.add(offspringblock);
+					option.add(new ArrayList<Object>(partition));
+				}else{
+					ArrayList<Object> newpartition=new ArrayList<Object>();
+					newpartition.add(offspringblock);
+					option.add(new ArrayList<Object>(partition));
+					option.add(new ArrayList<Object>(newpartition));
+				}
+			}else{
+				ArrayList<Object> newpartition=new ArrayList<Object>();
+				newpartition.add(link);
+				if(linkcloud==offspringcloud){
+					newpartition.add(offspringblock);
+					option.add(new ArrayList<Object>(partition));
+					option.add(new ArrayList<Object>(newpartition));
+				}else{
+					ArrayList<Object> thenewpartition=new ArrayList<Object>();
+					thenewpartition.add(offspringblock);
+					option.add(new ArrayList<Object>(partition));
+					option.add(new ArrayList<Object>(newpartition));
+					option.add(new ArrayList<Object>(thenewpartition));
+				}
+			}
+			return Recursion(option, parentsNode, blockset,singalOption,
+					 databBlockSet, connections);
+		}
+		
+		return null;
+	}*/
 	private ArrayList<Object> cloudCombination(ArrayList<Object> cloud0Partition){
 	
 		ArrayList<Object> finalcloud0Partition=new ArrayList<Object> ();
@@ -664,6 +862,26 @@ public class partitionToolimp implements partitionTool{
 		}
 		
 		return orderName;
+	}
+
+	public ArrayList<String> getInitialBlocks(ArrayList<ArrayList<String>> connections) {
+		
+		ArrayList<String> startBlocks=new ArrayList<String>();
+		for(ArrayList<String> connection:connections){
+			boolean isStartNode=true;
+			String sourceNode=connection.get(0);
+			for(ArrayList<String> thelink:connections){
+				String destinationNode=thelink.get(1);
+				if(sourceNode.equals(destinationNode)){
+					isStartNode=false;
+					break;
+				}
+			}
+			if(isStartNode){
+				startBlocks.add(sourceNode);
+			}
+		}
+		return startBlocks;
 	}
 
 }

@@ -775,6 +775,7 @@ public class WorkflowRes implements WorkflowRestructure {
 		return connections;
 		
 	}
+	
 	public String getBlockName(String BlockId,String workflowId) throws Exception{
 		String name = null;
 		JSONObject dataObject= getWorkflowAsJsonObject( workflowId);

@@ -31,5 +31,6 @@ public interface WorkflowRestructure {
 	public ArrayList<String> getInputports(String workflowId,String blockId) throws Exception;
 	public ArrayList<String> getOutputports(String workflowId,String blockId) throws Exception;
 	public ArrayList<ArrayList<String>> getConnection(String workflowId) throws Exception;
+	public String getBlockName(String BlockId,String workflowId) throws Exception;
 }
 

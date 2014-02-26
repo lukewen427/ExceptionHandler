@@ -27,13 +27,15 @@ public class readInfo {
 			if(partition.workflowChecking(theBlockSet,connections)){
 				// theOptionSet stores all the possible options of the blocks deployed on the clouds
 				ArrayList<Object>theOptionSet=partition.allOptions(theBlockSet,DataBlocks,cloudSet);
+				
 			// used to find the typical block
 				BlockSet blockset=new BlockSet(theBlockSet);
 				// used to find the typical cloud
 				CloudSet cloudset=new CloudSet(cloudSet);
 				// used to find the typical data
 				DataBlockSet datablockset=new DataBlockSet(DataBlocks);
-			 HashMap<String,ArrayList<Object>> partitionMap=partition.workflowPartition(theOptionSet,connections,blockset);	
+		     HashMap<String,ArrayList<Object>> partitionMap=partition.workflowPartition(theOptionSet,connections,blockset,datablockset);	
+		//	 System.out.println(partitionMap);
 	//		 String []  order=partition.findBestOption(partitionMap,connections,blockset,cloudset);
 	//		 ArrayList<Object> findBestOption=partitionMap.get(order[0]);
 	//	     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
@@ -92,6 +94,7 @@ public class readInfo {
 		Set<Block>theBlockSet=new HashSet<Block>();
 		while(ids.hasNext()){
 			String blockid=ids.next();
+			String blockName=parser.getBlockName(blockid, workflowId);
 			String serviceId=parser.getBlockServiceId(blockid, workflowId);
 			ArrayList element=blocks.get(blockid);	
 	//		System.out.println(element);
@@ -101,7 +104,7 @@ public class readInfo {
 	//		int clearance=(Integer) element.get(1);
 			String type=(String) element.get(2);
 			int cpu=Integer.valueOf((String) element.get(3));
-			theblock=new Block(blockid,location,clearance,type,serviceId,cpu);
+			theblock=new Block(blockid,location,clearance,type,serviceId,cpu,blockName);
 			theBlockSet.add(theblock);	
 		}
 		return theBlockSet;

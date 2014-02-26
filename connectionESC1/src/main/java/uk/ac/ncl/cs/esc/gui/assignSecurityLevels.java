@@ -39,6 +39,8 @@ public class assignSecurityLevels extends JPanel implements ActionListener {
 		try {
 			this.blocks=getBlocks(workflowId);
 			this.links=getConnection(workflowId); 
+			System.out.println(blocks);
+			System.out.println(links);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
