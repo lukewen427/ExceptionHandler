@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class partitionToolimp implements partitionTool{
-
+	boolean Cycle;
 	public ArrayList<Object> allOptions(Set<Block> blockSet,Set<DataBlock> DataBlocks,
 			Set<Cloud> cloudSet) {
 		
@@ -552,156 +552,6 @@ public class partitionToolimp implements partitionTool{
 		
 		return null;
 	}*/
-	private ArrayList<Object> cloudCombination(ArrayList<Object> cloud0Partition){
-	
-		ArrayList<Object> finalcloud0Partition=new ArrayList<Object> ();
-		ArrayList<Object> clone1=new ArrayList<Object> ();
-		ArrayList<Object> clone2=new ArrayList<Object> ();
-		for(int a=0;a<cloud0Partition.size();a++){
-			ArrayList<Object> partition=(ArrayList<Object>) cloud0Partition.get(a);
-		//	System.out.println(partition);
-			if(!partition.isEmpty()){
-			boolean noLink=true;
-			for(int fx=0; fx<partition.size();fx++){
-				Object block=partition.get(fx);
-				if(block instanceof DataBlock){
-					noLink=false;
-					break;
-				}
-			}
-			if(noLink==true){
-				clone1=(ArrayList<Object>) partition.clone();
-				finalcloud0Partition.add(clone1);
-			}else{
-				boolean Undo=false;
-				for(int hf=0;hf<partition.size();hf++){
-					Object block=partition.get(hf);
-					if(block instanceof Block){
-						for(int hc=0;hc<finalcloud0Partition.size();hc++){
-							ArrayList<Object> gettemp=(ArrayList<Object>) finalcloud0Partition.get(hc);
-							if(gettemp.contains(block)){
-								Undo=true;
-								break;
-							}
-						}
-					}
-					
-				}
-				if(Undo==false){
-				ArrayList<Object> thepartition=singalCombinationCloud0(finalcloud0Partition,partition,cloud0Partition);
-				if(thepartition!=null && !thepartition.isEmpty()){
-					clone2=(ArrayList<Object>) thepartition.clone();
-					finalcloud0Partition.add(clone2);
-				}
-			}
-			}
-		 }
-		}
-		return finalcloud0Partition;
-	}
-
-	private ArrayList<Object>singalCombinationCloud0(ArrayList<Object> finalcloud0Partition,ArrayList<Object> partition,
-																ArrayList<Object> cloud0Partition){
-		boolean noLink=true;
-		for(int a=0; a<partition.size();a++){
-			Object block=partition.get(a);
-			if(block instanceof DataBlock){
-				for(int hs=0;hs<cloud0Partition.size();hs++){
-					ArrayList<Object> singalSet=(ArrayList<Object>) cloud0Partition.get(hs);
-					if(singalSet.contains(block)){
-						noLink=false;
-						break;
-					}
-				}
-			}
-		}
-		if(noLink==true){
-			return partition;
-		}else{
-			ArrayList<Object> newpartition=(ArrayList<Object>) partition.clone();
-			ArrayList<Object> changedcloud0=(ArrayList<Object>)cloud0Partition.clone();
-				if(finalcloud0Partition.isEmpty()){
-					for(int i=0;i<partition.size();i++){
-						Object getBlock=partition.get(i);
-						if(getBlock instanceof DataBlock){
-							DataBlock thedatablock=(DataBlock) getBlock;
-							for(int f=0;f<changedcloud0.size();f++){
-								ArrayList<Object> tempPartition=(ArrayList<Object>) changedcloud0.get(f);
-								boolean iscontain=false;
-								for(int h=0;h<tempPartition.size();h++){
-									Object gettempBlock=tempPartition.get(h);
-									if(gettempBlock instanceof Block){
-										if(partition.contains(gettempBlock)){
-											iscontain=true;
-											break;
-										}
-									}
-								}
-								if(iscontain==false){
-									if(tempPartition.contains(thedatablock)){
-										int size=newpartition.size();
-										newpartition.remove(size-1);
-										for(int fh=0;fh<tempPartition.size();fh++){
-											Object getBlockAdd=tempPartition.get(fh);
-											if(!newpartition.contains(getBlockAdd)){
-												newpartition.add(getBlockAdd);
-											}
-										}
-										changedcloud0.remove(f);
-									}
-									
-								}else{
-									changedcloud0.remove(f);
-								}
-							}
-						}
-					}
-			
-					return singalCombinationCloud0(finalcloud0Partition,newpartition, changedcloud0);
-				}else{
-					// System.out.println(newpartition);
-				     for(int i=0;i<partition.size();i++){
-								Object getBlock=partition.get(i);
-								if(getBlock instanceof DataBlock){
-									DataBlock thedatablock=(DataBlock) getBlock;
-									for(int f=0;f<changedcloud0.size();f++){
-										ArrayList<Object> tempPartition=(ArrayList<Object>)changedcloud0.get(f);
-							//			System.out.println(tempPartition);
-										boolean iscontain=false;
-										for(int h=0;h<tempPartition.size();h++){
-											Object gettempBlock=tempPartition.get(h);
-											if(gettempBlock instanceof Block){
-												if(partition.contains(gettempBlock)){
-													iscontain=true;
-													break;
-												}
-											}
-										}
-										if(iscontain==false){
-								
-											if(tempPartition.contains(thedatablock)){
-												
-												int size=newpartition.size();
-												newpartition.remove(size-1);
-												for(int fh=0;fh<tempPartition.size();fh++){
-													Object getBlockAdd=tempPartition.get(fh);
-													if(!newpartition.contains(getBlockAdd)){
-														newpartition.add(getBlockAdd);
-													}
-												}
-												changedcloud0.remove(f);
-											}
-										}else{
-											changedcloud0.remove(f);
-										}
-									}
-								}
-							}
-			
-					return singalCombinationCloud0(finalcloud0Partition,newpartition, changedcloud0);
-				}
-		 }
-	}
 
 	private boolean partitionSecurity(ArrayList<Object>singaloption){
 		boolean validPartition=true;
@@ -748,7 +598,7 @@ public class partitionToolimp implements partitionTool{
 							for(int f=0;f<singaloption.size();f++){
 								ArrayList<Object>compare=(ArrayList<Object>)singaloption.get(f);
 								if(compare.contains(getdestinationBlock)){
-									int nextSecurity=(Integer) compare.get(compare.size()-1);
+									int nextSecurity=(Integer) compare.get(0);
 									if(currentSecurity>nextSecurity){
 										validtransfer=false;
 										break;
@@ -768,102 +618,7 @@ public class partitionToolimp implements partitionTool{
 		return validtransfer;
 	}
 	
-	public String [] findBestOption(
-			HashMap<String,ArrayList<Object>> partitionMap,ArrayList<ArrayList<String>> connections,BlockSet blockset,CloudSet cloudset) {
-		int size=partitionMap.size();
-		int Total[]=new int[size];
-		int Order[]=new int[size];
-		int Storage[]=new int[size];
-		int CPU[]=new int[size];
-		int TransferInCost[]=new int[size];
-		int TransferOutCost[]=new int[size];
-		String optionName []=new String[size];
-		Set<String> partitionNum=partitionMap.keySet();
-		Iterator getPartition=partitionNum.iterator();
-		int h=0;
-		while(getPartition.hasNext()){
-			String parName=(String) getPartition.next();
-			optionName[h]=parName;
-			ArrayList<Object> partitions=partitionMap.get(parName);
-			int storageCost=0;
-			int cpuCost=0;
-			int outgoing=0;
-			int incoming=0;
-			for(int a=0;a<partitions.size();a++){
-				ArrayList<Object>transferdata=new ArrayList<Object>();
-				ArrayList<Object>singalPartition=(ArrayList<Object>) partitions.get(a);
-				for(int i=0;i<singalPartition.size()-1;i++){
-					int security=(Integer) singalPartition.get(singalPartition.size()-1);
-					String cloudName="Cloud"+security;
-					Cloud currentCloud=cloudset.getCloud(cloudName);
-					int theStorage=currentCloud.getStoragecost();
-					int thecpu=currentCloud.getCPUcost();
-					Object block=singalPartition.get(i);
-					if(block instanceof DataBlock){
-						int datasize=((DataBlock) block).getSize();
-						int longevity=((DataBlock) block).getlongevity();
-						storageCost=storageCost+datasize*longevity*theStorage;
-						String sourceid=((DataBlock) block).getsourceblockId();
-						String destinationid=((DataBlock) block).getdestinationblockId();
-						Block getsourceBlock= blockset.getBlock(sourceid);
-						Block getdestinationBlock=blockset.getBlock(destinationid);
-						if(singalPartition.contains(getsourceBlock)&&!singalPartition.contains(getdestinationBlock)){
-							int TransferOut=currentCloud.getTransferout();
-							outgoing=outgoing+datasize*TransferOut;
-							for(int f=0;f<partitions.size();f++){
-								ArrayList<Object>compare=(ArrayList<Object>)partitions.get(f);
-								if(compare.contains(getdestinationBlock)){
-									int nextsecure=(Integer) compare.get(compare.size()-1);
-									String nextCloudName="Cloud"+nextsecure;
-									Cloud nextCloud=cloudset.getCloud(nextCloudName);
-									int TransferIn=nextCloud.getTransferin();
-									incoming=incoming+TransferIn*datasize;
-								  }
-								}
-							}
-						}else{
-							Block isBlock=(Block)block;
-							int cpu=isBlock.cpu();
-							cpuCost=cpuCost+(cpu*thecpu);
-						}
-					}
-				}
-			Storage[h]=storageCost;
-			TransferInCost[h]=incoming;
-			TransferOutCost[h]=outgoing;
-			CPU[h]=cpuCost;
-			Total[h]=storageCost+incoming+outgoing+cpuCost;
-			Order[h]=storageCost+incoming+outgoing+cpuCost;
-			h++;
-		}
-		
-		int theOrder[]=new int[size];
-		Arrays.sort(Order);
-		for (int i = 0; i < Order.length; i++) {
-			 int sortedData=Order[i];
-			 for(int xf=0;xf<size;xf++){
-				 if(sortedData==Total[xf]){
-					 boolean contain=false;
-					 for(int af=0;af<theOrder.length;af++){
-						 if(theOrder[af]==xf){
-							 contain=true;
-							 break;
-						 }
-					 }
-					 if(contain==false){
-						 theOrder[i]=xf;
-					 }
-				 }
-			 } 
-		}
-		String orderName []=new String[size];
-		for(int i=0;i<size;i++){
-			orderName[i]=optionName[theOrder[i]];
-		}
-		
-		return orderName;
-	}
-
+	
 	public ArrayList<String> getInitialBlocks(ArrayList<ArrayList<String>> connections) {
 		
 		ArrayList<String> startBlocks=new ArrayList<String>();
@@ -884,4 +639,296 @@ public class partitionToolimp implements partitionTool{
 		return startBlocks;
 	}
 
+	public HashMap<String, ArrayList<Object>> tranferSecurityCheck(
+			HashMap<String, ArrayList<Object>> options, BlockSet blockset) {
+		HashMap<String,ArrayList<Object>> validOptions=new HashMap<String,ArrayList<Object>> ();
+		Iterator<String> keySet=options.keySet().iterator();
+		int a=1;
+		while(keySet.hasNext()){
+			ArrayList<Object> option=options.get(keySet.next());
+			if(transferCheck(option,blockset)){
+				String Name="Option"+a;
+				validOptions.put(Name, option);
+				a++;
+			}
+		}
+		return validOptions;
+	}
+/* this method is used to check the cycle in the options, if there is cycle in a option which mean it is not atomic.
+ *  We use DFT to trversal each node, when the   */
+	public HashMap<String, ArrayList<Object>> cycleBreak( HashMap<String, ArrayList<Object>> Maps) {
+		HashMap<String, ArrayList<Object>> validMap=new HashMap<String, ArrayList<Object>>();
+		Iterator<String> keySet=Maps.keySet().iterator();
+		while(keySet.hasNext()){
+			String optionName=keySet.next();
+			ArrayList<Object> option=Maps.get(optionName);
+			ArrayList<Object> connection=(ArrayList<Object>) option.get(1);
+			
+			if(!cycleCheck(connection)){
+				validMap.put(optionName, option);
+			}
+		}
+		return validMap;
+	}
+	// to check are there any cycle includ in the partitioned workflow 
+	private boolean cycleCheck(ArrayList<Object> connection){
+		
+		ArrayList<Integer> StartNodes=new ArrayList<Integer>();
+		ArrayList<ArrayList<Integer>> links=new ArrayList<ArrayList<Integer>>();
+		for(int a=0;a<connection.size();a++){
+			boolean isStart=true;
+			  ArrayList<Object> link=(ArrayList<Object>) connection.get(a);
+			  ArrayList<Integer> partitionLink=(ArrayList<Integer>) link.get(0);
+			  int source=partitionLink.get(0);
+			  links.add(partitionLink);
+			  for(int i=0;i<connection.size();i++){
+				  ArrayList<Object> templink=(ArrayList<Object>) connection.get(i);
+				  ArrayList<Integer> temppartitionLink=(ArrayList<Integer>) link.get(0);
+				  int destination=temppartitionLink.get(1);
+				  if(source==destination){
+					  isStart=false;
+				  }
+			  }
+			  if(isStart){
+				  StartNodes.add(source);
+			  }
+		}
+		
+		boolean isCycle = false;
+		for(int node:StartNodes){
+			DFT(node,links,new ArrayList<Integer>(),new ArrayList<Integer>());
+			isCycle=isCycle();
+			if(isCycle){
+				break;
+			}
+		}
+		
+		return isCycle;
+	}
+	
+	
+	private void DFT(int startNode,ArrayList<ArrayList<Integer>> links,ArrayList<Integer> visited,ArrayList<Integer> running){
+		
+		visited.add(startNode);
+		running.add(startNode);
+		for(ArrayList<Integer> link:links){
+			int source=link.get(0);
+			int destination=link.get(1);
+			if(source==startNode){
+				if(!visited.contains(destination)){
+					DFT(destination,links,visited,running);
+				}else if(running.contains(destination)){
+					hasCycle(true);
+					return;
+				}
+			}
+		}
+		for(int j=0;j<running.size();j++){
+			if(running.get(j)==startNode){
+				running.remove(j);
+				break;
+			}
+		}
+		if(running.isEmpty()){
+			hasCycle(false);
+		}
+	}
+	private boolean isCycle(){
+		return Cycle;
+	}
+	private void hasCycle(boolean iscycle){
+		this.Cycle=iscycle;
+	}
+	// return the initial partition of a paritioned workflow 
+	private ArrayList<Object> initialPartition(ArrayList<String>startNodes,BlockSet blockset,ArrayList<Object> option){
+		ArrayList<Object> startPartitions=new ArrayList<Object>();
+		for(String node:startNodes){
+			Block block=blockset.getBlock(node);
+			for(int a=0;a<option.size();a++){
+				ArrayList<Object>partition=(ArrayList<Object>) option.get(a);
+				if(partition.contains(block)){
+					startPartitions.add(partition);
+				}
+			}
+		}
+		return startPartitions;
+	}
+
+	/* the map has stored the partitions and the links of each partition of the options
+	ArrayList<Object> include two sub objects: HashMap<String, Object> and ArrayList<String>
+	HashMap<String, Object> : String means the order Object is the partitions 
+	ArrayList<String> the links of each partition 
+	*/
+	public HashMap<String, ArrayList<Object>> Maps(HashMap<String,ArrayList<Object>>options,
+			ArrayList<ArrayList<String>> connections, BlockSet blockset,
+			DataBlockSet dataBlockSet) {
+		HashMap<String,ArrayList<Object>> Map=new HashMap<String,ArrayList<Object>> ();
+		Iterator<String> keySet=options.keySet().iterator();
+		int a=1;
+		while(keySet.hasNext()){
+			ArrayList<Object> option=options.get(keySet.next());
+			String Name="Option"+a;
+			ArrayList<Object> order= linkedPartitions(option, connections,blockset,dataBlockSet);
+			Map.put(Name,order);
+			a++;
+		}
+		return Map;
+	}
+	
+//	Object :ArrayList<ArrayList<Object>> to store the links of each partition and HashMap to store the paritions 
+	private ArrayList<Object>linkedPartitions(ArrayList<Object>option,ArrayList<ArrayList<String>> connections, BlockSet blockset,
+			DataBlockSet dataBlockSet){
+		
+		ArrayList<String>startNodes=getInitialBlocks(connections);
+		ArrayList<Object> startPartitions=initialPartition(startNodes,blockset, option);
+		ArrayList<Object> Visited = new ArrayList<Object>();
+		HashMap<Integer, Object> partitions=new HashMap<Integer, Object> ();
+		if(partitions.isEmpty()){
+			int number=partitions.size()+1;
+			for(int a=0;a<startPartitions.size();a++){
+				partitions.put(number+a, startPartitions.get(a));
+				Visited.add(startPartitions.get(a));
+			}
+		}
+		
+		ArrayList<Object>Map=traversal(option,connections,blockset,dataBlockSet,startPartitions,
+									new ArrayList<ArrayList<Object>>(),partitions,new ArrayList<Object>(),Visited);
+		
+		
+		return Map;
+	}
+	
+	private ArrayList<Object>traversal(ArrayList<Object>option,ArrayList<ArrayList<String>> connections, BlockSet blockset,DataBlockSet dataBlockSet,
+			ArrayList<Object> parents,ArrayList<ArrayList<Object>>partitionLinks,HashMap<Integer, Object> partitions,ArrayList<Object> Map,ArrayList<Object>Visited){
+		if(parents.isEmpty()){
+			Map.add(partitions);
+			Map.add(partitionLinks);
+			return Map;
+		}else{
+			ArrayList<Object> offspringPartitions=new ArrayList<Object>();
+			
+			for(Object node:parents){
+				ArrayList<Object> theNode=(ArrayList<Object>)node;
+				int name=getkey(theNode,partitions);
+				for(int a=1;a<theNode.size();a++){
+					Object block=theNode.get(a);
+					 ArrayList<Object> singalLink=new ArrayList<Object>();
+					 
+					 if(block instanceof DataBlock){
+						
+						  String sourceid=((DataBlock) block).getsourceblockId();
+						  String destinationid=((DataBlock) block).getdestinationblockId();
+						  Block getdestinationBlock=blockset.getBlock(destinationid);
+						  if(!theNode.contains(getdestinationBlock)){
+							  for(int h=0;h<option.size();h++){
+								  ArrayList<Object> thepartition=(ArrayList<Object>) option.get(h);
+								  if(thepartition.contains(getdestinationBlock)){
+									  ArrayList<String>link=findconnection(sourceid,destinationid,connections);
+							
+									  if(isVisited(Visited,thepartition)){
+										  
+										  int theName=getkey(thepartition,partitions);
+										  if(name!=theName){
+											  ArrayList<Integer> thelink=new ArrayList(Arrays.asList(name,theName));
+											  singalLink.add(thelink);
+											  singalLink.add(link);
+											  partitionLinks.add(new ArrayList<Object>(singalLink));
+										  }
+									  }else{
+										  offspringPartitions.add(new ArrayList<Object>(thepartition));	 
+										  Visited.add(new ArrayList<Object>(thepartition));
+										  int named=partitions.size()+1;
+										  partitions.put(named, thepartition);
+										  ArrayList<Integer> thelink=new ArrayList(Arrays.asList(name,named));
+										  singalLink.add(thelink);
+										  singalLink.add(link);
+										  if(!singalLink.isEmpty()){
+											  partitionLinks.add(new ArrayList<Object>(singalLink));
+										  }
+									  }
+									
+								  }
+							  }
+						  } 
+					 }else{
+							String blockid=((Block)block).getBlockId();
+							for(int i=0;i<connections.size();i++){
+								ArrayList<String> connection=connections.get(i);
+								String sourceid=connection.get(0);
+								String destinationid=connection.get(1);
+								 Block getdestinationBlock=blockset.getBlock(destinationid);
+								 
+								if(sourceid.equals(blockid)&& !theNode.contains(getdestinationBlock)){
+									
+									ArrayList<String>link=findconnection(sourceid,destinationid,connections);
+									DataBlock data=dataBlockSet.getDataBlock(sourceid, destinationid);
+									 for(int h=0;h<option.size();h++){
+										  ArrayList<Object> thepartition=(ArrayList<Object>) option.get(h);
+										  if(thepartition.contains(data)){
+											
+											  if(isVisited(Visited,thepartition)){
+												  int theName=getkey(thepartition,partitions);
+												  if(name!=theName){
+													  ArrayList<Integer> thelink=new ArrayList(Arrays.asList(name,theName));
+													  singalLink.add(thelink);
+													  singalLink.add(link);
+													  partitionLinks.add(new ArrayList<Object>(singalLink));
+												  }
+												  
+											  }else{
+												  offspringPartitions.add(new ArrayList<Object>(thepartition));	 
+												  Visited.add(new ArrayList<Object>(thepartition));
+												  int named=partitions.size()+1;
+												  partitions.put(named, thepartition);
+												  ArrayList<Integer> thelink=new ArrayList(Arrays.asList(name,named));
+												  singalLink.add(thelink);
+												  singalLink.add(link);
+												  if(!singalLink.isEmpty()){
+													  partitionLinks.add(new ArrayList<Object>(singalLink));
+												  }
+											  }
+										  }
+									  }
+								}
+							} 
+					   }
+					}
+			}
+			return traversal(option,connections,blockset,dataBlockSet,offspringPartitions,partitionLinks,partitions,Map,Visited);
+		}
+	
+	}
+	
+	private boolean isVisited(ArrayList<Object>Visited, ArrayList<Object> thepartition){
+		
+		for(Object partition:Visited){
+			ArrayList<Object> temp=(ArrayList<Object>) partition;
+			Object node=thepartition.get(1);
+			if(temp.contains(node)){
+				return true;
+			}
+		}
+		return false;
+	}
+	private int getkey(ArrayList<Object> partition,HashMap<Integer, Object> partitions){
+		for(int i: partitions.keySet()){
+			Object node=partition.get(1);
+			ArrayList<Object> singalPartition=(ArrayList<Object>) partitions.get(i);
+			if(singalPartition.contains(node)){
+				return i;
+			}
+		}
+		return 0;
+	}
+
+	
+	private ArrayList<String> findconnection(String sourceid,String destinationid,ArrayList<ArrayList<String>> connections){
+		ArrayList<String> getConnection=new ArrayList<String>();
+		for(ArrayList<String>connection:connections){
+			if(sourceid.equals(connection.get(0))&&destinationid.equals(connection.get(1))){
+				getConnection=(ArrayList<String>) connection.clone();
+			}
+		}
+		return getConnection;
+	}
 }

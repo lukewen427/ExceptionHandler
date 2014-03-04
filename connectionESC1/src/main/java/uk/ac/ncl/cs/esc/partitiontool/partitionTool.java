@@ -10,7 +10,18 @@ public interface partitionTool {
 	public boolean workflowChecking (Set<Block> theBlockSet,ArrayList<ArrayList<String>> connections);
 	public HashMap<String,ArrayList<Object>> workflowPartition( ArrayList<Object>theOptionSet,
 			ArrayList<ArrayList<String>> connections, BlockSet blockset,DataBlockSet databBlockSet) ;
-	public String []  findBestOption(HashMap<String,ArrayList<Object>> partitionMap,
-										ArrayList<ArrayList<String>> connections,BlockSet blockset, CloudSet cloudset);
+	
 	public ArrayList<String> getInitialBlocks(ArrayList<ArrayList<String>> connections);
+	public HashMap<String,ArrayList<Object>> tranferSecurityCheck(HashMap<String,ArrayList<Object>>options,BlockSet blockset);
+	
+	/* the map has stored the partitions and the links of each partition of the options
+	ArrayList<Object> include two sub objects: HashMap<String, Object> and ArrayList<String>
+	HashMap<String, Object> : String means the order Object is the partitions
+	ArrayList<String> the links of each partition
+	*
+	*/
+	public HashMap<String,ArrayList<Object>> Maps(HashMap<String,ArrayList<Object>>options,
+			ArrayList<ArrayList<String>> connections, BlockSet blockset,DataBlockSet databBlockSet);
+	
+	public HashMap<String,ArrayList<Object>> cycleBreak( HashMap<String, ArrayList<Object>> Maps);
 }

@@ -35,7 +35,11 @@ public class readInfo {
 				// used to find the typical data
 				DataBlockSet datablockset=new DataBlockSet(DataBlocks);
 		     HashMap<String,ArrayList<Object>> partitionMap=partition.workflowPartition(theOptionSet,connections,blockset,datablockset);	
-		//	 System.out.println(partitionMap);
+		     HashMap<String,ArrayList<Object>> validOptions=partition.tranferSecurityCheck(partitionMap, blockset);
+		     HashMap<String, ArrayList<Object>> Maps=partition.Maps(validOptions,connections,  blockset, datablockset);
+		     HashMap<String, ArrayList<Object>> validMap=partition.cycleBreak(Maps);
+		    String selectedOption= (new costCalculation( validMap, blockset,cloudset,datablockset)).getOrder();
+		  
 	//		 String []  order=partition.findBestOption(partitionMap,connections,blockset,cloudset);
 	//		 ArrayList<Object> findBestOption=partitionMap.get(order[0]);
 	//	     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
@@ -60,6 +64,7 @@ public class readInfo {
 		}
 		
 	}
+	
 	private Set<DataBlock> getDataBlocks(){
 		DataBlock dataBlock=null;
 		Set<DataBlock>theDataBlockSet=new HashSet<DataBlock>();
