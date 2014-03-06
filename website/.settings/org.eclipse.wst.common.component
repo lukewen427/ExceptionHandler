@@ -4,18 +4,6 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="connectionESC1-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/connectionESC1/connectionESC1">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="api-interface-2.5-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/api-interface/api-interface">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="server-common-2.5-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/server-common/server-common">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="workflow-core-2.5-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/workflow-core/workflow-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="website"/>
         <property name="java-output-path" value="/website/target/classes"/>
     </wb-module>

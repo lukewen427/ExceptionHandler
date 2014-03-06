@@ -83,11 +83,11 @@ $.ajax({
 	    
 	});
 
-}
+}*/
 
 
- function sendData(jsonText){
-	 $.post('background',jsonText);
+/* function sendData(jsonText){
+	 $.post('getClouds',jsonText);
  }*/
  
 function getData(){
@@ -130,7 +130,6 @@ function getData(){
 	        		
 	        	});
 	    		
-	    		//reload();
 	    	}else{
 	    		
 	    		

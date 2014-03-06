@@ -51,15 +51,15 @@
 	 	<url-pattern>/display</url-pattern>
 	 </servlet-mapping> -->
 	 
-	<!--   <servlet>
-    <servlet-name>background</servlet-name>
-    <servlet-class>ncl.ac.uk.esc.monitor.background</servlet-class>
+	<servlet>
+    <servlet-name>getClouds</servlet-name>
+    <servlet-class>uk.ac.ncl.cs.esc.deployment.getClouds</servlet-class>
     </servlet> 
      
 	<servlet-mapping>
-	 	<servlet-name>background</servlet-name>
-	 	<url-pattern>/background</url-pattern>
-	 </servlet-mapping>  --> 
+	 	<servlet-name>getClouds</servlet-name>
+	 	<url-pattern>/getClouds</url-pattern>
+	 </servlet-mapping> 
 	
 	<servlet>
 	<servlet-name>JSONServlet</servlet-name>
