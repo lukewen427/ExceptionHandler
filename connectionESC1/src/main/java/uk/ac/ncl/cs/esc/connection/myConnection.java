@@ -56,7 +56,7 @@ public class myConnection implements getConnection {
 	    }
 	   public API createCloudAPI(String cloud) throws Exception{
 		   
-		   if(cloud.equals("C0")){
+		   if(cloud.equals("Cloud0")){
 		    String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
 			String APPLICATION_KEY = "1a8ab737fce0ce60978fd2ecd8374ed1";
 		 	String urlString="http://10.8.149.12:8080/APIServer";

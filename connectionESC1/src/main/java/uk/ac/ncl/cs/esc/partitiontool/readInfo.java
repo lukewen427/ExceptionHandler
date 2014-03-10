@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import uk.ac.ncl.cs.esc.deployment.createPartitionGraph;
+import uk.ac.ncl.cs.esc.deployment.deployOption;
 import uk.ac.ncl.cs.esc.deployment.getDeploymentInfo;
+import uk.ac.ncl.cs.esc.exceptionHandler.exceptionHandler;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRes;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRestructure;
 
@@ -37,11 +40,23 @@ public class readInfo {
 		     HashMap<String,ArrayList<Object>> partitionMap=partition.workflowPartition(theOptionSet,connections,blockset,datablockset);	
 		     HashMap<String,ArrayList<Object>> validOptions=partition.tranferSecurityCheck(partitionMap, blockset);
 		     HashMap<String, ArrayList<Object>> Maps=partition.Maps(validOptions,connections,  blockset, datablockset);
+		     // ArrayList<Object> includes the links of partitions and the partition instances 
 		     HashMap<String, ArrayList<Object>> validMap=partition.cycleBreak(Maps);
-		    String selectedOption= (new costCalculation( validMap, blockset,cloudset,datablockset)).getOrder();
-		  
-	//		 String []  order=partition.findBestOption(partitionMap,connections,blockset,cloudset);
-	//		 ArrayList<Object> findBestOption=partitionMap.get(order[0]);
+		     // get the cost of each partition and each link of the partitions 
+		     costCalculation cost=new costCalculation( validMap, blockset,cloudset,datablockset);
+		     // get the cheapest option 
+		//    String selectedOption= cost.getOrder();
+		    HashMap<String,ArrayList<Object>> costSet=cost.getCost();
+		    // create a partition graph to deal the exceptions 
+		    createPartitionGraph graph=new createPartitionGraph( costSet,validMap);
+		    HashMap<Integer,ArrayList<Object>> thegraph=graph.getGraph();
+		    ArrayList<Object> links=graph.getLinks();
+		    Thread t=new Thread(new exceptionHandler(thegraph,links),"exceptionHanlder");
+			t.start();
+		//  first time deploy the don't have exception partition, so put 0
+			Thread deploy=new Thread(new deployOption(thegraph,links,0));
+			deploy.setName("deloyment");
+			deploy.start();
 	//	     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
 			}else{
 					throw new Exception("This is invalid workflow");
@@ -85,8 +100,8 @@ public class readInfo {
 		Set<Cloud> cloudSet=new HashSet<Cloud>();
 		Cloud cloud0;
 		Cloud cloud1;
-		cloud0=new Cloud("Cloud0","0","esc1",5,5,5,5);
-		cloud1=new Cloud("Cloud1","1","esc2",10,5,5,10);
+		cloud0=new Cloud("Cloud0","0","10.66.66.176",5,5,5,5);
+		cloud1=new Cloud("Cloud1","1","10.8.149.12",10,5,5,10);
 		cloudSet.add(cloud0);
 		cloudSet.add(cloud1);
 		return cloudSet;

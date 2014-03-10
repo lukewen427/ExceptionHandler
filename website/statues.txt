@@ -1,0 +1,1 @@
+[Machine [ip=10.66.66.176, Staute=OFF, security=0], Machine [ip=10.8.149.12, Staute=OFF, security=1]]

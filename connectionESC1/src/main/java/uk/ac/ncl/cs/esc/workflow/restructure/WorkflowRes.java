@@ -20,7 +20,6 @@ import org.pipeline.core.xmlstorage.XmlDataStore;
 import org.pipeline.core.xmlstorage.XmlStorageException;
 import org.pipeline.core.xmlstorage.io.XmlDataStoreStreamReader;
 
-
 import uk.ac.ncl.cs.esc.connection.getConnection;
 import uk.ac.ncl.cs.esc.connection.myConnection;
 import uk.ac.ncl.cs.esc.deployment.DpartitionSet;
@@ -28,7 +27,6 @@ import uk.ac.ncl.cs.esc.deployment.singalPartition;
 import uk.ac.ncl.cs.esc.partitiontool.Block;
 import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
 import uk.ac.ncl.cs.esc.partitiontool.DataBlock;
-
 
 import com.connexience.server.api.API;
 import com.connexience.server.api.APIConnectException;
@@ -230,31 +228,90 @@ public class WorkflowRes implements WorkflowRestructure {
 		return DocumentSet;
 	}
 	
-	private boolean goDeployment(ArrayList<Object> thesteps,ArrayList<ArrayList<String>> connections,BlockSet blockset,
-			ArrayList<Object>partition,DefaultDrawingModel drawing,int b,getConnection parser,API api,ArrayList<Object>Links) throws Exception{
+	
+	
+	public  HashMap<String,ByteArrayOutputStream> CreateWorkflow(String cloudName,ArrayList<Object> partition,String partitionName,
+		ArrayList<ArrayList<String>> connections,BlockSet blockset,DpartitionSet Dpartitionset,ArrayList<ArrayList<String>>inputs,
+													HashMap<String, ByteArrayOutputStream> theresults) throws Exception{
+		getConnection parser=new myConnection();
+		parser.createCloudAPI(cloudName);
+		API api=parser.getAPI();
+		ArrayList<Object>Links=new ArrayList<Object>();
+		HashMap<String,String> resultInfo=fileUpload(theresults,api);
+		ArrayList<Block> Blocks=new ArrayList<Block>();
+		for(int a=1;a<partition.size();a++){
+			Object block=partition.get(a);
+			if(block instanceof DataBlock){
+				Links.add(block);
+			}
+			if(block instanceof Block){
+				Blocks.add((Block)block);
+			}
+		}
+	//	singalPartition thePartition=Dpartitionset.getSingalPartition(partition);
+		int b=0;
+		DefaultDrawingModel drawing = new DefaultDrawingModel();
 		
-		if(thesteps.isEmpty()){
-			return false;
-		}else{
+		// only include data block in this partition
+		if(Blocks.isEmpty()){
+			for(int h=0;h<Links.size();h++){
+				DataBlock thedata=(DataBlock) Links.get(h);
+				String destination=thedata.getdestinationblockId();
+				String documentId=resultInfo.get(destination);
+				String serviceId="blocks-core-io-csvimport";
+				IDynamicWorkflowService service = parser.getService("blocks-core-io-csvimport");
+				DataProcessorBlock Block = parser.createBlock(service);
+				createblock(b,Block,documentId,serviceId,api,drawing,partitionName);
+				b++;
+				String theserviceId="blocks-core-io-csvexport";
+				IDynamicWorkflowService service3=parser.getService(theserviceId);
+				DataProcessorBlock exportBlock = parser.createBlock(service3);
+				createblock(b,exportBlock,documentId,theserviceId,api,drawing,destination);
+				drawing.connectPorts(Block.getOutput("imported-data"),exportBlock.getInput("input-data"));
+			}
 			
-			ArrayList<Object> Newsteps=new ArrayList<Object>();
-			ArrayList<Object> NewstartNode=new ArrayList<Object>();
-			for(int a=0; a<thesteps.size();a++){
-				ArrayList<Object> startBlockObject=(ArrayList<Object>) thesteps.get(a);
-				Block startBlock=null;
-				if(startBlockObject.get(0)instanceof Block){
-					 startBlock=(Block) startBlockObject.get(0);
-				}
-				String blockId=startBlock.getBlockId();
-				DataProcessorBlock createstartBlock=(DataProcessorBlock) startBlockObject.get(1);
-				ArrayList<Block> endBlockSet=getEndBlockSet(blockId,Links,blockset,partition);
-				if(!endBlockSet.isEmpty()){
-					String documentId=null;
+		}else{
+			// only service blocks include in the partition
+			if(Links.isEmpty()){
+				for(int a=0;a<Blocks.size();a++){
+					Block theblock=(Block) partition.get(a);
+					String blockId=theblock.getBlockId();
+					String serviceId=theblock.getserviceId();
+					DataProcessorBlock serviceBlock;
+					
+					// the block is the load block
+					if(serviceId.equals("blocks-core-io-csvimport")){
+						String documentId=null;
+						IDynamicWorkflowService service = parser.getService("blocks-core-io-csvimport");
+						serviceBlock = parser.createBlock(service);
+						createblock(b,serviceBlock,documentId,serviceId,api,drawing,partitionName);
+						b++;
+					}else{
+						String documentId=resultInfo.get(blockId);
+						String theserviceId="blocks-core-io-csvimport";
+						IDynamicWorkflowService service = parser.getService("blocks-core-io-csvimport");
+						DataProcessorBlock Block = parser.createBlock(service);
+						createblock(b,Block,documentId,theserviceId,api,drawing,partitionName);
+						b++;
+						IDynamicWorkflowService service1 = parser.getService(serviceId);
+						serviceBlock = parser.createBlock(service1);
+						createblock(b,serviceBlock,documentId,serviceId,api,drawing,partitionName);
+						b++;
+						String inputportName=null;
+						for(int fx=0;fx<inputs.size();fx++){
+							ArrayList<String>theinput=inputs.get(fx);
+							if(blockId.equals(theinput.get(1))){
+								inputportName=theinput.get(5);
+							}
+						}
+						drawing.connectPorts(Block.getOutput("imported-data"), serviceBlock.getInput(inputportName));
+					}
+					
+					// add export block
+				    String documentId=null;
 					String outputPort=null;
 					String inputPort=null;
 					ArrayList<String> export=getNextNode(blockId,partition, blockset, connections);
-	
-					/*add export node*/
 					if(!export.isEmpty()){
 						for(int hh=0;hh<export.size();hh++){
 							String theserviceName=export.get(hh);
@@ -273,50 +330,189 @@ public class WorkflowRes implements WorkflowRestructure {
 									break;
 								}
 							}
-							drawing.connectPorts(createstartBlock.getOutput(outputPort),exportBlock.getInput(inputPort));
+							drawing.connectPorts(serviceBlock.getOutput(outputPort),exportBlock.getInput(inputPort));
+						}
+						
+					}	
+				}
+			}else{
+				
+				ArrayList<Block> initialBlocks=new ArrayList<Block>();
+
+					for(int a=0;a<Links.size();a++){
+						DataBlock link=(DataBlock) Links.get(a);
+						String source=link.getsourceblockId();
+						String destination=link.getdestinationblockId();
+						Block sourceBlock=blockset.getBlock(source);
+						Block destinationBlock=blockset.getBlock(destination);
+						if(!Blocks.contains(sourceBlock)&&Blocks.contains(destinationBlock)){
+							initialBlocks.add(destinationBlock);
 						}
 					}
-					/*add next node in the same partition*/
-					for(int xx=0;xx<endBlockSet.size();xx++){
-						Block endBlock=endBlockSet.get(xx);
-						String endBlockId=endBlock.getBlockId();
-						String serviceName=null;
-						String endBlockServiceId=endBlock.getserviceId();
 					
-						IDynamicWorkflowService endBlockservice = parser.getService(endBlockServiceId);
-						DataProcessorBlock createendBlock = parser.createBlock(endBlockservice);
-						createblock(b,createendBlock,documentId,endBlockServiceId,api,drawing,serviceName);
-						b++;
-						for(int fx=0;fx<connections.size();fx++){
-							ArrayList<String> connection=connections.get(fx);
-							String startNode=connection.get(0);
-							String endNode=connection.get(1);
-							if(startNode.equals(blockId)&&endNode.equals(endBlockId)){
-								outputPort=connection.get(4);
-								inputPort=connection.get(5);
+					for(int i=0;i<Blocks.size();i++){
+						Block theBlock=Blocks.get(i);
+						String Blockid=theBlock.getBlockId();
+						boolean isStart=true;
+						for(int a=0;a<Links.size();a++){
+							DataBlock link=(DataBlock) Links.get(a);
+							String destination=link.getdestinationblockId();
+							if(Blockid.equals(destination)){
+								isStart=false;
 								break;
 							}
 						}
-						drawing.connectPorts(createstartBlock.getOutput(outputPort),createendBlock.getInput(inputPort));
-						/*check whether all of the blocks is visited*/
-						ArrayList<Block>temp=getEndBlockSet(endBlockId,Links,blockset,partition);
-						if(!temp.isEmpty()){
-							ArrayList<Object> temp1=new ArrayList<Object>();
-							temp1.add(endBlock);
-							temp1.add(createendBlock);
-							NewstartNode=(ArrayList<Object>) temp1.clone();
-							Newsteps.add(NewstartNode);
+						if(isStart){
+							initialBlocks.add(theBlock);
 						}
 					}
 					
-				}
+					// start deploy from one of the the initial block of the partition
+					for(int h=0;h<initialBlocks.size();h++){
+						Block startBlock=initialBlocks.get(h);
+						String blockId=startBlock.getBlockId();
+						String serviceId=startBlock.getserviceId();
+						DataProcessorBlock serviceBlock;
+						if(serviceId.equals("blocks-core-io-csvimport")){
+							String documentId=null;
+							String serviceName=null;
+							IDynamicWorkflowService service = parser.getService("blocks-core-io-csvimport");
+							 serviceBlock = parser.createBlock(service);
+							createblock(b,serviceBlock,documentId,serviceId,api,drawing,serviceName);
+							b++;
+						}else{
+							// add the load block for the start block
+							String documentId=resultInfo.get(blockId);
+							String serviceName=null;
+							String theserviceId="blocks-core-io-csvimport";
+							IDynamicWorkflowService service = parser.getService("blocks-core-io-csvimport");
+							DataProcessorBlock Block = parser.createBlock(service);
+							createblock(b,Block,documentId,theserviceId,api,drawing,serviceName);
+							b++;
+							
+							IDynamicWorkflowService service1 = parser.getService(serviceId);
+							serviceBlock = parser.createBlock(service1);
+							createblock(b,serviceBlock,documentId,serviceId,api,drawing,serviceName);
+							b++;
+							
+							String inputportName=null;
+							for(int fx=0;fx<inputs.size();fx++){
+							
+								ArrayList<String>theinput=inputs.get(fx);
+								
+								if(blockId.equals(theinput.get(1))){
+									inputportName=theinput.get(5);
+								}
+							}
+							
+							drawing.connectPorts(Block.getOutput("imported-data"), serviceBlock.getInput(inputportName));
+						}
+						// create the offspring blocks as following 
+						offspringNodes( serviceBlock,startBlock,Links,Blocks,blockset,connections,partition,
+																	drawing,b,parser,api,new ArrayList<String>());
+					
+					}
+					
 			}
-			
-			return goDeployment( Newsteps, connections,blockset,partition,drawing, b, parser, api,Links);
 		}
+		//  get the results
+		HashMap<String,ByteArrayOutputStream> results=getResult(drawing,partitionName,parser,api);
+		return results;
 	}
 	
-	public  HashMap<String,ByteArrayOutputStream> CreateWorkflow(String cloud,ArrayList<Object>partition,
+	/* create the workflow and execute the workflow*/
+	private  HashMap<String,ByteArrayOutputStream> getResult(DefaultDrawingModel drawing,String partitionName,getConnection parser,API api) throws Exception{
+		
+		JSONDrawingExporter exporter = new JSONDrawingExporter(drawing); 
+		IWorkflow wf = parser.createWorkflow(partitionName, drawing);
+		IWorkflowParameterList params = (InkspotWorkflowParameterList)api.createObject(IWorkflowParameterList.XML_NAME);
+		IWorkflowInvocation invocation = api.executeWorkflow(wf, params);
+		 while(invocation.getStatus().equals(IWorkflowInvocation.WORKFLOW_RUNNING) || invocation.getStatus().equals(IWorkflowInvocation.WORKFLOW_WAITING)){
+	    	 try {
+	    		 Thread.sleep(1000);
+	    	 } catch (Exception e){}
+	    	 System.out.println("Checking status");
+	    	 invocation =api.getWorkflowInvocation(invocation.getInvocationId());
+	     }
+		  List<IObject> results = api.getFolderContents(invocation);
+		  HashMap<String,ByteArrayOutputStream> result=new HashMap<String,ByteArrayOutputStream>();
+		  for (IObject r : results) {
+			  if (r instanceof IDocument) {
+				  IDocument d = (IDocument) r;
+				  String getName= d.getName();
+				  String[] thename=getName.split("\\.");
+				  ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+				  api.download(d, outStream);
+				  outStream.flush();
+				  result.put(thename[0], outStream);
+			  }
+		  }
+		  return result;
+	} 
+	
+	/* this method is used the create the offspring nodes the start nodes*/
+	private void offspringNodes(DataProcessorBlock serviceBlock,Block startBlock,ArrayList<Object>Links,ArrayList<Block> Blocks,BlockSet blockset,ArrayList<ArrayList<String>> connections,
+			ArrayList<Object>partition,DefaultDrawingModel drawing,int b,getConnection parser,API api,ArrayList<String> visited) throws Exception{
+		
+		String blockId=startBlock.getBlockId();
+		visited.add( blockId);
+		for(int a=0;a<Links.size();a++){
+			DataBlock data=(DataBlock) Links.get(a);
+			String source=data.getsourceblockId();
+			String destination=data.getdestinationblockId();
+			Block destinationBlock=blockset.getBlock(destination);
+			String outputPort=null;
+			String inputPort=null;
+			if(blockId.equals(source)){
+				
+				if(Blocks.contains(destinationBlock)&&!visited.contains(destination)){
+					String serviceName=null;
+					String documentId=null;
+					
+					String offspringSeviceId=destinationBlock.getserviceId();
+					IDynamicWorkflowService service = parser.getService(offspringSeviceId);
+					DataProcessorBlock Block = parser.createBlock(service);
+					createblock(b,Block,documentId,offspringSeviceId,api,drawing,serviceName);
+					b++;
+					for(int fx=0;fx<connections.size();fx++){
+						ArrayList<String> connection=connections.get(fx);
+						String startNode=connection.get(0);
+						String endNode=connection.get(1);
+						if(startNode.equals(blockId)&&endNode.equals(destination)){
+							outputPort=connection.get(4);
+							inputPort=connection.get(5);
+							break;
+						}
+					}
+					
+					drawing.connectPorts(serviceBlock.getOutput(outputPort),Block.getInput(inputPort));
+					offspringNodes(Block,destinationBlock,Links,Blocks,blockset,connections,partition,drawing,b, parser,api,visited);
+				}
+				
+				if(!Blocks.contains(destinationBlock)){
+					String theserviceName=destination;
+					String theserviceId="blocks-core-io-csvexport";
+					IDynamicWorkflowService service3=parser.getService(theserviceId);
+					DataProcessorBlock exportBlock = parser.createBlock(service3);
+					createblock(b,exportBlock,null,theserviceId,api,drawing,theserviceName);
+					b++;
+					for(int fx=0;fx<connections.size();fx++){
+						ArrayList<String> connection=connections.get(fx);
+						String startNode=connection.get(0);
+						String endNode=connection.get(1);
+						if(startNode.equals(blockId)&&endNode.equals(theserviceName)){
+							outputPort=connection.get(4);
+							inputPort=connection.get(5);
+							break;
+						}
+					}
+					drawing.connectPorts(serviceBlock.getOutput(outputPort),exportBlock.getInput(inputPort));
+				}
+			}
+		}
+			
+	}
+/*	public  HashMap<String,ByteArrayOutputStream> CreateWorkflow(String cloud,ArrayList<Object>partition,
 				String thePartitionNum,ArrayList<ArrayList<String>> connections,BlockSet blockset,
 				           DpartitionSet Dpartitionset,HashMap<String, ByteArrayOutputStream> theresults) throws Exception{
 		System.out.println("Start deploy");
@@ -425,7 +621,7 @@ public class WorkflowRes implements WorkflowRestructure {
 						String outputPort=null;
 						String inputPort=null;
 						ArrayList<String> export=getNextNode(startBlockId,partition, blockset, connections);
-						/*add export node*/
+						add export node
 						if(!export.isEmpty()){
 							for(int hh=0;hh<export.size();hh++){
 								String theserviceName=export.get(hh);
@@ -448,7 +644,7 @@ public class WorkflowRes implements WorkflowRestructure {
 							}
 						}
 						
-						/*add next node in the same partition*/
+						add next node in the same partition
 						ArrayList<Object> thesteps=new ArrayList<Object>();
 						ArrayList<Object> step=new ArrayList<Object>();
 						ArrayList<Object> startNodeInfo=new ArrayList<Object>();
@@ -482,7 +678,7 @@ public class WorkflowRes implements WorkflowRestructure {
 								thesteps.add(step);
 							}
 						}
-						/*Recursive until the all blocks is created */
+						Recursive until the all blocks is created 
 						goDeployment( thesteps, connections,blockset,partition,drawing, b, parser, api,Links);
 						
 					}else{
@@ -626,7 +822,7 @@ public class WorkflowRes implements WorkflowRestructure {
 			  }
 		  }
 		return  result;
-	}
+	}*/
 	
 	private ArrayList<Block> getEndBlockSet(String nextBlock,ArrayList<Object>Links,BlockSet blockset,ArrayList<Object>partition){
 		
@@ -677,6 +873,7 @@ public class WorkflowRes implements WorkflowRestructure {
 			 DocumentRecordWrapper wrapper = new DocumentRecordWrapper(doc);
 			 Block.getEditableProperties().add("Source", wrapper);
 		}
+		
 		if(serviceId.equals("blocks-core-io-csvexport")){
 			Block.getEditableProperties().add("FileName", theServiceName+".csv");
 	       
