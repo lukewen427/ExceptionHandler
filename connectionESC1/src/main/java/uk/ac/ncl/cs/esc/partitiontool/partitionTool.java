@@ -24,4 +24,7 @@ public interface partitionTool {
 			ArrayList<ArrayList<String>> connections, BlockSet blockset,DataBlockSet databBlockSet);
 	
 	public HashMap<String,ArrayList<Object>> cycleBreak( HashMap<String, ArrayList<Object>> Maps);
+	
+	public HashMap<String,ArrayList<Object>> getStartNodes(HashMap<String, ArrayList<Object>> validMap);
+	public HashMap<String,ArrayList<Object>> getEndNodes(HashMap<String, ArrayList<Object>> validMap);
 }

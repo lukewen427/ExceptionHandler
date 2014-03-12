@@ -931,4 +931,100 @@ public class partitionToolimp implements partitionTool{
 		}
 		return getConnection;
 	}
+	
+	public HashMap<String,ArrayList<Object>> getStartNodes(HashMap<String, ArrayList<Object>> validMap){
+		HashMap<String,ArrayList<Object>> startNodes=new HashMap<String, ArrayList<Object>>();
+		
+		Iterator<String> partitionNames=validMap.keySet().iterator();
+		while(partitionNames.hasNext()){
+			ArrayList<Object> Nodes=new ArrayList<Object>();
+			String partitionName=partitionNames.next();
+			ArrayList<Object> option=validMap.get(partitionName);
+			HashMap<Integer,ArrayList<Object>> partitions=(HashMap<Integer, ArrayList<Object>>) option.get(0);
+			ArrayList<Object> links=(ArrayList<Object>) option.get(1);
+			ArrayList<Integer> startpartition=getStartPartition(links);
+			for(int a=0;a<startpartition.size();a++){
+				int theNode=startpartition.get(a);
+				ArrayList<Object> singalPartition=partitions.get(theNode);
+				Nodes.add(singalPartition);
+			}
+			if(Nodes.isEmpty()){
+				ArrayList<Object> thepartition=partitions.get(1);
+				Nodes.add(thepartition);
+			}
+			startNodes.put(partitionName, new ArrayList<Object>((ArrayList<Object>) Nodes.clone()));
+		}
+		return startNodes;
+		
+	}
+	
+	private ArrayList<Integer> getStartPartition(ArrayList<Object> links){
+		ArrayList<Integer> startNodes=new ArrayList<Integer>();
+		for(int a=0;a<links.size();a++){
+			ArrayList<Object> link=(ArrayList<Object>) links.get(a);
+			ArrayList<Integer>pLink=(ArrayList<Integer>) link.get(0);
+			int source=pLink.get(0);
+			boolean isStart=true;
+			for(int i=0;i<links.size();i++){
+				ArrayList<Object> linktemp=(ArrayList<Object>) links.get(i);
+				ArrayList<Integer> pLinktemp=(ArrayList<Integer>) linktemp.get(0);
+				int destination=pLinktemp.get(1);
+				if(source==destination){
+					isStart=false;
+					break;
+				}
+			}
+			
+			if(isStart){
+				startNodes.add(source);
+			}
+		}
+		return startNodes;
+	}
+	public HashMap<String,ArrayList<Object>> getEndNodes(HashMap<String, ArrayList<Object>> validMap){
+		HashMap<String,ArrayList<Object>> endNodes=new HashMap<String, ArrayList<Object>>();
+		
+		Iterator<String> partitionNames=validMap.keySet().iterator();
+		while(partitionNames.hasNext()){
+			ArrayList<Object> Nodes=new ArrayList<Object>();
+			String partitionName=partitionNames.next();
+			ArrayList<Object> option=validMap.get(partitionName);
+			HashMap<Integer,ArrayList<Object>> partitions=(HashMap<Integer, ArrayList<Object>>) option.get(0);
+			ArrayList<Object> links=(ArrayList<Object>) option.get(1);
+			ArrayList<Integer> endpartition=getEndPartition(links);
+			for(int a=0;a<endpartition.size();a++){
+				int theNode=endpartition.get(a);
+				ArrayList<Object> singalPartition=partitions.get(theNode);
+				Nodes.add(singalPartition);
+			}
+			endNodes.put(partitionName, new ArrayList<Object>((ArrayList<Object>) Nodes.clone()));
+		}
+		return endNodes;
+		
+	}
+	
+	private ArrayList<Integer> getEndPartition(ArrayList<Object> links){
+		ArrayList<Integer> endNodes=new ArrayList<Integer>();
+		for(int a=0;a<links.size();a++){
+			ArrayList<Object> link=(ArrayList<Object>) links.get(a);
+			ArrayList<Integer>pLink=(ArrayList<Integer>) link.get(0);
+			int destination=pLink.get(1);
+			boolean isEnd=true;
+			for(int i=0;i<links.size();i++){
+				ArrayList<Object> linktemp=(ArrayList<Object>) links.get(i);
+				ArrayList<Integer> pLinktemp=(ArrayList<Integer>) linktemp.get(0);
+				int source=pLinktemp.get(0);
+				if(source==destination){
+					isEnd=false;
+					break;
+				}
+			}
+			
+			if(isEnd){
+				endNodes.add(destination);
+			}
+		}
+		
+		return endNodes;
+	}
 }

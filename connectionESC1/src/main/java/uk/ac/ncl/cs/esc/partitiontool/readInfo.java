@@ -10,6 +10,7 @@ import uk.ac.ncl.cs.esc.deployment.createPartitionGraph;
 import uk.ac.ncl.cs.esc.deployment.deployOption;
 import uk.ac.ncl.cs.esc.deployment.getDeploymentInfo;
 import uk.ac.ncl.cs.esc.exceptionHandler.exceptionHandler;
+import uk.ac.ncl.cs.esc.exceptionHandler.routing;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRes;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRestructure;
 
@@ -42,21 +43,47 @@ public class readInfo {
 		     HashMap<String, ArrayList<Object>> Maps=partition.Maps(validOptions,connections,  blockset, datablockset);
 		     // ArrayList<Object> includes the links of partitions and the partition instances 
 		     HashMap<String, ArrayList<Object>> validMap=partition.cycleBreak(Maps);
-		     // get the cost of each partition and each link of the partitions 
-		     costCalculation cost=new costCalculation( validMap, blockset,cloudset,datablockset);
-		     // get the cheapest option 
-		//    String selectedOption= cost.getOrder();
-		    HashMap<String,ArrayList<Object>> costSet=cost.getCost();
+		     // get initial partitions of each option
+		     HashMap<String,ArrayList<Object>> startNodes=partition.getStartNodes(validMap);
+		     // get end partitions of each option
+		     HashMap<String,ArrayList<Object>> endNodes=partition.getEndNodes(validMap);
+		     
+		 //     get the cost of each partition and each link of the partitions 
+	        costCalculation cost=new costCalculation( validMap, blockset,cloudset,datablockset);
+	      
+	  //    get the cheapest option 
+		    String selectedOption= cost.getOrder();
+	 	    HashMap<String,ArrayList<Object>> costSet=cost.getCost();
+	
 		    // create a partition graph to deal the exceptions 
-		    createPartitionGraph graph=new createPartitionGraph( costSet,validMap);
-		    HashMap<Integer,ArrayList<Object>> thegraph=graph.getGraph();
-		    ArrayList<Object> links=graph.getLinks();
-		    Thread t=new Thread(new exceptionHandler(thegraph,links),"exceptionHanlder");
+		    createPartitionGraph graph=new createPartitionGraph( costSet,validMap,endNodes,startNodes);
+	        HashMap<Integer,ArrayList<Object>> thegraph=graph.getGraph();
+	        ArrayList<Object> links=graph.getLinks();
+	        // root Partitions represent in graph
+	        HashMap<String,ArrayList<Integer>> rootNodes=graph.getrootPartition();
+	       
+	        // terminal Partitions represent in graph
+	        HashMap<String,ArrayList<Integer>> terminalNodes=graph.getterminialPartition();
+	      
+	        // the cost of each partitions in the graph
+	        HashMap<Integer,Integer> partitioncost=graph.getPartitioncost();
+	    
+	        // the cost of each link between partitions
+	        ArrayList<Object> linkcost=graph.getLinkCost();
+	       
+	        ArrayList<Integer> cheap=rootNodes.get(selectedOption);
+	 
+	      //  new routing(thegraph,linkcost,cheap,terminalNodes);
+	        
+	        
+	/*	    Thread t=new Thread(new exceptionHandler(thegraph,links),"exceptionHanlder");
 			t.start();
-		//  first time deploy the don't have exception partition, so put 0
-			Thread deploy=new Thread(new deployOption(thegraph,links,0));
+			// the best option 
+			ArrayList<Integer> root=rootNodes.get(selectedOption);
+		
+			Thread deploy=new Thread(new deployOption(thegraph,links,root));
 			deploy.setName("deloyment");
-			deploy.start();
+			deploy.start();*/
 	//	     new getDeploymentInfo(findBestOption,connections,blockset,cloudset,datablockset,workflowId, partitionMap, order);
 			}else{
 					throw new Exception("This is invalid workflow");

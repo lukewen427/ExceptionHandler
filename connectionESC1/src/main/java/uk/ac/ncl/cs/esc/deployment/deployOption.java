@@ -6,13 +6,14 @@ import java.util.HashMap;
 
 
 public class deployOption implements Runnable {
-	// the selected option, or rescheduled option 
-	ArrayList<Object> option;
+	
+	HashMap<Integer,ArrayList<Object>> thegraph;
 	ArrayList<Object>links;
 	HashMap<Integer,HashMap<String,ByteArrayOutputStream>> results;
-	int exceptionPartition;
-	 public deployOption(  HashMap<Integer,ArrayList<Object>> thegraph ,ArrayList<Object> links,int exceptionPartition){
-		this.option=option;
+	ArrayList<Integer>exceptionPartition;
+	// when first load the exceptionpartition is the root partitions of the cheapest option
+	 public deployOption( HashMap<Integer,ArrayList<Object>> thegraph ,ArrayList<Object> links, ArrayList<Integer> exceptionPartition){
+		this.thegraph =thegraph;
 		this.links=links;
 		this.exceptionPartition=exceptionPartition;
 	}
@@ -23,12 +24,12 @@ public class deployOption implements Runnable {
 	
 	private void deployment(){
 		ArrayList<Integer>executedPartition=new ArrayList<Integer>();
-		//first time deploy the don't have exception partition, so it is 0
-		if(exceptionPartition==0){
-			
-		}{
-			
+		
+		for(int a=0;a<exceptionPartition.size();a++){
+			int partitionName=exceptionPartition.get(a);
+			ArrayList<Object> partitionArrayList=thegraph.get(partitionName);
 		}
+		
 	}
 	
 	private ArrayList<Object> initialPartitions(){

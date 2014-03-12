@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 public class createPartitionGraph {
 	HashMap<String,ArrayList<Object>> costSet;
@@ -11,11 +12,22 @@ public class createPartitionGraph {
 	HashMap<String, ArrayList<Object>> validMap;
 	// keys are the name of the partition, values are the partitions
 	HashMap<Integer,ArrayList<Object>> graph =new HashMap<Integer,ArrayList<Object>>();
+	 HashMap<String,ArrayList<Object>> startNodes;
+	 HashMap<String,ArrayList<Object>> endNodes;
+	 HashMap<Integer,Integer> costgraph =new HashMap<Integer,Integer>();
 	ArrayList<Object> newLink=new ArrayList<Object>();
+	ArrayList<Object> newLinkcost=new ArrayList<Object>();
+	// root partitions
+	HashMap<String,ArrayList<Integer>> rootNodes=new HashMap<String,ArrayList<Integer>>();
+	// terminal partitions
+	HashMap<String,ArrayList<Integer>> terminalNodes=new HashMap<String,ArrayList<Integer>>();
 	int Number=1;
-	public createPartitionGraph(HashMap<String,ArrayList<Object>> costSet, HashMap<String, ArrayList<Object>> validMap){
+	public createPartitionGraph(HashMap<String,ArrayList<Object>> costSet,HashMap<String, ArrayList<Object>> validMap,
+			 HashMap<String,ArrayList<Object>> endNodes,	HashMap<String,ArrayList<Object>> startNodes){
 		this.costSet=costSet;
 		this.validMap=validMap;
+		this.startNodes=startNodes;
+		this.endNodes=endNodes;
 		 createGraph();
 	}
 	
@@ -26,10 +38,24 @@ public class createPartitionGraph {
 	public ArrayList<Object> getLinks(){
 		return newLink;
 	}
+	public HashMap<String,ArrayList<Integer>> getrootPartition(){
+		return rootNodes;
+	}
+	public HashMap<String,ArrayList<Integer>> getterminialPartition(){
+		return terminalNodes;
+	}
+	public HashMap<Integer,Integer> getPartitioncost(){
+		return costgraph;
+	}
+	public ArrayList<Object> getLinkCost(){
+		return newLinkcost;
+	}
+	
 	private void createGraph(){
 		Iterator<String> optionNames=validMap.keySet().iterator();
 		while(optionNames.hasNext()){
-			ArrayList<Object>option=validMap.get(optionNames.next());
+			String optionName=optionNames.next();
+			ArrayList<Object>option=validMap.get(optionName);
 			HashMap<Integer,ArrayList<Object>> partitions=(HashMap<Integer,ArrayList<Object>>) option.get(0);
 			ArrayList<Object>connections=new ArrayList<Object>();
 			connections=(ArrayList<Object>)((ArrayList<Object>) option.get(1)).clone();
@@ -46,22 +72,54 @@ public class createPartitionGraph {
 			newcopy.add(bLink.clone());
 			copyConnections.add(newcopy.clone());				
 			}
-			
-			addPartitions(partitions,connections,copyConnections);
-			addLinks(connections);
+		
+		ArrayList<Object>optioncost=costSet.get(optionName);
+		HashMap<Integer,Integer>partitionscost=(HashMap<Integer, Integer>) optioncost.get(0);
+		
+		addPartitions(partitions,connections,copyConnections,partitionscost);
+		 ArrayList<Object> connectioncost=( ArrayList<Object>) optioncost.get(1);
+		 		
+			setrootPartition(optionName);
+			setterminialPartition(optionName);
+			addLinks(connections, connectioncost);
 		}
 	}
 	
-	private void addLinks(ArrayList<Object>connections){
+	private void setrootPartition(String optionName){
+		
+		ArrayList<Object> nodes=startNodes.get(optionName);
+		ArrayList<Integer> tempNodes=new ArrayList<Integer>();
+		for(int a=0;a<nodes.size();a++){
+			ArrayList<Object> singalPartition=(ArrayList<Object>) nodes.get(a);
+			int partitionNum=isContained(singalPartition);
+			tempNodes.add(partitionNum);
+		}
+		rootNodes.put(optionName, new ArrayList<Integer>((ArrayList<Integer>)tempNodes.clone()));
+	}
+	
+	private void setterminialPartition(String optionName){
+		ArrayList<Object> nodes=endNodes.get(optionName);
+		ArrayList<Integer> tempNodes=new ArrayList<Integer>();
+		for(int a=0;a<nodes.size();a++){
+			ArrayList<Object> singalPartition=(ArrayList<Object>) nodes.get(a);
+			int partitionNum=isContained(singalPartition);
+			tempNodes.add(partitionNum);
+		}
+		terminalNodes.put(optionName, new ArrayList<Integer>((ArrayList<Integer>)tempNodes.clone()));
+	}
+	
+	private void addLinks(ArrayList<Object>connections, ArrayList<Object>connectioncost){
 		if(newLink.isEmpty()){
 			for(int a=0;a<connections.size();a++){
 				ArrayList<Object> thelink=(ArrayList<Object>) connections.get(a);
-				
+				ArrayList<Object> thelinkcost=(ArrayList<Object>) connectioncost.get(a);
 				newLink.add(thelink.clone());
+				newLinkcost.add(thelinkcost.clone());
 			}
 		}else{
 			for(int a=0;a<connections.size();a++){
 				ArrayList<Object> thelink=(ArrayList<Object>) connections.get(a);
+				ArrayList<Object> thelinkcost=(ArrayList<Object>) connectioncost.get(a);
 				ArrayList<Integer> pLink=(ArrayList<Integer>) thelink.get(0);
 				int source=pLink.get(0);
 				int destination=pLink.get(1);
@@ -78,24 +136,31 @@ public class createPartitionGraph {
 				}
 				if(!isStored){
 					newLink.add(thelink.clone());
+					newLinkcost.add(thelinkcost.clone());
 				}
 			}
 		}
 	}
 	
-	private void addPartitions(HashMap<Integer,ArrayList<Object>> partitions,ArrayList<Object>connections,ArrayList<Object>copyConnections){
+	private void addPartitions(HashMap<Integer,ArrayList<Object>> partitions,ArrayList<Object>connections,
+						ArrayList<Object>copyConnections,HashMap<Integer,Integer>partitionscost){
 		Iterator<Integer> partitionNames=partitions.keySet().iterator();
 		while(partitionNames.hasNext()){
 			int thePartitionName=partitionNames.next();
 			ArrayList<Object> partition=partitions.get(thePartitionName);
 			if(graph.isEmpty()){
 				graph.put(Number, partition);
+				int getcost=partitionscost.get(thePartitionName);
+				costgraph.put(Number, getcost);
 				changeConnections(copyConnections,connections,Number,thePartitionName);
 				Number++;
 			}else{
 				int theNumber=isContained(partition);
+				
 				if(theNumber==0){
 					graph.put(Number, partition);
+					int getcost=partitionscost.get(thePartitionName);
+					costgraph.put(Number, getcost);
 					changeConnections(copyConnections,connections,Number,thePartitionName);
 					Number ++;
 				}else{
@@ -110,9 +175,9 @@ public class createPartitionGraph {
 	
 	
 	private void changeConnections(ArrayList<Object>copyConnections,ArrayList<Object>connections,int name,int thePartitionName){
+		
+		
 		for(int a=0;a<copyConnections.size();a++){
-			
-			
 			
 			ArrayList<Object>connectioncopy=(ArrayList<Object>)copyConnections.get(a);
 			ArrayList<Integer> partitionLinkcopy=(ArrayList<Integer>) connectioncopy.get(0);

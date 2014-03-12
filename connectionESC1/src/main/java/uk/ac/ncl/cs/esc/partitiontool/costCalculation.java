@@ -28,12 +28,14 @@ public class costCalculation {
 	 Iterator<String> optionSet=Map.keySet().iterator();
 	 int min=0;
 	 String selected = null;
+	 
 	 while(optionSet.hasNext()){
 		 String optionName=optionSet.next();
 		 ArrayList<Object> option=Map.get(optionName);
 		 int theCost=optionCost(option,optionName);
 		 if(min==0){
 			 min=theCost;
+			 selected=optionName;
 		 }
 		 if(theCost<min){
 			 min=theCost;
@@ -49,7 +51,7 @@ public class costCalculation {
 	 // include the cost of the partitions and transition
 	 ArrayList<Object> thecosts=new ArrayList<Object>();
 	 HashMap<Integer,Integer> partitionCost=new  HashMap<Integer,Integer>();
-	 HashMap<ArrayList<Integer>,Integer> linkCost=new  HashMap<ArrayList<Integer>,Integer> ();
+	 ArrayList<Object> linkCost=new  ArrayList<Object> ();
 	 
 	 HashMap<Integer,ArrayList<Object>> partitions=(HashMap<Integer, ArrayList<Object>>) option.get(0);
 	 ArrayList<Object> connection=(ArrayList<Object>) option.get(1);
@@ -70,11 +72,14 @@ public class costCalculation {
 		 ArrayList<Integer> partitionLink=(ArrayList<Integer>) link.get(0);
 		 ArrayList<String> blocklink=(ArrayList<String>) link.get(1);
 		 int tranferCost=transferCost(partitionLink,blocklink,partitions);
-		 linkCost.put(partitionLink, tranferCost);
+		 ArrayList<Object> temp=new ArrayList<Object>();
+		 temp.add(partitionLink);
+		 temp.add(tranferCost);
+		 linkCost.add(new ArrayList<Object>((ArrayList<Object>)temp.clone()));
 		 total=tranferCost+total;
 	 }
-	 thecosts.add(linkCost);
-	 
+	
+	 thecosts.add(new ArrayList<Object>(( ArrayList<Object>)linkCost));
 	 costSet.put(Name, thecosts);
 	 return total;
  }
