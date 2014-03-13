@@ -11,11 +11,14 @@ public class deployOption implements Runnable {
 	ArrayList<Object>links;
 	HashMap<Integer,HashMap<String,ByteArrayOutputStream>> results;
 	ArrayList<Integer>exceptionPartition;
+	ArrayList<Integer> cheapestPath;
 	// when first load the exceptionpartition is the root partitions of the cheapest option
-	 public deployOption( HashMap<Integer,ArrayList<Object>> thegraph ,ArrayList<Object> links, ArrayList<Integer> exceptionPartition){
+	 public deployOption( HashMap<Integer,ArrayList<Object>> thegraph ,ArrayList<Object> links, 
+			 					ArrayList<Integer> exceptionPartition,ArrayList<Integer> cheapestPath){
 		this.thegraph =thegraph;
 		this.links=links;
 		this.exceptionPartition=exceptionPartition;
+		this.cheapestPath=cheapestPath;
 	}
 
 	public void run() {
@@ -23,6 +26,7 @@ public class deployOption implements Runnable {
 	}
 	
 	private void deployment(){
+		
 		ArrayList<Integer>executedPartition=new ArrayList<Integer>();
 		
 		for(int a=0;a<exceptionPartition.size();a++){
@@ -30,11 +34,5 @@ public class deployOption implements Runnable {
 			ArrayList<Object> partitionArrayList=thegraph.get(partitionName);
 		}
 		
-	}
-	
-	private ArrayList<Object> initialPartitions(){
-		ArrayList<Object> startNodes=new ArrayList<Object>();
-		
-		return startNodes;
 	}
 }

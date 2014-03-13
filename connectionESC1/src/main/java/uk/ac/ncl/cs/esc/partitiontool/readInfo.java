@@ -73,8 +73,9 @@ public class readInfo {
 	       
 	        ArrayList<Integer> cheap=rootNodes.get(selectedOption);
 	 
-	      //  new routing(thegraph,linkcost,cheap,terminalNodes);
+	       routing getRouter=  new routing(linkcost,cheap,terminalNodes,partitioncost);
 	        
+	       ArrayList<Object> getPath=getRouter.getNewRouting();
 	        
 	/*	    Thread t=new Thread(new exceptionHandler(thegraph,links),"exceptionHanlder");
 			t.start();
