@@ -4,34 +4,54 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
 
-public class exceptionHandler implements Runnable {
+import uk.ac.ncl.cs.esc.deployment.deployOption;
+import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
+import uk.ac.ncl.cs.esc.partitiontool.CloudSet;
 
-	HashMap<Integer,ArrayList<Object>> graph;
-	ArrayList<Object> links;
-	// used to store the running partitions
-	Hashtable<Integer,Thread>  runningPartitions=new Hashtable<Integer,Thread>();
-	
-	
-	public exceptionHandler( HashMap<Integer,ArrayList<Object>> graph, ArrayList<Object> links){
-		this.graph=graph;
-		this.links=links;
-	}
-	public void getException(int partitionName){
+public class exceptionHandler {
+
+	ArrayList<String> initials;
+	 ArrayList<String> terminals;
+	 HashMap<String,ArrayList<Integer>> deploygraph;
+	 ArrayList<Object>deploylinkcost;
+	 HashMap<String,Integer>deploygraphcost;
+	 HashMap<Integer,ArrayList<Object>> graph;
+	 CloudSet cloudset;
+	 String exceptionNode;
+	 ArrayList<ArrayList<String>> excPath;
+	 BlockSet blockset;
+	 ArrayList<ArrayList<String>> connections;
+
+	public exceptionHandler(HashMap<String,ArrayList<Integer>> deploygraph,ArrayList<Object>deploylinkcost,
+			HashMap<String,Integer>deploygraphcost,ArrayList<ArrayList<String>> excPath,HashMap<Integer,ArrayList<Object>> thegraph,
+			String exceptionNode,ArrayList<String> initials,ArrayList<String> terminals,CloudSet cloudset,BlockSet blockset,ArrayList<ArrayList<String>> connections){
 		
+		this.deploygraph=deploygraph;
+		this.deploylinkcost=deploylinkcost;
+		this.initials=initials;
+		this.terminals=terminals;
+		this.deploygraphcost=deploygraphcost;
+		this.exceptionNode=exceptionNode;
+		this.graph=thegraph;
+		this.cloudset=cloudset;
+		this.excPath=excPath;
+		this.blockset=blockset;
+		this.connections=connections;
+	}
+	public ArrayList<ArrayList<String>> getPath(){
+		
+		  router getRouter= new router( deploygraph, deploylinkcost,deploygraphcost,excPath,graph,exceptionNode,initials,terminals,cloudset);
+	        ArrayList<ArrayList<String>> getPath=getRouter.getPath();
+	        return getPath;
 	}
 
-	public void run() {
-		
-		
-	}
-	
-	public synchronized void addNewPartition(int partitionName,Thread t){
-		
-		 runningPartitions.put(partitionName, t);
-	}
-	
-	public synchronized void removePartition(int partitionName){
-		
-		runningPartitions.remove(partitionName);
+	public void reDeployment(){
+		ArrayList<ArrayList<String>>NodePath=getPath();
+		deployOption deploy=new deployOption( graph,  NodePath, cloudset, deploylinkcost,
+				deploygraph, blockset, connections,deploygraphcost,initials, terminals);
+			deploy.Stop();
+			Thread t=new Thread(deploy);
+			t.setName("deployment");
+			t.start();
 	}
 }

@@ -15,7 +15,7 @@ import com.connexience.server.api.IWorkflowInvocation;
 public class testDeployment {
 
 	public static void main(String args[]) throws Exception{
-		getConnection parser=new myConnection();
+	/*	getConnection parser=new myConnection();
 		parser.createAPI();
 		API api=parser.getAPI();
 		String workflowId="8ac2c2303c3904e5013c3fe284750241";
@@ -42,7 +42,29 @@ public class testDeployment {
 			//	  outStream.flush();
 				  
 			  }
-		  }
+		  }*/
+		
+		testDeployment  t=new testDeployment ();
+		  t.callTread();
+		  t.callok();
 		 
+	}
+	public void callok(){
+		 System.out.println("ok");
+	}
+	
+	public void callTread(){
+		testexample test=new testexample("running");
+		Thread t=new Thread(test);
+		t.start();
+		
+	//	System.out.println(test.getStatue());
+		while((test.getStatue()).equals("running")){
+		
+			try {
+	    		 Thread.sleep(100);
+	    	 } catch (Exception e){}
+		}
+		System.out.println("finish");
 	}
 }

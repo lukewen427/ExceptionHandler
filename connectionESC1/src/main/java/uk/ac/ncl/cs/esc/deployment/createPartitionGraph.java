@@ -17,6 +17,8 @@ public class createPartitionGraph {
 	 HashMap<Integer,Integer> costgraph =new HashMap<Integer,Integer>();
 	ArrayList<Object> newLink=new ArrayList<Object>();
 	ArrayList<Object> newLinkcost=new ArrayList<Object>();
+	// the links of each option, after map is created 
+	HashMap<String,ArrayList<Object>> optionLink=new HashMap<String,ArrayList<Object>>();
 	// root partitions
 	HashMap<String,ArrayList<Integer>> rootNodes=new HashMap<String,ArrayList<Integer>>();
 	// terminal partitions
@@ -51,6 +53,9 @@ public class createPartitionGraph {
 		return newLinkcost;
 	}
 	
+	public HashMap<String,ArrayList<Object>> getoptionLinks(){
+		return optionLink;
+	}
 	private void createGraph(){
 		Iterator<String> optionNames=validMap.keySet().iterator();
 		while(optionNames.hasNext()){
@@ -82,7 +87,20 @@ public class createPartitionGraph {
 			setrootPartition(optionName);
 			setterminialPartition(optionName);
 			addLinks(connections, connectioncost);
+			optionLinks(optionName,connections);
 		}
+	}
+	
+	private void optionLinks(String optionName,ArrayList<Object> connections){
+		ArrayList<Object> newPLinks=new ArrayList<Object>();
+		for(int a=0;a<connections.size();a++){
+			ArrayList<Object> thelink= (ArrayList<Object>) connections.get(a);
+			ArrayList<Integer> pLink=(ArrayList<Integer>) thelink.get(0);
+			newPLinks.add(new ArrayList<Integer>((ArrayList<Integer>)pLink.clone()));
+		}
+	//	System.out.println(newPLinks);
+		optionLink.put(optionName, (ArrayList<Object>) newPLinks.clone());
+		
 	}
 	
 	private void setrootPartition(String optionName){

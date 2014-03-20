@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import uk.ac.ncl.cs.esc.exceptionHandler.master;
 import uk.ac.ncl.cs.esc.partitiontool.Block;
 import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
 import uk.ac.ncl.cs.esc.partitiontool.CloudSet;

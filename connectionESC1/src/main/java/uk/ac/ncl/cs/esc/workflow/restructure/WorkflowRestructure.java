@@ -24,7 +24,7 @@ public interface WorkflowRestructure {
 	public HashMap<String, ArrayList<String>>  ConnectionMap(String workflowId) throws Exception;
 	public HashMap<String,String> Workflowlist() throws Exception;
 	public  HashMap<String,ByteArrayOutputStream> CreateWorkflow(String cloudName,ArrayList<Object> partition,String partitionName,
-			ArrayList<ArrayList<String>> connections,BlockSet blockset,DpartitionSet Dpartitionset,ArrayList<ArrayList<String>>inputs,
+			ArrayList<ArrayList<String>> connections,BlockSet blockset,ArrayList<ArrayList<String>>inputs,
 			HashMap<String, ByteArrayOutputStream> theresults) throws Exception;
 	public String getBlockServiceId(String BlockId,String workflowId) throws Exception;
 	public ArrayList<String> getPors(String workflowId,String sourceId,String endId) throws Exception;

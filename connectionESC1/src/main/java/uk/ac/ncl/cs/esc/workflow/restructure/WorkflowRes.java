@@ -231,7 +231,7 @@ public class WorkflowRes implements WorkflowRestructure {
 	
 	
 	public  HashMap<String,ByteArrayOutputStream> CreateWorkflow(String cloudName,ArrayList<Object> partition,String partitionName,
-		ArrayList<ArrayList<String>> connections,BlockSet blockset,DpartitionSet Dpartitionset,ArrayList<ArrayList<String>>inputs,
+		ArrayList<ArrayList<String>> connections,BlockSet blockset,ArrayList<ArrayList<String>>inputs,
 													HashMap<String, ByteArrayOutputStream> theresults) throws Exception{
 		getConnection parser=new myConnection();
 		parser.createCloudAPI(cloudName);
@@ -416,12 +416,20 @@ public class WorkflowRes implements WorkflowRestructure {
 			}
 		}
 		//  get the results
-		HashMap<String,ByteArrayOutputStream> results=getResult(drawing,partitionName,parser,api);
-		return results;
+		HashMap<String, ByteArrayOutputStream> result=new HashMap<String, ByteArrayOutputStream>();
+		boolean finished=false;
+	     getResult(drawing,partitionName,parser,api,result,finished);
+	     
+	     while(finished==false){
+	    	 try {
+	    		 Thread.sleep(500);
+	    	 } catch (Exception e){}
+	     }
+		return result;
 	}
 	
 	/* create the workflow and execute the workflow*/
-	private  HashMap<String,ByteArrayOutputStream> getResult(DefaultDrawingModel drawing,String partitionName,getConnection parser,API api) throws Exception{
+	private void getResult(DefaultDrawingModel drawing,String partitionName,getConnection parser,API api,HashMap<String, ByteArrayOutputStream> result,boolean finished) throws Exception{
 		
 		JSONDrawingExporter exporter = new JSONDrawingExporter(drawing); 
 		IWorkflow wf = parser.createWorkflow(partitionName, drawing);
@@ -435,7 +443,7 @@ public class WorkflowRes implements WorkflowRestructure {
 	    	 invocation =api.getWorkflowInvocation(invocation.getInvocationId());
 	     }
 		  List<IObject> results = api.getFolderContents(invocation);
-		  HashMap<String,ByteArrayOutputStream> result=new HashMap<String,ByteArrayOutputStream>();
+	//	  HashMap<String,ByteArrayOutputStream> result=new HashMap<String,ByteArrayOutputStream>();
 		  for (IObject r : results) {
 			  if (r instanceof IDocument) {
 				  IDocument d = (IDocument) r;
@@ -447,7 +455,7 @@ public class WorkflowRes implements WorkflowRestructure {
 				  result.put(thename[0], outStream);
 			  }
 		  }
-		  return result;
+		  
 	} 
 	
 	/* this method is used the create the offspring nodes the start nodes*/
