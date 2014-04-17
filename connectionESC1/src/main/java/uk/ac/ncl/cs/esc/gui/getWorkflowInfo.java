@@ -21,10 +21,11 @@ public class getWorkflowInfo {
 			
 	}
 	
-	/*public static  void main(String []args){
+/*	public static  void main(String []args){
 		getWorkflowInfo test=new getWorkflowInfo();
 		try {
 			test.getWorkflows();
+			//System.out.println(test.getWorkflows());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

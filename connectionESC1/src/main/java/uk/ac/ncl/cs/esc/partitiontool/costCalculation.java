@@ -17,6 +17,7 @@ public class costCalculation {
 	this.blockset=blockset;
 	this.cloudset=cloudset;
 	this.dataBlockSet=dataBlockSet;
+	getOrder();
  }
  
  

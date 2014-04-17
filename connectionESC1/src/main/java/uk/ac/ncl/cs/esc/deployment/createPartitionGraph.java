@@ -80,7 +80,7 @@ public class createPartitionGraph {
 		
 		ArrayList<Object>optioncost=costSet.get(optionName);
 		HashMap<Integer,Integer>partitionscost=(HashMap<Integer, Integer>) optioncost.get(0);
-		
+		System.out.println(optionName);
 		addPartitions(partitions,connections,copyConnections,partitionscost);
 		 ArrayList<Object> connectioncost=( ArrayList<Object>) optioncost.get(1);
 		 		
@@ -139,17 +139,23 @@ public class createPartitionGraph {
 				ArrayList<Object> thelink=(ArrayList<Object>) connections.get(a);
 				ArrayList<Object> thelinkcost=(ArrayList<Object>) connectioncost.get(a);
 				ArrayList<Integer> pLink=(ArrayList<Integer>) thelink.get(0);
+				
 				int source=pLink.get(0);
 				int destination=pLink.get(1);
 				boolean isStored=false;
 				for(int i=0;i<newLink.size();i++){
 					ArrayList<Object> templink=(ArrayList<Object>)newLink.get(i);
 					ArrayList<Integer>temppLink=(ArrayList<Integer>) templink.get(0);
+					
 					int temps=temppLink.get(0);
 					int tempd=temppLink.get(1);
 					if(source==temps&&destination==tempd){
-						isStored=true;
-						break;
+						ArrayList<String> bLink=(ArrayList<String>)thelink.get(1);
+						ArrayList<String>tempbLink=(ArrayList<String>) templink.get(1);
+						if((bLink.get(0).equals(tempbLink.get(0)))&&(bLink.get(1).equals(tempbLink.get(1)))){
+							isStored=true;
+							break;
+						}
 					}
 				}
 				if(!isStored){
@@ -168,6 +174,7 @@ public class createPartitionGraph {
 			ArrayList<Object> partition=partitions.get(thePartitionName);
 			if(graph.isEmpty()){
 				graph.put(Number, partition);
+				System.out.println(Number);
 				int getcost=partitionscost.get(thePartitionName);
 				costgraph.put(Number, getcost);
 				changeConnections(copyConnections,connections,Number,thePartitionName);
@@ -177,12 +184,14 @@ public class createPartitionGraph {
 				
 				if(theNumber==0){
 					graph.put(Number, partition);
+					System.out.println(Number);
 					int getcost=partitionscost.get(thePartitionName);
 					costgraph.put(Number, getcost);
 					changeConnections(copyConnections,connections,Number,thePartitionName);
 					Number ++;
 				}else{
 					changeConnections(copyConnections,connections,theNumber,thePartitionName);
+					System.out.println(theNumber);
 				}
 				
 				

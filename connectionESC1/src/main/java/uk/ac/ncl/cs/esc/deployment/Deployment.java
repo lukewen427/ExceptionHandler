@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import uk.ac.ncl.cs.esc.exceptionHandler.dataCenter.dataStorage;
 import uk.ac.ncl.cs.esc.exceptionHandler.exceptionHandler;
 import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
 import uk.ac.ncl.cs.esc.partitiontool.Cloud;
@@ -18,23 +19,23 @@ public class Deployment implements Runnable {
 	ArrayList<Object> partition;
 	CloudSet cloudset;
 	int partitionid;
-	String staute;
+	String staute="checking";
 	String cloudName;
 	ArrayList<ArrayList<String>> connections;
-	HashMap<String,ByteArrayOutputStream> results;
 	BlockSet blockset;
 	ArrayList<ArrayList<String>>inputs;
+	ArrayList<String> heads;
 	HashMap<String,ByteArrayOutputStream>newresults=new HashMap<String,ByteArrayOutputStream>();
 	
-	public Deployment(ArrayList<Object> partition,CloudSet cloudset,int partitionid,HashMap<String,ByteArrayOutputStream> results,
-			ArrayList<ArrayList<String>>inputs,BlockSet blockset,ArrayList<ArrayList<String>> connections){
+	public Deployment(ArrayList<Object> partition,CloudSet cloudset,int partitionid,
+		ArrayList<ArrayList<String>>inputs,BlockSet blockset,ArrayList<ArrayList<String>> connections,ArrayList<String> heads){
 		this.partition=partition;
 		this.cloudset=cloudset;
 		this.partitionid=partitionid;
-	     this.results=results;
 	     this.connections= connections;
 	     this.blockset=blockset;
 	     this.inputs=inputs;
+	     this.heads=heads;
 	    
 	}
 	
@@ -51,15 +52,27 @@ public class Deployment implements Runnable {
 		}
 	}
 	
-	public void deploy(){
+	private synchronized void resultsStoring(HashMap<String,ByteArrayOutputStream> newResults){
+		
+		dataStorage.setData(newResults);
+	}
+	
+	
+	public String checkStautes(){
+		return staute;
+	}
+	
+	public void run(){
 		
 		if(checkCloud()){
 			String partitionName="Partition"+partitionid;
 			WorkflowRestructure deployworkflow=new WorkflowRes();
 			try {
 				staute="running";
+				System.out.println("running partition "+partitionName);
+				HashMap<String,ByteArrayOutputStream> results=dataStorage.getData();
 				newresults=deployworkflow.CreateWorkflow(cloudName,partition, partitionName,
-							 connections,blockset,inputs, results);
+							 connections,blockset,inputs, results,heads);
 				while(newresults.isEmpty()){
 					 try {
 			    		 Thread.sleep(500);
@@ -74,39 +87,10 @@ public class Deployment implements Runnable {
 		}else{
 			staute="fail";
 		}
-
-	}
-	
-	private synchronized void resultsStoring(HashMap<String,ByteArrayOutputStream> newResults){
 		
-		if(!newResults.isEmpty()){
-			Iterator<String> name=newResults.keySet().iterator();
-			while(name.hasNext()){
-				String singalParition=name.next();
-				ByteArrayOutputStream data=newResults.get(singalParition);
-				if(results.isEmpty()){
-					results.put(singalParition, data);
-				}else{
-					Set<String> storedData=results.keySet();
-					if(!storedData.contains(singalParition)){
-						results.put(singalParition, data);
-					}
-				}
-				
-			}
-		}
-	}
-	
-	
-	public String checkStautes(){
-		return staute;
-	}
-	
-	public void run(){
-		
-		 deploy();
-		 if(staute.equals("finish")){
+		if(staute.equals("finish")){
+			System.out.println("Start writting results");
 			 resultsStoring(newresults);
-		 }
+		 } 
 	}
 }

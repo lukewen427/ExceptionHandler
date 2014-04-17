@@ -21,10 +21,12 @@ public class exceptionHandler {
 	 ArrayList<ArrayList<String>> excPath;
 	 BlockSet blockset;
 	 ArrayList<ArrayList<String>> connections;
+	 ArrayList<Object> links;
 
 	public exceptionHandler(HashMap<String,ArrayList<Integer>> deploygraph,ArrayList<Object>deploylinkcost,
 			HashMap<String,Integer>deploygraphcost,ArrayList<ArrayList<String>> excPath,HashMap<Integer,ArrayList<Object>> thegraph,
-			String exceptionNode,ArrayList<String> initials,ArrayList<String> terminals,CloudSet cloudset,BlockSet blockset,ArrayList<ArrayList<String>> connections){
+			String exceptionNode,ArrayList<String> initials,ArrayList<String> terminals,CloudSet cloudset,BlockSet blockset,
+			ArrayList<ArrayList<String>> connections,ArrayList<Object> links){
 		
 		this.deploygraph=deploygraph;
 		this.deploylinkcost=deploylinkcost;
@@ -37,6 +39,7 @@ public class exceptionHandler {
 		this.excPath=excPath;
 		this.blockset=blockset;
 		this.connections=connections;
+		this.links=links;
 	}
 	public ArrayList<ArrayList<String>> getPath(){
 		
@@ -48,7 +51,7 @@ public class exceptionHandler {
 	public void reDeployment(){
 		ArrayList<ArrayList<String>>NodePath=getPath();
 		deployOption deploy=new deployOption( graph,  NodePath, cloudset, deploylinkcost,
-				deploygraph, blockset, connections,deploygraphcost,initials, terminals);
+				deploygraph, blockset, connections,deploygraphcost,initials, terminals,links);
 			deploy.Stop();
 			Thread t=new Thread(deploy);
 			t.setName("deployment");

@@ -43,9 +43,12 @@ public class myConnection implements getConnection {
 	        api.authenticate("wenluke427@gmail.com","laowen427");
 	    	  return api;  */
     	 
-   	 String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
+   	        /*String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
 			String APPLICATION_KEY = "1a8ab737fce0ce60978fd2ecd8374ed1";
-		 	String urlString="http://10.66.66.176:8080/APIServer";
+		 	String urlString="http://10.66.66.176:8080/APIServer";*/
+    	    String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
+			String APPLICATION_KEY = "1a8ab737fce0ce60978fd2ecd8374ed1";
+		 	String urlString="http://10.8.149.12:8080/APIServer";
 			InkspotTypeRegistration.register();
 	        APIFactory factory = new APIFactory();
 	        factory.setApiClass(com.connexience.client.api.impl.HttpClientAPI.class);
@@ -56,10 +59,10 @@ public class myConnection implements getConnection {
 	    }
 	   public API createCloudAPI(String cloud) throws Exception{
 		   
-		   if(cloud.equals("Cloud0")){
+		   if(cloud.equals("Cloud1")){
 		    String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
 			String APPLICATION_KEY = "1a8ab737fce0ce60978fd2ecd8374ed1";
-		 	String urlString="http://10.8.149.12:8080/APIServer";
+		 	String urlString="http://10.8.149.11:8080/APIServer";
 			InkspotTypeRegistration.register();
 	        APIFactory factory = new APIFactory();
 	        factory.setApiClass(com.connexience.client.api.impl.HttpClientAPI.class);
@@ -89,6 +92,7 @@ public class myConnection implements getConnection {
 	        }
 			
 		}
+   
 	public boolean getVerify(String username,String password){
 		String APPLICATION_ID = "ff8080813a022d6e013a02326740000a";
 		String APPLICATION_KEY = "1a8ab737fce0ce60978fd2ecd8374ed1";
