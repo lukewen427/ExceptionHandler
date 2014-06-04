@@ -34,5 +34,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/website"/>
+	<classpathentry kind="lib" path="/Users/zhenyuwen/git/ExceptionHandler/guava-17.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

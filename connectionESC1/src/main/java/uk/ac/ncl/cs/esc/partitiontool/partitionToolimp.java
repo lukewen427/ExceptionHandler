@@ -1211,7 +1211,7 @@ public class partitionToolimp implements partitionTool{
 		return endNodes;
 	}
 
-	public HashMap<String, ArrayList<Object>> additionalOption(HashMap<String, ArrayList<Object>> validMap,HashMap<String,ArrayList<Object>> startNodes) {
+/*	public HashMap<String, ArrayList<Object>> additionalOption(HashMap<String, ArrayList<Object>> validMap,HashMap<String,ArrayList<Object>> startNodes) {
 		Iterator <String> keys=validMap.keySet().iterator();
 		
 		while(keys.hasNext()){
@@ -1281,41 +1281,61 @@ public class partitionToolimp implements partitionTool{
 						}
 					}
 		    	}
-			 findPartition(startPartition,keyName,validMap,collection);
+			 findPartition(startPartition,keyName,validMap,collection,backup);
 			}
 		}
 	
-	private void findPartition(ArrayList<Object> startPartition,String keyName,HashMap<String, ArrayList<Object>> validMap,HashMap<Integer,ArrayList<Object>> collection){
-		
-		Iterator <String> keys=validMap.keySet().iterator();
-		while(keys.hasNext()){
-			String name=keys.next();
-			if(!name.equals(keyName)){
-				Set<Integer> thePartition=collection.keySet();
-				Iterator<Integer> offspring=thePartition.iterator();
-				int cloud=(Integer) startPartition.get(0);
-				while(offspring.hasNext()){
-					ArrayList<Object> partition=collection.get(offspring.next());
-					for(int a=0;a<partition.size();a++){
-						ArrayList<Object> singlePartition=(ArrayList<Object>) partition.get(a);
-						for(int i=1;i<singlePartition.size();i++){
-							Object block=singlePartition.get(i);
-								
-							}
+	private void findPartition(ArrayList<Object> startPartition,
+			String keyName, HashMap<String, ArrayList<Object>> validMap,
+			HashMap<Integer, ArrayList<Object>> collection, HashMap<String, ArrayList<Object>> backup) {
+		Set<Integer> thePartition = collection.keySet();
+		Iterator<Integer> offspring = thePartition.iterator();
+		int cloud = (Integer) startPartition.get(0);
+		while(offspring.hasNext()){
+			ArrayList<Object> partition = collection.get(offspring.next());
+			Iterator<String> keys = validMap.keySet().iterator();
+			
+			while (keys.hasNext()) {
+				String name = keys.next();
+				if(!name.equals(keyName)){
+					ArrayList<Object> singalOption = validMap.get(name);
+					ArrayList<Object> getPartitions = (ArrayList<Object>) singalOption.get(0);
+					for (int h = 0; h < getPartitions.size(); h++) {
+						ArrayList<Object> tempPartition = (ArrayList<Object>) getPartitions.get(h);
+						if(CheckingContained(partition,tempPartition,cloud)){
+							
 						}
+					}
 				}
-			 }
 			}
+		}
+	
 	}
 	
-	private boolean CheckingContained(String keyName,HashMap<String, ArrayList<Object>> validMap,String name,Object block){
+	private ArrayList<Object> createNewOption(String keyName,String name,ArrayList<Object> tempPartition,
+									ArrayList<Object> startPartition,HashMap<String, ArrayList<Object>> validMap){
+		ArrayList<Object> newOption=new ArrayList<Object>();
 		
-			if(!name.equals(keyName)){
-				ArrayList<Object> option=validMap.get(name);
-				HashMap<Integer,ArrayList<Object>> partitions=(HashMap<Integer,ArrayList<Object>>) option.get(0);
-				 while(partitions.keySet().iterator().hasNext()){
-					 ArrayList<Object> tempPartiton=partitions.get(partitions.keySet().iterator().next());
-				 }
+		return newOption;
+	}
+	
+	private boolean CheckingContained(ArrayList<Object> partition,ArrayList<Object> tempPartition,int cloud){
+			
+			int tempCloud=(Integer) tempPartition.get(0);
+			if(tempCloud==cloud){
+				for(int a=0;a<partition.size();a++){
+					ArrayList<Object> singlePartition=(ArrayList<Object>) partition.get(a);
+					for(int i=1;i<singlePartition.size();i++){
+						Object block=singlePartition.get(i);
+						if(!tempPartition.contains(block)){
+							return false;
+						}
+					}
+				}
+			}else{
+				return false;
 			}
-	    }
+			return true;
+	    }*/
+	
 }

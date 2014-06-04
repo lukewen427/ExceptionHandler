@@ -6,7 +6,7 @@ public class MachineInstants {
 	 protected  ArrayList<Machine> Machines=new ArrayList<Machine>();
 	public MachineInstants()
 	{
-		Machine machine1=new Machine("10.8.149.12","OFF","1");
+		Machine machine1=new Machine("10.8.149.11","OFF","1");
 		Machine machine2=new Machine("10.66.66.176","OFF","0");
 		Machines.add(machine1);
 		Machines.add(machine2);

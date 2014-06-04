@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
+import uk.ac.ncl.cs.esc.workflow.read.readWorkflow;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRes;
 import uk.ac.ncl.cs.esc.workflow.restructure.WorkflowRestructure;
 
@@ -86,8 +87,9 @@ public class assignSecurityLevels extends JPanel implements ActionListener {
 		HashMap<String,ArrayList<String>> blockInfo=new HashMap<String,ArrayList<String>>();
 		connections=getConnections();
 		blockInfo=getBlockInfo();
-		System.out.println(connections);
-		System.out.println(blockInfo);
+	//	System.out.println(connections);
+//		System.out.println(blockInfo);
+		new readWorkflow(workflowId,connections,blockInfo);
     }
 	
 	private HashMap<String,ArrayList<String>> getBlockInfo(){

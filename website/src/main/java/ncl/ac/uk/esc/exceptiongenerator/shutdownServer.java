@@ -2,7 +2,10 @@ package ncl.ac.uk.esc.exceptiongenerator;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
+import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -18,37 +21,45 @@ public class shutdownServer implements Runnable {
 	public void run(){
 		String password = null;
 		String path = null;
+		String path2=null;
 		String userName=null;
 		 
 		 try {
-			 if(t.getName().equals("10.8.149.12")){
-				 password="5lovesunny";
-				 path=" /home/zhenyu/jboss/bin/jboss-cli.sh --connect command=:shutdown";
-				 userName="zhenyu";
-			 }else{
+			
 				 password="escience";
 				 path=" /home/hugo/jboss/bin/jboss-cli.sh --connect command=:shutdown";
+				 path2=" /home/hugo/code/webflow/WorkflowCloud/bin/stopserver.sh";
 				 userName="hugo";
-			 }
+				 
 			 JSch jsch=new JSch(); 
 			Session session=jsch.getSession(userName, t.getName(),22);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.setPassword(password);
 			session.connect();
-			 ChannelExec channel = (ChannelExec) session.openChannel("exec");
 			
-			 channel.setCommand(path);
+		//	 ChannelExec channel = (ChannelExec) session.openChannel("exec");
+			
+		//	 channel.setCommand(path);
 	
-			 ((ChannelExec) channel).setErrStream(System.err);
-			    InputStream in = null;
-				try {
-					in = channel.getInputStream();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			    channel.connect();
-			    System.out.println("Unix system connected...");
+		//	 ((ChannelExec) channel).setErrStream(System.err);
+			
+			
+			Channel channel=session.openChannel("shell");
+	    	OutputStream ops = channel.getOutputStream();
+	    	PrintStream ps=new PrintStream(ops,true);
+	    	channel.connect();
+	    
+		    InputStream in = null;
+			try {
+				in = channel.getInputStream();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ps.println(path2);
+		    ps.println(path);
+		    System.out.println("Unix system connected...");
+		    System.out.println("Service is shutting down...");
 			    byte[] tmp = new byte[1024];
 			    while (!stop){
 			        while (in.available() > 0 || !stop) {

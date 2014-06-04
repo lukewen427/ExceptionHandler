@@ -60,7 +60,7 @@ public class readInfo {
 		  //   System.out.println(startNodes);
 		     
 		     
-		     HashMap<String,ArrayList<Object>> finalMap=partition.additionalOption(validMap,startNodes);
+		//     HashMap<String,ArrayList<Object>> finalMap=partition.additionalOption(validMap,startNodes);
 		     // get end partitions of each option
 		  //   System.out.println(startNodes);
 	/*	     HashMap<String,ArrayList<Object>> endNodes=partition.getEndNodes(validMap);

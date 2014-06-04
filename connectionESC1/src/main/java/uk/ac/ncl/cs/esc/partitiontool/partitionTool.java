@@ -20,7 +20,7 @@ public interface partitionTool {
 	ArrayList<String> the links of each partition
 	*
 	*/
-	public HashMap<String,ArrayList<Object>> additionalOption( HashMap<String, ArrayList<Object>> validMap,HashMap<String,ArrayList<Object>> startNodes);
+	//public HashMap<String,ArrayList<Object>> additionalOption( HashMap<String, ArrayList<Object>> validMap,HashMap<String,ArrayList<Object>> startNodes);
 	public HashMap<String,ArrayList<Object>> Maps(HashMap<String,ArrayList<Object>>options,
 			ArrayList<ArrayList<String>> connections, BlockSet blockset,DataBlockSet databBlockSet);
 	

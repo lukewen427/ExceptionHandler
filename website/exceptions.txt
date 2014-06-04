@@ -1,4 +1,4 @@
-10.66.66.176 2 turnon
-10.66.66.176 60 shutdown
-10.8.149.12 5 turnon
-10.8.149.12 63 shutdown
+10.66.66.176 3 turnon
+10.66.66.176 600 shutdown
+10.8.149.11 5 turnon
+10.8.149.11 500 shutdown
