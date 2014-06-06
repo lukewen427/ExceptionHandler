@@ -9,7 +9,7 @@ public static void main(String args[]) throws Exception{
 		HashMap<String,ArrayList<String>> blockInfo=new HashMap<String,ArrayList<String>>();
 		/*first element is "Location",second is Clearance*/
 		ArrayList security= new ArrayList();
-		security.add("1");
+		security.add("0");
 		security.add("1");
 		security.add("Service");
 		security.add("60");
@@ -55,7 +55,7 @@ public static void main(String args[]) throws Exception{
 				temp1.add("Subsample");
 				temp1.add("imported-data");
 				temp1.add("input-data");
-				temp1.add("1");
+				temp1.add("0");
 				temp1.add("Data");
 				temp1.add("10");
 				temp1.add("12");
@@ -77,7 +77,7 @@ public static void main(String args[]) throws Exception{
 				temp3.add("Shuffle");
 				temp3.add("remaining-data");
 				temp3.add("input-data");
-				temp3.add("1");
+				temp3.add("0");
 				temp3.add("Data");
 				temp3.add("20");
 				temp3.add("0");
@@ -121,6 +121,9 @@ public static void main(String args[]) throws Exception{
 			connections.add(temp4);
 			connections.add(temp5);
 			connections.add(temp6);
-	     new readInfo(blockInfo,workflowId,connections);
+			
+	  //   new readInfo(blockInfo,workflowId,connections);
+			new prepareDeployment(workflowId, connections, blockInfo);
+		
 	}
 }

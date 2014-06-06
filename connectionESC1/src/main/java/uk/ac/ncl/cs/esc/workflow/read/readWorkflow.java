@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
-
-
 import com.google.common.collect.HashBiMap;
+
+import uk.ac.ncl.cs.esc.partitiontool.*;
+
 
 public class readWorkflow {
 	    double[][] workflow;
@@ -17,6 +19,7 @@ public class readWorkflow {
 	    double [][] cpucost;
 	    int [] cloud;
 	    int [][] ssecurity;
+	    int [][] deployment;
 	    Set<Cloud> cloudSet=new HashSet<Cloud>();
 	String workflowId;
 	ArrayList<ArrayList<String>> connections;
@@ -30,6 +33,17 @@ public class readWorkflow {
 		initial();	
 	}
 	
+	public HashBiMap< String,Integer> getMap(){
+		return biMap;
+	}
+	
+	public int [][] getDeployment(){
+		return deployment;
+	}
+	
+	public double[][] getWorkflow(){
+		return workflow;
+	}
 	
 	void initial(){
 		getClouds();
@@ -42,6 +56,22 @@ public class readWorkflow {
 		setWorkflow();
 		setCloud();
 		setCommunication();
+		WorkflowModel wm=new WorkflowModel();
+		wm.setWorkflow(workflow);
+		wm.setSsecurity(ssecurity);
+		wm.setCcost(ccost);
+		wm.setCloud(cloud);
+		wm.setCpucost(cpucost);
+		wm.setDataSecurity(dataSecurity);
+		
+		NCF n5= new NCF(wm); 
+		this.deployment=n5.NCFAlgorithm();
+	//	System.out.println("NCF:"+n5.NCFAlgorithm());
+//		Normal n1 = new Normal(wm);
+//		List<Integer> lists =n1.sortBest();
+    //	System.out.println(lists);
+//		System.out.println("Sort:"+n1.calCost(lists));
+	//	printInt(deployment);
 	}
 	void creatWorkflow(){
 		workflow=new double[blockInfo.size()][blockInfo.size()];
@@ -81,6 +111,7 @@ public class readWorkflow {
 		int a=0;
 		while(blocks.hasNext()){
 		  String name=blocks.next();
+	//	  System.out.println(name);
 		  biMap.put(name, a);
 		  ArrayList<String> block=blockInfo.get(name);
 		  int clearnce=Integer.valueOf(block.get(1));
@@ -159,14 +190,33 @@ public class readWorkflow {
 	void setDataSecurity(int startNode,int endNode,int security){
 		dataSecurity[startNode][endNode]=security;
 	}
-	private Set<Cloud> getClouds() {
+	
+	
+	public Set<Cloud> getClouds() {
 		Set<Cloud> cloudSet=new HashSet<Cloud>();
 		Cloud cloud0;
 		Cloud cloud1;
-		cloud0=new Cloud("Cloud0","0","10.66.66.176",5,5,5);
+		cloud0=new Cloud("Cloud0","0","10.66.66.176",2,2,5);
 		cloud1=new Cloud("Cloud1","1","10.8.149.11",5,5,10);
 		cloudSet.add(cloud0);
 		cloudSet.add(cloud1);
 		return cloudSet;
+	}
+	
+	void print( double[][] workflow){
+		for(int a=0;a<workflow.length;a++){
+			for(int i=0;i<workflow[a].length;i++){
+				System.out.print(workflow[a][i]+",");
+			}
+			System.out.println("");
+	 }
+	}
+	void printInt( int[][] workflow){
+		for(int a=0;a<workflow.length;a++){
+			for(int i=0;i<workflow[a].length;i++){
+				System.out.print(workflow[a][i]+",");
+			}
+			System.out.println("");
+	 }
 	}
 }

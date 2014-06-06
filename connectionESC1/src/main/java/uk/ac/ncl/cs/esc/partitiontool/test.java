@@ -110,6 +110,7 @@ public class test {
 			connections.add(temp3);
 			connections.add(temp4);
 			connections.add(temp5);
-	     new readInfo(blockInfo,workflowId,connections);
+	  //   new readInfo(blockInfo,workflowId,connections);
+			new prepareDeployment(workflowId, connections, blockInfo);
 	}
 }
