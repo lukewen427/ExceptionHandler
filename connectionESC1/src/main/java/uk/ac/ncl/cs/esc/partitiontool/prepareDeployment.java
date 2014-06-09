@@ -26,8 +26,10 @@ public class prepareDeployment {
 		e.printStackTrace();
 	}
   }
-  
+ 
   public static class workflowInfo{
+	  ArrayList<String> root=new ArrayList<String>();
+	  ArrayList<String> leaf=new ArrayList<String>();
 	  String workflowId;
 		ArrayList<ArrayList<String>> connections;
 		HashMap<String,ArrayList<String>> blockInfo;
@@ -48,6 +50,8 @@ public class prepareDeployment {
 	    	setCloudset(read.getClouds());
 	    	setMaps(read.getMap());
 	    	setWorkflow(read.getWorkflow());
+	    	setRootNodes();
+	    	setLeafNodes();
 	    	try {
 	    		setBlockSet();
 			} catch (Exception e) {
@@ -96,8 +100,8 @@ public class prepareDeployment {
 			return deployment;
 		}
 	  
-	  public ArrayList<Integer> getRootNodes(){
-		  ArrayList<Integer> root=new ArrayList<Integer>();
+	  
+	  void setRootNodes(){
 		  for(int a=0;a<workflow.length;a++){
 			  boolean isRoot=true;
 			  for(int i=0;i<workflow.length;i++){
@@ -106,10 +110,37 @@ public class prepareDeployment {
 				  }
 			  }
 			  if(isRoot){
-				  root.add(a);
+				  String name=biMap.inverse().get(a);
+				  root.add(name);
 			  }
 		  }
+		  
+	  }
+	  
+	  void setLeafNodes(){
+		  for(int a=0;a<workflow.length;a++){
+			  boolean isleaf=true;
+			  for(int i=0;i<workflow.length;i++){
+				  if(workflow[a][i]>0){
+					  isleaf=false;
+				  }
+			  }
+			  
+			  if(isleaf){
+				  
+				  String name=biMap.inverse().get(a);
+				  leaf.add(name);
+			  }
+		  }
+	  }
+	  public ArrayList<String> getRootNodes(){
+		  
 		  return root;
+	  }
+	  
+	  public ArrayList<String> getLeafNodes(){
+		
+		  return leaf;
 	  }
 	  
 	  void setBlockSet() throws Exception{

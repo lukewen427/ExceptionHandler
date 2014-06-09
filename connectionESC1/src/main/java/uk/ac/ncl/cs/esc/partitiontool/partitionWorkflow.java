@@ -9,4 +9,5 @@ public interface partitionWorkflow {
 	
 	public HashMap<Block,Integer> mappingCloud(); 
     public ArrayList<Object> workflowSplit(HashMap<Block,Integer> option);
+    public ArrayList<Object> getLinks();
 }

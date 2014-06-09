@@ -11,10 +11,11 @@ public class partitionWorkflowImp implements partitionWorkflow  {
 	
  private final HashBiMap<String,Integer> biMap;
 	private final workflowInfo workflowinfo;
-	private final ArrayList<Integer> root;
+	private final ArrayList<String> root;
 	private final BlockSet blockSet;
 	private final int[][] deployment;
 	private final ArrayList<ArrayList<String>> connections;
+	private ArrayList<Object> links =new ArrayList<Object>();
 	public partitionWorkflowImp(workflowInfo workflowinfo){
 		this.biMap=workflowinfo.getMap();
 		this.workflowinfo=workflowinfo;
@@ -42,13 +43,17 @@ public class partitionWorkflowImp implements partitionWorkflow  {
 		ArrayList<Object> partitions=new ArrayList<Object>();
 		
 		ArrayList<String> startNodes=new ArrayList<String>();
-		for(Integer node:root){
-			String nodeId=biMap.inverse().get(node);
-			startNodes.add(nodeId);
+		for(String node:root){
+		//	String nodeId=biMap.inverse().get(node);
+			startNodes.add(node);
 		}
 		partition(option,connections, blockSet,startNodes, new ArrayList<Object>(), partitions);
 		
 		return partitions;
+	}
+	
+	public ArrayList<Object> getLinks(){
+		return links;
 	}
 	
 	private void partition(HashMap<Block,Integer> option,ArrayList<ArrayList<String>> connections,BlockSet blockSet,
@@ -101,6 +106,10 @@ public class partitionWorkflowImp implements partitionWorkflow  {
 						if(cloudblock==offspringCloud){
 							partition.add(offspringblock);
 						}else{
+							if(!isContained(sourceNode,destinationNode)){
+								links.add(connection);
+							}
+							
 							ArrayList<Object> newPartition=new ArrayList<Object>();
 							newPartition.add(offspringCloud);
 							newPartition.add(offspringblock);	
@@ -118,6 +127,26 @@ public class partitionWorkflowImp implements partitionWorkflow  {
 			combination(partitions,collection);
 			
 		 partition(option,connections, blockSet,offspringNodes,visited, partitions);
+	}
+	
+	boolean isContained(String start,String end){
+		
+		if(links.isEmpty()){
+			return false;
+		}else{
+			for(Object temp:links){
+				
+				ArrayList<String> thelink=(ArrayList<String>) temp;
+				String startNode=thelink.get(0);
+				String endNode=thelink.get(1);
+				if(startNode.equals(start)&&endNode.equals(end)){
+					return true;
+				}
+				
+			}
+		}
+		
+		return false;
 	}
 	
 	private void combination(ArrayList<Object>partitions,ArrayList<Object> collection){
@@ -172,4 +201,5 @@ public class partitionWorkflowImp implements partitionWorkflow  {
 		}
 			return false;
  }
+
 }
