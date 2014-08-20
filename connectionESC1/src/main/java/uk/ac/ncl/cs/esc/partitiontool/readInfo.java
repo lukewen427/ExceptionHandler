@@ -1,4 +1,4 @@
-package uk.ac.ncl.cs.esc.partitiontool;
+/*package uk.ac.ncl.cs.esc.partitiontool;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class readInfo {
 		//     HashMap<String,ArrayList<Object>> finalMap=partition.additionalOption(validMap,startNodes);
 		     // get end partitions of each option
 		  //   System.out.println(startNodes);
-	/*	     HashMap<String,ArrayList<Object>> endNodes=partition.getEndNodes(validMap);
+		     HashMap<String,ArrayList<Object>> endNodes=partition.getEndNodes(validMap);
 		//     System.out.println(endNodes);
 		 //     get the cost of each partition and each link of the partitions 
 	        costCalculation cost=new costCalculation(validMap, blockset,cloudset,datablockset);
@@ -123,7 +123,7 @@ public class readInfo {
 			Thread deploy=new Thread(new deployOption(thegraph, getPath, cloudset, deploylinkcost,
 					deploygraph, blockset, connections,deploygraphcost,initials, terminals,links));
 			deploy.setName("deloyment");
-			deploy.start();*/
+			deploy.start();
 	
 			}else{
 					throw new Exception("This is invalid workflow");
@@ -283,3 +283,4 @@ public class readInfo {
 		return theBlockSet;
 	}
 }
+*/

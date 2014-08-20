@@ -8,7 +8,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 
 import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
-
+//import uk.ac.ncl.cs.esc.workflow.read.BlockSet;
 
 public interface WorkflowRestructure {
 	public JSONObject getWorkflowAsJsonObject(String workflowId) throws Exception;
@@ -25,5 +25,7 @@ public interface WorkflowRestructure {
 	public ArrayList<String> getOutputports(String workflowId,String blockId) throws Exception;
 	public ArrayList<ArrayList<String>> getConnection(String workflowId) throws Exception;
 	public String getBlockName(String BlockId,String workflowId) throws Exception;
+	
+	
 }
 

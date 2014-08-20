@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.HashBiMap;
 
-import uk.ac.ncl.cs.esc.partitiontool.*;
+import uk.ac.ncl.cs.esc.newpartitiontool.*;
 
 
 public class readWorkflow {

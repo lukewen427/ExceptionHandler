@@ -145,6 +145,6 @@ public class test2 {
 		connections.add(temp6);
 		connections.add(temp7);
 		
-	     new readInfo(blockInfo,workflowId,connections);
+	//     new readInfo(blockInfo,workflowId,connections);
 	}
 }

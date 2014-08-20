@@ -68,7 +68,7 @@ public class Deployment implements Runnable {
 			String partitionName="Partition"+partitionid;
 			WorkflowRestructure deployworkflow=new WorkflowRes();
 			try {
-				staute="running";
+			
 				System.out.println("running partition "+partitionName);
 				HashMap<String,ByteArrayOutputStream> results=dataStorage.getData();
 				newresults=deployworkflow.CreateWorkflow(cloudName,partition, partitionName,

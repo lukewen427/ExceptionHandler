@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import uk.ac.ncl.cs.esc.partitiontool.*;
-import uk.ac.ncl.cs.esc.partitiontool.prepareDeployment.workflowInfo;
+import uk.ac.ncl.cs.esc.newpartitiontool.prepareDeployment.workflowInfo;
+import uk.ac.ncl.cs.esc.workflow.read.Block;
+import uk.ac.ncl.cs.esc.workflow.read.BlockSet;
 
 
 

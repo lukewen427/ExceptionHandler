@@ -3,10 +3,9 @@ package uk.ac.ncl.cs.esc.deployment.HEFT;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-
-import uk.ac.ncl.cs.esc.partitiontool.Block;
-import uk.ac.ncl.cs.esc.partitiontool.BlockSet;
-import uk.ac.ncl.cs.esc.partitiontool.prepareDeployment.workflowInfo;
+import uk.ac.ncl.cs.esc.newpartitiontool.prepareDeployment.workflowInfo;
+import uk.ac.ncl.cs.esc.workflow.read.Block;
+import uk.ac.ncl.cs.esc.workflow.read.BlockSet;
 
 public class deploymentIm implements deployment {
 	
@@ -41,12 +40,19 @@ public class deploymentIm implements deployment {
 		setLeaf(getGraph);
 	}
 	
+	public LinkedList<ArrayList<Integer>> getOrder(){
+		
+		return deployOrder;
+	}
+	
+	
+	
 	void setBlockSet(){
 		this.blockSet=workflowinfo.getBlockSet();
 	}
 	public void setpartitionLinks(ArrayList<Object> partitionLinks){
 		this.pLinks=partitionLinks;
-	}
+	} 
 	
 	private void setLinks(PartitionGraph getGraph){
 		this.deploylinks=getGraph.getLinks(pLinks, partitionGraph, blockSet);
@@ -58,6 +64,7 @@ public class deploymentIm implements deployment {
 	void setLeaf(PartitionGraph getGraph){
 		this.leaf=getGraph.getLeafPartition(partitionGraph, workflowinfo, blockSet);
 	}
+	
 	public void createDeployGraph(){
 		LinkedList<ArrayList<Integer>> order=new LinkedList<ArrayList<Integer>>();
 		deployGraph getOrder=new deployGraph();
@@ -72,5 +79,15 @@ public class deploymentIm implements deployment {
 			deployOrder.add((ArrayList<Integer>) order.get(a).clone());
 		}
 		
+	}
+
+	public HashMap<Integer, ArrayList<Object>> getPartitionGraph() {
+		// TODO Auto-generated method stub
+		return partitionGraph;
+	}
+
+	public ArrayList<Object> getDeployLink() {
+		// TODO Auto-generated method stub
+		return deploylinks;
 	}
 }

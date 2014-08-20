@@ -123,7 +123,7 @@ public static void main(String args[]) throws Exception{
 			connections.add(temp6);
 			
 	  //   new readInfo(blockInfo,workflowId,connections);
-			new prepareDeployment(workflowId, connections, blockInfo);
+	//		new prepareDeployment(workflowId, connections, blockInfo);
 		
 	}
 }
